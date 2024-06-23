@@ -41,13 +41,20 @@ export const Drawer = ({
       <DrawerContent
         backgroundColor={colors.black}
         borderLeftRadius="64px"
-        // minWidth="460px"
+        minWidth={{
+          base: "300px",
+          md: "460px",
+        }}
+        padding={{
+          base: "40px 20px",
+          md: "64px 40px 64px 80px",
+        }}
       >
         <DrawerBody
           display="flex"
           columnGap="32px"
           justifyContent="space-between"
-          padding="64px 40px 64px 80px"
+          padding={0}
         >
           {/* Left */}
           <Flex flexDirection="column" justifyContent="space-between">
