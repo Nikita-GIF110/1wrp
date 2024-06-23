@@ -30,9 +30,12 @@ const Home = () => {
     <>
       <Intro />
 
-      <Container marginBottom="52px" marginTop={isDesktop ? "44px" : "32px"}>
-        <Flex flexDirection="column" gap={isDesktop ? "20px" : "52px 20px"}>
-          <Box order={isDesktop ? 1 : 2}>
+      <Container marginBottom="52px" marginTop={{ base: "32px", xl: "44px" }}>
+        <Flex
+          flexDirection="column"
+          gap={{ base: "20px", md: "52px 20px", xl: "20px" }}
+        >
+          <Box order={{ xl: 1, base: 2 }}>
             <NewsBlock
               news={NEWS_LIST}
               title="Последние новости"
@@ -40,7 +43,7 @@ const Home = () => {
             />
           </Box>
 
-          <Box order={isDesktop ? 2 : 1}>
+          <Box order={{ xl: 2, base: 1 }}>
             <NewInStore
               header="Новинки в магазине"
               subHeader="Заходите в магазин что бы увидеть новые предметы"
@@ -56,14 +59,14 @@ const Home = () => {
         </Container>
       )}
 
-      <Box marginBottom="44px" textAlign="center">
+      <Box marginBottom={{ base: "12px", md: "44px" }} textAlign="center">
         <ServersHeader header="Сервера 1wrp" />
       </Box>
 
       <Container
-        padding={isDesktop ? undefined : 0}
-        maxWidth={isDesktop ? undefined : "100%"}
-        marginBottom={isDesktop ? "138px" : "52px"}
+        maxWidth={{ md: "100%", xl: "container.xl" }}
+        marginBottom={{ base: "52px", xl: "138px" }}
+        padding={{ base: "0 20px", md: 0, xl: "0 20px" }}
       >
         <ServersBlock servers={SERVERS_LIST} />
       </Container>
@@ -74,7 +77,7 @@ const Home = () => {
         </Container>
       )}
 
-      <Container marginBottom="52px">
+      <Container marginBottom="52px" overflow="hidden">
         <CharactersBlock
           government={CHARACTERS_GOVERNMENT_AGENCIES_LIST}
           groups={CHARACTERS_STREER_GROUPS_AGENCIES_LIST}
@@ -82,7 +85,7 @@ const Home = () => {
         />
       </Container>
 
-      <Container marginBottom={isDesktop ? "72px" : "45px"}>
+      <Container marginBottom={{ base: "45px", xl: "72px" }}>
         <Faq
           questions={QUESTIONS}
           header="появились вопросы или возникли проблемы?"

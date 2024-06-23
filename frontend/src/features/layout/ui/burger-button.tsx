@@ -4,21 +4,27 @@ import { colors } from "shared/config/colors";
 
 interface BurgerButtonProps {
   onClick: () => void;
+  buttonSize: string;
+  iconSize: string;
 }
 
-export const BurgerButton = ({ onClick }: BurgerButtonProps) => (
+export const BurgerButton = ({
+  onClick,
+  buttonSize,
+  iconSize,
+}: BurgerButtonProps) => (
   <Flex
     as="button"
     justifyContent="center"
     alignItems="center"
     backgroundColor={colors.blue.primary}
     color={colors.white}
-    width="114px"
-    height="114px"
+    width={buttonSize}
+    height={buttonSize}
     borderBottomLeftRadius="44px"
     onClick={onClick}
     type="button"
   >
-    <Box as={BurgerIcon} width="50px" height="50px" />
+    <Box as={BurgerIcon} width={iconSize} height={iconSize} />
   </Flex>
 );

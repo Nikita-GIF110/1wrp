@@ -31,7 +31,7 @@ const gradients: Record<GradientsType, { bg: string; hover: string }> = {
   red: {
     bg: "linear-gradient(0deg, rgba(243, 47, 47, 0.50) 0%, rgba(243, 47, 47, 0.00) 100%)",
     hover:
-      "linear-gradient(0deg, rgba(243, 47, 47, 0.50) 0%, rgba(243, 47, 47, 0.00) 100%)",
+      "linear-gradient(0deg, #F32F2F 0%, rgba(243, 47, 47, 0.00) 100%)",
   },
 };
 const sizes: Record<SizesType, { width: string; height: string }> = {
@@ -53,6 +53,7 @@ export const CharacterTile = ({
   size = "small",
 }: CharacterTileProps) => (
   <Flex
+    position="relative"
     as={ReactRouterDom}
     to={link}
     height={sizes[size].height}
@@ -89,6 +90,7 @@ export const CharacterTile = ({
       bottom={0}
       left={0}
       width="100%"
+      opacity={0}
       transform="translateY(100%)"
       transition="all 0.3s ease-in-out"
       flexDirection="column"
@@ -98,8 +100,7 @@ export const CharacterTile = ({
       lineHeight="54px"
       textTransform="uppercase"
       paddingTop="50px"
-      opacity={0}
-      borderBottomRadius="8px"
+      // borderBottomRadius="8px"
     >
       <InfoIcon />
 

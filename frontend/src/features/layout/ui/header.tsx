@@ -8,7 +8,7 @@ interface HeaderProps extends BoxProps {
   centerNode?: ReactNode;
 }
 
-export const HeaderDesktop = ({
+export const Header = ({
   rightNode,
   centerNode,
   leftNode,
@@ -16,26 +16,7 @@ export const HeaderDesktop = ({
 }: HeaderProps) => (
   <Box
     as="header"
-    padding="32px 40px"
-    display="flex"
-    alignItems="center"
-    {...headerProps}
-  >
-    {leftNode}
-    {centerNode}
-    {rightNode}
-  </Box>
-);
-
-export const HeaderMobile = ({
-  rightNode,
-  centerNode,
-  leftNode,
-  ...headerProps
-}: HeaderProps) => (
-  <Box
-    as="header"
-    paddingLeft="40px"
+    padding="32px 40px" // for desktop
     display="flex"
     alignItems="center"
     justifyContent="space-between"
@@ -46,3 +27,42 @@ export const HeaderMobile = ({
     {rightNode}
   </Box>
 );
+
+// export const HeaderDesktop = ({
+//   rightNode,
+//   centerNode,
+//   leftNode,
+//   ...headerProps
+// }: HeaderProps) => (
+//   <Box
+//     as="header"
+//     padding="32px 40px"
+//     display="flex"
+//     alignItems="center"
+//     {...headerProps}
+//   >
+//     {leftNode}
+//     {centerNode}
+//     {rightNode}
+//   </Box>
+// );
+
+// export const HeaderMobile = ({
+//   rightNode,
+//   centerNode,
+//   leftNode,
+//   ...headerProps
+// }: HeaderProps) => (
+//   <Box
+//     as="header"
+//     paddingLeft="40px"
+//     display="flex"
+//     alignItems="center"
+//     justifyContent="space-between"
+//     {...headerProps}
+//   >
+//     {leftNode}
+//     {centerNode}
+//     {rightNode}
+//   </Box>
+// );

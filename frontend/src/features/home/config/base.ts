@@ -23,15 +23,18 @@ import mafia1 from "assets/images/home/profession/mafia-1.png";
 import mafia2 from "assets/images/home/profession/mafia-2.png";
 import mafia3 from "assets/images/home/profession/mafia-3.png";
 // News
-import news1 from "assets/images/home/news-image-1.png"
-import news2 from "assets/images/home/news-image-1.png"
-import news3 from "assets/images/home/news-image-3.png"
-import news4 from "assets/images/home/news-image-2.png"
+import news1 from "assets/images/home/news-image-1.png";
+import news2 from "assets/images/home/news-image-1.png";
+import news3 from "assets/images/home/news-image-3.png";
+import news4 from "assets/images/home/news-image-2.png";
 
 export const NEWS_LIST: Array<NewsEntity> = [
   {
     isNew: true,
+    // header: "Обычная новость",
     header: "Обновление системы фракций",
+    // subHeader:
+    //   "равительственная правоохранительная организация занимающаяся тяжкими и особо тяжкими преступлениями, а так же внутренней и внешней ",
     subHeader: "Представляем вам обновленную систем фракция",
     to: "/",
     image: {
@@ -43,6 +46,8 @@ export const NEWS_LIST: Array<NewsEntity> = [
   {
     isNew: true,
     header: "Обычная новость",
+    // subHeader:
+    //   "а территории штата занимается, финансовыми преступлениями, преступлениями связанными с государственными служащими.",
     subHeader: "Что бы увидеть новые возможности",
     to: "/",
     image: {
@@ -54,6 +59,8 @@ export const NEWS_LIST: Array<NewsEntity> = [
   {
     isNew: true,
     header: "Обычная новость",
+    // subHeader:
+    //   "правительственная правоохранительная организация занимающаяся тяжкими и особо тяжкими преступлениями, а так же внутренней и внешней ",
     subHeader: "Что бы увидеть новые возможности",
     to: "/",
     image: {
@@ -320,6 +327,12 @@ export const QUESTIONS: Array<QuestionEntity> = [
   },
   {
     id: 6,
+    name: "У меня возник важный вопрос. Ответ тут?",
+    description:
+      "Семейство коробчатых музыкальных инструментов сильфонного типа, также именуемые как концертные ручные гармоники. К этому семейству относятся баян, концертина, гармонь, бандонеон.",
+  },
+  {
+    id: 7,
     name: "У меня возник важный вопрос. Ответ тут?",
     description:
       "Семейство коробчатых музыкальных инструментов сильфонного типа, также именуемые как концертные ручные гармоники. К этому семейству относятся баян, концертина, гармонь, бандонеон.",

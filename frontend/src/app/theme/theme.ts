@@ -7,13 +7,16 @@ import { Modal } from "./components/modal";
 import { Select } from "./components/select";
 import { Link } from "./components/link";
 import { sizes } from "./sizes";
+import { breakpoints } from "./breakpoints";
 import { colors } from "shared/config/colors";
 
 export const theme = extendTheme({
+  breakpoints,
   fonts: {
     body: "Halvar Breitschrift, system-ui, sans-serif",
     heading: "Halvar Breitschrift, system-ui, sans-serif",
   },
+  // Border radius
   radii: {
     none: "0",
     // sm: "0.125rem",

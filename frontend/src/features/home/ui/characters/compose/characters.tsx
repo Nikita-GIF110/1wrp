@@ -1,11 +1,14 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Box, Flex } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import type { CharactersEntity } from "features/home/models";
 import { colors } from "shared/config/colors";
-import { useMediaQuery } from "shared/lib/useMediaQuery";
 import { CharactersHeader } from "../ui/characters-header";
 import { CharactersListHeader } from "../ui/characters-list-header";
 import { CharacterTile } from "../ui/character-tile";
+import {
+  smallTilesSliderBreakpoints,
+  largeTilesSliderBreakpoints,
+} from "../config/base";
 
 interface CharactersBlockProps {
   government: Array<CharactersEntity>;
@@ -17,107 +20,85 @@ export const CharactersBlock = ({
   government = [],
   groups = [],
   mafia = [],
-}: CharactersBlockProps) => {
-  const { isDesktop } = useMediaQuery();
+}: CharactersBlockProps) => (
+  <Box>
+    <CharactersHeader
+      marginBottom="24px"
+      padding={{ base: "0 24px", md: "0 12px", xl: 0 }}
+    />
 
-  return (
-    <Box>
-      <CharactersHeader marginBottom="24px" />
-
-      <Flex rowGap={isDesktop ? "40px" : "8px"} flexDirection="column">
-        {/* Government start */}
-        <Flex
-          columnGap={isDesktop ? "20px" : "8px"}
-          maxHeight="300px"
-          paddingLeft={isDesktop ? "57px" : "28px"}
-        >
+    <Box paddingLeft="57px" marginBottom={{ base: "8px", xl: "40px" }}>
+      <Swiper
+        slidesPerView="auto"
+        className="characters-slider-height overflow-visible"
+        spaceBetween={20}
+        breakpoints={smallTilesSliderBreakpoints}
+      >
+        <SwiperSlide style={{ width: "auto" }}>
           <CharactersListHeader
             header="Государственные структуры"
             color={colors.blue.primary}
           />
+        </SwiperSlide>
 
-          <Box
-            as={Swiper}
-            minWidth="0%"
-            flexGrow={1}
-            height="300px"
-            slidesPerView={isDesktop ? 8 : 3.8}
-            spaceBetween={isDesktop ? 20 : 8}
-            // className="overflow-visible"
-          >
-            {government.map((character) => (
-              <SwiperSlide key={character.image.src}>
-                <CharacterTile {...character} gradientVariant="blue" />
-              </SwiperSlide>
-            ))}
-          </Box>
-        </Flex>
-        {/* Government end */}
-
-        {/* Groups start */}
-        <Flex
-          columnGap={isDesktop ? "20px" : "8px"}
-          maxHeight="300px"
-          paddingLeft={isDesktop ? "57px" : "28px"}
-        >
-          <CharactersListHeader
-            header="Уличные группировки"
-            color={colors.violet.primary}
-          />
-
-          <Box
-            as={Swiper}
-            minWidth="0%"
-            flexGrow={1}
-            height="300px"
-            slidesPerView={isDesktop ? 3 : 1.35}
-            spaceBetween={isDesktop ? 20 : 8}
-          >
-            {groups.map((character) => (
-              <SwiperSlide key={character.image.src}>
-                <CharacterTile
-                  {...character}
-                  gradientVariant="violet"
-                  size="medium"
-                />
-              </SwiperSlide>
-            ))}
-          </Box>
-        </Flex>
-        {/* Groups end */}
-
-        {/* Mafia start */}
-        <Flex
-          columnGap={isDesktop ? "20px" : "8px"}
-          maxHeight="300px"
-          paddingLeft={isDesktop ? "57px" : "28px"}
-        >
-          <CharactersListHeader
-            header="Уличные группировки"
-            color={colors.violet.primary}
-          />
-
-          <Box
-            as={Swiper}
-            minWidth="0%"
-            flexGrow={1}
-            height="300px"
-            slidesPerView={isDesktop ? 3 : 1.35}
-            spaceBetween={isDesktop ? 20 : 8}
-          >
-            {mafia.map((character) => (
-              <SwiperSlide key={character.image.src}>
-                <CharacterTile
-                  {...character}
-                  gradientVariant="red"
-                  size="medium"
-                />
-              </SwiperSlide>
-            ))}
-          </Box>
-        </Flex>
-        {/* Mafia end */}
-      </Flex>
+        {government.map((character) => (
+          <SwiperSlide key={character.image.src} style={{ width: "auto" }}>
+            <CharacterTile {...character} gradientVariant="blue" />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </Box>
-  );
-};
+
+    <Box paddingLeft="57px" marginBottom={{ base: "8px", xl: "40px" }}>
+      <Swiper
+        slidesPerView="auto"
+        className="characters-slider-height overflow-visible"
+        spaceBetween={20}
+        breakpoints={largeTilesSliderBreakpoints}
+      >
+        <SwiperSlide style={{ width: "auto" }}>
+          <CharactersListHeader
+            header="Государственные структуры"
+            color={colors.violet.primary}
+          />
+        </SwiperSlide>
+
+        {groups.map((character) => (
+          <SwiperSlide key={character.image.src} style={{ width: "auto" }}>
+            <CharacterTile
+              {...character}
+              gradientVariant="violet"
+              size="medium"
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </Box>
+
+    <Box paddingLeft="57px">
+      <Swiper
+        slidesPerView="auto"
+        className="characters-slider-height overflow-visible"
+        spaceBetween={20}
+        breakpoints={largeTilesSliderBreakpoints}
+      >
+        <SwiperSlide style={{ width: "auto" }}>
+          <CharactersListHeader
+            header="Государственные структуры"
+            color={colors.violet.primary}
+          />
+        </SwiperSlide>
+
+        {mafia.map((character) => (
+          <SwiperSlide key={character.image.src} style={{ width: "auto" }}>
+            <CharacterTile
+              {...character}
+              gradientVariant="red"
+              size="medium"
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </Box>
+  </Box>
+);

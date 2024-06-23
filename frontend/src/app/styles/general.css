@@ -23,12 +23,17 @@ body {
   background-color: #000 !important;
   line-height: 80%;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 a:hover {
   text-decoration: none !important;
 }
+
+/* dev */
+/* * {
+  outline: 1px solid red;
+} */
 
 #root {
   display: flex;
@@ -48,4 +53,8 @@ a:hover {
 
 .overflow-visible {
   overflow: visible !important;
+}
+
+.characters-slider-height {
+  height: 300px;
 }

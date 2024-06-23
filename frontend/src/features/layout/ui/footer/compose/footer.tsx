@@ -4,7 +4,6 @@ import { LANGUAGES } from "features/layout/config/base";
 import type { SelectOption } from "entities/utils";
 import { Container } from "shared/ui/container";
 import { colors } from "shared/config/colors";
-import { useMediaQuery } from "shared/lib/useMediaQuery";
 import { useI18N } from "shared/lib/useI18n";
 import { Logo } from "shared/ui/logo";
 import { LanguageDropdown } from "shared/ui/language-dropdown";
@@ -13,7 +12,6 @@ import { SocialLinkSmall } from "../ui/social-links-small";
 
 export const Footer = () => {
   const { setLang } = useI18N();
-  const { isDesktop } = useMediaQuery();
 
   const setLanguage = (selectedLanguage: SelectOption) => {
     setLang(selectedLanguage.value as "ru" | "en");
@@ -22,13 +20,17 @@ export const Footer = () => {
   return (
     <Box
       as="footer"
-      // paddingY={2}
       marginTop="auto"
-      padding={isDesktop ? "119px 0" : "120px 44px"}
+      padding={{ base: "118px 34px", md: "120px 44px", xl: "119px 0" }}
     >
       <Container>
         {/* Top */}
-        <Flex alignItems="center" justifyContent="space-between">
+        <Flex
+          alignItems="center"
+          justifyContent="space-between"
+          rowGap={{ base: "22px", md: "24px" }}
+          flexWrap="wrap"
+        >
           <Flex maxWidth="240px" flexGrow={1} alignItems="center">
             <Logo marginRight="auto" width="160px" height="39px" />
 
@@ -50,18 +52,19 @@ export const Footer = () => {
           justifyContent="space-between"
           fontSize="16px"
           color={colors.white}
-          flexWrap={isDesktop ? "nowrap" : "wrap"}
-          gap={isDesktop ? 0 : "24px"}
+          flexWrap={{ base: "wrap", xl: "nowrap" }}
+          gap={{ base: "12px", md: "24px" }}
         >
-          <Box maxWidth={isDesktop ? "297px" : "50%"} lineHeight="148%" opacity={0.5}>
+          <Box
+            maxWidth={{ md: "50%", xl: "297px" }}
+            lineHeight="148%"
+            opacity={0.5}
+          >
             ООО “Один Гейм Девелопмент” ИНН 9703149875 ОГРН 1237700457862 26,
             Vyronos Street. 3105. Limassol. LB. CY120009.
           </Box>
 
-          <Box
-            lineHeight="146%"
-            opacity={0.5}
-          >
+          <Box lineHeight={{ base: "152%", md: "146%" }} opacity={0.5}>
             <Box as={Link} to="/" display="block">
               Политика конфиденциальности
             </Box>
@@ -79,7 +82,7 @@ export const Footer = () => {
             </Box>
           </Box>
 
-          <Box opacity={0.5} maxWidth="293px">
+          <Box opacity={0.5} maxWidth="293px" marginTop={{ base: "18px", md: 0 }}>
             <Box marginRight="28px" lineHeight="148%">
               Канал поддержки в Discord
               <br />

@@ -1,3 +1,4 @@
+import type { BoxProps } from "@chakra-ui/react";
 import { Box, Flex, Button } from "@chakra-ui/react";
 import { useClipboard } from "@chakra-ui/react";
 import { colors } from "shared/config/colors";
@@ -20,33 +21,46 @@ interface StatisticsItem {
   count: number;
 }
 
-const StatisticsItem = ({ header, count }: StatisticsItem) => {
-  const { isDesktop } = useMediaQuery();
+interface CopyButtonProps extends Omit<BoxProps, "position | overflow"> {
+  text: string;
+}
 
-  return (
-    <Flex flexDirection="column" rowGap="6px">
-      <Box
-        color={colors.black}
-        opacity={0.4}
-        fontSize={isDesktop ? "12px" : "10px"}
-        fontWeight={500}
-        lineHeight="100%"
-        textTransform="uppercase"
-      >
-        {header}
-      </Box>
-      <Box
-        fontSize={isDesktop ? "32px" : "24px"}
-        fontWeight={900}
-        lineHeight="80%"
-        textTransform="uppercase"
-      >
-        {count}
-      </Box>
-    </Flex>
-  );
-};
-const CopyButton = ({ text }: { text: string }) => {
+const StatisticsItem = ({ header, count }: StatisticsItem) => (
+  <Flex
+    flexDirection={{ md: "column" }}
+    alignItems={{ base: "center", md: "flex-start" }}
+    justifyContent="space-between"
+    rowGap="6px"
+  >
+    <Box
+      color={colors.black}
+      opacity={{ base: 0.7, md: 0.4 }}
+      fontSize={{
+        base: "8px",
+        md: "10px",
+        xl: "12px",
+      }}
+      fontWeight={500}
+      lineHeight="100%"
+      textTransform="uppercase"
+    >
+      {header}
+    </Box>
+    <Box
+      fontSize={{
+        base: "20px",
+        md: "24px",
+        xl: "32px",
+      }}
+      fontWeight={900}
+      lineHeight="80%"
+      textTransform="uppercase"
+    >
+      {count}
+    </Box>
+  </Flex>
+);
+const CopyButton = ({ text, ...otherBoxProps }: CopyButtonProps) => {
   const { onCopy, hasCopied, setValue } = useClipboard("");
 
   return (
@@ -55,6 +69,7 @@ const CopyButton = ({ text }: { text: string }) => {
       borderRadius="6px"
       overflow="hidden"
       cursor="pointer"
+      {...otherBoxProps}
     >
       <Button
         variant="mediumDark"
@@ -63,6 +78,7 @@ const CopyButton = ({ text }: { text: string }) => {
         overflow="hidden"
         textOverflow="ellipsis"
         whiteSpace="nowrap"
+        width="100%"
       >
         {text}
       </Button>
@@ -100,30 +116,47 @@ export const ServerTile = ({
   registeredCount,
   link,
 }: ServerTileProps) => {
-  const { isDesktop } = useMediaQuery();
+  const { isDesktop, isTablet } = useMediaQuery();
 
   return (
     <Flex
       flexDirection="column"
-      rowGap="20px"
+      rowGap={{ base: "4px", md: "20px" }}
       backgroundColor={colors.white}
       borderRadius="md"
       position="relative"
-      padding={isDesktop ? "27px 40px 27px 100px" : "24px 24px 24px 80px"}
+      padding={{
+        base: "12px",
+        md: "24px 24px 24px 80px",
+        xl: "27px 40px 27px 100px",
+      }}
     >
-      <Box as={TileDecorFrame} position="absolute" top="-4px" left="-69px" />
+      {(isDesktop || isTablet) && (
+        <>
+          <Box
+            as={TileDecorFrame}
+            position="absolute"
+            top="-4px"
+            left="-69px"
+          />
+
+          <Box
+            as={ServerIcon}
+            position="absolute"
+            top="39px"
+            left="-80px"
+            width={160}
+            height={160}
+          />
+        </>
+      )}
 
       <Box
-        as={ServerIcon}
-        position="absolute"
-        top="39px"
-        left="-80px"
-        width={160}
-        height={160}
-      />
-
-      <Box
-        fontSize={isDesktop ? "40px" : "24px"}
+        fontSize={{
+          base: "18px",
+          md: "24px",
+          xl: "40px",
+        }}
         fontWeight={900}
         lineHeight="100%"
         textTransform="uppercase"
@@ -133,14 +166,17 @@ export const ServerTile = ({
 
       <Flex
         justifyContent="space-between"
-        rowGap="20px"
-        flexDirection={isDesktop ? "row" : "column"}
+        rowGap={{ base: "2px", md: "20px" }}
+        flexDirection={{
+          base: "column",
+          xl: "row",
+        }}
       >
         <StatisticsItem header="онлайн игроков" count={onlineCount} />
         <StatisticsItem header="зарегистрировано" count={registeredCount} />
       </Flex>
 
-      <CopyButton text={link} />
+      {(isDesktop || isTablet) && <CopyButton text={link} />}
     </Flex>
   );
 };

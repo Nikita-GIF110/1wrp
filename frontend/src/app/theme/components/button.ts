@@ -85,7 +85,6 @@ export const Button = defineStyleConfig({
         },
       },
     }),
-
     smallRoundedLight: defineStyle({
       ...buttonStyles,
       fontFamily: "Halvar Breitschrift",
@@ -130,7 +129,7 @@ export const Button = defineStyleConfig({
         color: "rgba(0, 0, 0, 0.6)",
       },
     }),
-    roundedLight: defineStyle({
+    circleLight: defineStyle({
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",

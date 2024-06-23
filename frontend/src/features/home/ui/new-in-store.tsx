@@ -17,13 +17,15 @@ export const NewInStore = ({ image, header, subHeader }: NewInStoreProsp) => {
     <Flex
       width="100%"
       background="linear-gradient(108deg, #1781FF 13.53%, #0052B3 91.46%)"
-      padding="32px 40px"
+      padding={{ base: "32px 0 0 0", md: "32px 40px" }}
       borderRadius="md"
       overflow="hidden"
-      alignItems="center"
       position="relative"
+      gap="24px"
+      textAlign={{ base: "center", md: "left" }}
+      alignItems={{ md: "center" }}
       justifyContent="space-between"
-      columnGap="24px"
+      flexDirection={{ base: "column", md: "row" }}
     >
       {isDesktop && (
         <Box
@@ -43,7 +45,7 @@ export const NewInStore = ({ image, header, subHeader }: NewInStoreProsp) => {
         textTransform="uppercase"
         lineHeight="82%"
         color={colors.white}
-        maxWidth={isDesktop ? "auto" : "45%"}
+        maxWidth={{ base: "auto", md: "45%", xl: "auto" }}
       >
         {header}
       </Box>
@@ -70,9 +72,10 @@ export const NewInStore = ({ image, header, subHeader }: NewInStoreProsp) => {
         variant="medium"
         position="relative"
         size="md"
-        marginLeft={isDesktop ? "auto" : 0}
+        justifyContent="space-between"
+        marginLeft={{ base: 0, md: "auto" }}
       >
-        открыть магазин
+        {isDesktop ? "открыть магазин" : "магазин"}
         <ArrowUp width={26} height={26} />
       </Link>
     </Flex>

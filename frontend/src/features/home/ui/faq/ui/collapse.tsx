@@ -12,16 +12,28 @@ import { colors } from "shared/config/colors";
 interface CollapseProps {
   header: string;
   children: ReactNode;
+  size?: "sm" | "md";
 }
 
-export const Collapse = ({ header, children }: CollapseProps) => {
+const sizeStyles = {
+  sm: {
+    padding: "12px 24px",
+    fontSize: "16px",
+  },
+  md: {
+    padding: "32px 44px",
+    fontSize: "24px",
+  },
+};
+
+export const Collapse = ({ header, children, size = "md" }: CollapseProps) => {
   const { isOpen, onToggle } = useDisclosure();
+  const isMediumSize = size === "md";
 
   return (
     <Box
       color={colors.white}
-      fontSize="24px"
-      padding="32px 44px"
+      padding={sizeStyles[size].padding}
       backgroundColor={
         isOpen ? "rgba(238, 244, 248, 0.08)" : "rgba(238, 244, 248, 0.03)"
       }
@@ -44,10 +56,17 @@ export const Collapse = ({ header, children }: CollapseProps) => {
         padding={0}
         width="100%"
         justifyContent="space-between"
-        fontSize="24px"
         height="auto"
+        whiteSpace={isMediumSize ? "nowrap" : "wrap"}
+        textAlign="left"
+        fontSize={sizeStyles[size].fontSize}
       >
-        <Box overflow="hidden" textOverflow="ellipsis" whiteSpace="nowrap">
+        <Box
+          overflow={isMediumSize ? "hidden" : undefined}
+          textOverflow={isMediumSize ? "ellipsis" : undefined}
+          whiteSpace={isMediumSize ? "nowrap" : undefined}
+          width={isMediumSize ? undefined : "100%"}
+        >
           {header}
         </Box>
 

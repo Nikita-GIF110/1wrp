@@ -41,7 +41,7 @@ export const Drawer = ({
       <DrawerContent
         backgroundColor={colors.black}
         borderLeftRadius="64px"
-        minWidth="460px"
+        // minWidth="460px"
       >
         <DrawerBody
           display="flex"
@@ -60,7 +60,7 @@ export const Drawer = ({
 
           {/* Right */}
           <Flex flexDirection="column" rowGap="32px">
-            <Button onClick={onClose} variant="roundedLight">
+            <Button onClick={onClose} variant="circleLight">
               <Box as={CloseIcon} width="24px" height="24px" />
             </Button>
 

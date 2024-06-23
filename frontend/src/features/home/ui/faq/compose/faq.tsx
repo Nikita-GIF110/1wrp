@@ -23,12 +23,12 @@ export const Faq = ({
 
   return (
     <Flex
-      padding={isDesktop ? "80px 0" : "0 12px"}
-      flexDirection={isDesktop ? "row" : "column"}
+      padding={{ base: "", md: "0 12px", xl: "80px 0" }}
+      flexDirection={{ base: "column", xl: "row" }}
       columnGap="44px"
       rowGap="8px"
     >
-      <Box width={isDesktop ? "50%" : "100%"}>
+      <Box width={{ base: "100%", xl: "50%" }}>
         <Support
           header={header}
           description={description}
@@ -37,13 +37,18 @@ export const Faq = ({
         />
       </Box>
 
-      <List width={isDesktop ? "50%" : "100%"}>
+      <List
+        width={{ base: "100%", xl: "50%" }}
+        padding={{ base: "0 24px", md: 0 }}
+      >
         {questions.map((question, index) => (
           <ListItem
             key={question.id}
             marginBottom={questions.length - 1 === index ? "0" : "8px"}
           >
-            <Collapse header={question.name}>{question.description}</Collapse>
+            <Collapse header={question.name} size={isDesktop ? "md" : "sm"}>
+              {question.description}
+            </Collapse>
           </ListItem>
         ))}
       </List>

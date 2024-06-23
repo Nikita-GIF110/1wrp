@@ -16,7 +16,7 @@ interface NewsBlockProps {
 
 export const NewsBlock = ({ news, title, subtitle }: NewsBlockProps) => {
   const [mainNews, firstNews, secondNews, thirdNews] = news;
-  const { isMobile, isTablet, isDesktop } = useMediaQuery();
+  const { isTablet, isDesktop, isMobile } = useMediaQuery();
 
   return (
     <>
@@ -24,12 +24,12 @@ export const NewsBlock = ({ news, title, subtitle }: NewsBlockProps) => {
       <Flex
         flexDirection="column"
         gap="16px"
-        marginBottom={isDesktop ? "44px" : "32px"}
-        textAlign={isDesktop ? "left" : "center"}
+        marginBottom={{ base: "20px", md: "32px", xl: "44px" }}
+        textAlign={{ base: "center", md: "left" }}
       >
         <Box
           color={colors.white}
-          fontSize="40px"
+          fontSize={{ base: "18px", md: "40px" }}
           fontWeight={900}
           lineHeight="80%"
           textTransform="uppercase"
@@ -48,7 +48,7 @@ export const NewsBlock = ({ news, title, subtitle }: NewsBlockProps) => {
           display="inline-block"
           _before={{
             content: "''",
-            display: "inline-block",
+            display: { base: "none", md: "inline-block" },
             width: "64px",
             height: "2px",
             opacity: 0.4,
@@ -63,9 +63,10 @@ export const NewsBlock = ({ news, title, subtitle }: NewsBlockProps) => {
 
       {/* List start */}
       <Flex gap="20px">
+        {/* First news */}
         {isDesktop && (
           <Box
-            flex="0 1 772px"
+            flex="1 1 772px"
             height="530px"
             position="relative"
             _before={newsTileDecorElements.mainNewsDecor}
@@ -75,46 +76,55 @@ export const NewsBlock = ({ news, title, subtitle }: NewsBlockProps) => {
         )}
 
         <Flex
-          gap={isDesktop ? "20px" : "12px"}
+          gap={{ base: "8px", md: "12px", xl: "20px" }}
           flexWrap="wrap"
           // Gap + Large Tile width
-          flex={isDesktop ? "1 1 calc(100% - (20px + 772px))" : "flex 1 1 100%"}
+          flex={{
+            base: "flex 1 1 100%",
+            xl: "1 1 calc(100% - (20px + 772px))",
+          }}
         >
           {isMobile ||
             (isTablet && (
               <Box flex="1 0 calc(50% - 20px)">
-                <NewsSmallTile {...mainNews} height="260px" />
+                <NewsSmallTile
+                  {...mainNews}
+                  height={{ base: "auto", md: "260px", xl: "100%" }}
+                />
               </Box>
             ))}
 
           <Box flex="1 0 calc(50% - 20px)">
-            <NewsSmallTile {...firstNews} height={isDesktop ? "100%" : "260px"} />
+            <NewsSmallTile
+              {...firstNews}
+              height={{ base: "auto", md: "260px", xl: "100%" }}
+            />
           </Box>
 
           <Box
             flex="1 0 calc(50% - 20px)"
             position="relative"
-            _before={
-              isDesktop ? newsTileDecorElements.secondNewsDecorTop : undefined
-            }
-            _after={
-              isDesktop ? newsTileDecorElements.secondNewsDecorRight : undefined
-            }
+            _before={{ xl: newsTileDecorElements.secondNewsDecorTop }}
+            _after={{ xl: newsTileDecorElements.secondNewsDecorRight }}
           >
-            <NewsSmallTile {...secondNews} height={isDesktop ? "100%" : "260px"} />
+            <NewsSmallTile
+              {...secondNews}
+              height={{ base: "auto", md: "260px", xl: "100%" }}
+            />
           </Box>
 
           <Box flex="1 0 calc(50% - 20px)">
-            <NewsSmallTile {...thirdNews} height={isDesktop ? "100%" : "260px"} />
+            <NewsSmallTile
+              {...thirdNews}
+              height={{ base: "auto", md: "260px", xl: "100%" }}
+            />
           </Box>
 
           <Box
-            flex={isDesktop ? "1 0 calc(50% - 20px)" : "1 0 100%"}
+            flex={{ base: "1 0 100%", xl: "1 0 calc(50% - 20px)" }}
             position="relative"
-            marginTop={isDesktop ? 0 : "8px"}
-            _before={
-              isDesktop ? newsTileDecorElements.moreNewsDecorRight : undefined
-            }
+            marginTop={{ md: "8px", xl: 0 }}
+            _before={{ xl: newsTileDecorElements.moreNewsDecorRight }}
           >
             <Link
               as={ReactRouterLink}
@@ -125,23 +135,23 @@ export const NewsBlock = ({ news, title, subtitle }: NewsBlockProps) => {
               width="100%"
               height="100%"
               display="flex"
-              flexDirection={isDesktop ? "column" : "row"}
+              flexDirection={{ base: "row", xl: "column" }}
               justifyContent="space-between"
               alignItems="flex-start"
               fontSize="32px"
               fontWeight={700}
-              padding={isDesktop ? "22px" : "20px 28px"}
+              padding={{ base: "20px 28px", xl: "22px" }}
             >
               <Box
                 as={ArrowUp}
-                width={isDesktop ? "72.32px" : "26px"}
-                height={isDesktop ? "72.32px" : "26px"}
+                width={{ base: "26px", xl: "72.32px" }}
+                height={{ base: "26px", xl: "72.32px" }}
                 marginLeft="auto"
-                order={isDesktop ? 1 : 2}
+                order={{ base: 2, xl: 1 }}
               />
 
-              <Box order={isDesktop ? 2 : 1}>
-                Больше новостей
+              <Box order={{ base: 1, xl: 2 }}>
+                {isDesktop || isTablet ? "Больше новостей" : "все новости"}
               </Box>
             </Link>
           </Box>

@@ -66,7 +66,7 @@ export const NewsSmallTile = ({
     {...boxProps}
   >
     {isNew && (
-      <Stack direction="row" gap="6px" position="relative">
+      <Stack direction="row" gap="6px" position="relative" marginBottom="25px">
         <Badge variant="boxy">News</Badge>
         <Badge variant="boxyDark">04 марта</Badge>
       </Stack>
@@ -88,8 +88,8 @@ export const NewsSmallTile = ({
         fontWeight={500}
         lineHeight="130%"
         letterSpacing="-0.5px"
-        marginTop="10px"
-        marginRight="10px"
+        marginTop={{ base: " 12px", md: "10px" }}
+        marginRight={{ base: "5px", md: "10px" }}
         position="relative"
       >
         {subHeader}
