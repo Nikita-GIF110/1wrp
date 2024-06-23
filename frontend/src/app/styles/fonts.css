@@ -1,0 +1,912 @@
+/* Halvar Breit Start */
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-BlkSlanted.eot");
+  src:
+    local("Halvar Breitschrift Black Slanted"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-BlkSlanted"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-BlkSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-BlkSlanted.woff2")
+      format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-BlkSlanted.woff")
+      format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-BlkSlanted.ttf")
+      format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-Blk.eot");
+  src:
+    local("Halvar Breitschrift Black"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-Blk"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Blk.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Blk.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Blk.woff") format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Blk.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-BlkSuSlanted.eot");
+  src:
+    local("Halvar Breitschrift Black SuperSlanted"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-BlkSuSlanted"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-BlkSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-BlkSuSlanted.woff2")
+      format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-BlkSuSlanted.woff")
+      format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-BlkSuSlanted.ttf")
+      format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-Lt.eot");
+  src:
+    local("Halvar Breitschrift Light"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-Lt"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Lt.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Lt.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Lt.woff") format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Lt.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-HlSuSlanted.eot");
+  src:
+    local("Halvar Breitschrift Hairline SuperSlanted"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-HlSuSlanted"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-HlSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-HlSuSlanted.woff2")
+      format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-HlSuSlanted.woff")
+      format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-HlSuSlanted.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-Md.eot");
+  src:
+    local("Halvar Breitschrift Medium"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-Md"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Md.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Md.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Md.woff") format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Md.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-XThSuSlanted.eot");
+  src:
+    local("Halvar Breitschrift ExtraThin SuperSlanted"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-XThSuSlanted"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XThSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XThSuSlanted.woff2")
+      format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XThSuSlanted.woff")
+      format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XThSuSlanted.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-Bd.eot");
+  src:
+    local("Halvar Breitschrift Bold"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-Bd"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Bd.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Bd.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Bd.woff") format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Bd.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-MdSuSlanted.eot");
+  src:
+    local("Halvar Breitschrift Medium SuperSlanted"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-MdSuSlanted"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-MdSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-MdSuSlanted.woff2")
+      format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-MdSuSlanted.woff")
+      format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-MdSuSlanted.ttf")
+      format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-HlSlanted.eot");
+  src:
+    local("Halvar Breitschrift Hairline Slanted"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-HlSlanted"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-HlSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-HlSlanted.woff2")
+      format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-HlSlanted.woff")
+      format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-HlSlanted.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-RgSlanted.eot");
+  src:
+    local("Halvar Breitschrift Regular Slanted"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-RgSlanted"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-RgSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-RgSlanted.woff2")
+      format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-RgSlanted.woff")
+      format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-RgSlanted.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-XBd.eot");
+  src:
+    local("Halvar Breitschrift ExtraBold"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-XBd"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XBd.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XBd.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XBd.woff") format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XBd.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-XThSlanted.eot");
+  src:
+    local("Halvar Breitschrift ExtraThin Slanted"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-XThSlanted"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XThSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XThSlanted.woff2")
+      format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XThSlanted.woff")
+      format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XThSlanted.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-ThSuSlanted.eot");
+  src:
+    local("Halvar Breitschrift Thin SuperSlanted"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-ThSuSlanted"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-ThSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-ThSuSlanted.woff2")
+      format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-ThSuSlanted.woff")
+      format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-ThSuSlanted.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-XBdSuSlanted.eot");
+  src:
+    local("Halvar Breitschrift ExtraBold SuperSlanted"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-XBdSuSlanted"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XBdSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XBdSuSlanted.woff2")
+      format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XBdSuSlanted.woff")
+      format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XBdSuSlanted.ttf")
+      format("truetype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-RgSuSlanted.eot");
+  src:
+    local("Halvar Breitschrift Regular SuperSlanted"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-RgSuSlanted"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-RgSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-RgSuSlanted.woff2")
+      format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-RgSuSlanted.woff")
+      format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-RgSuSlanted.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-XBdSlanted.eot");
+  src:
+    local("Halvar Breitschrift ExtraBold Slanted"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-XBdSlanted"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XBdSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XBdSlanted.woff2")
+      format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XBdSlanted.woff")
+      format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XBdSlanted.ttf")
+      format("truetype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-LtSuSlanted.eot");
+  src:
+    local("Halvar Breitschrift Light SuperSlanted"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-LtSuSlanted"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-LtSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-LtSuSlanted.woff2")
+      format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-LtSuSlanted.woff")
+      format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-LtSuSlanted.ttf")
+      format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-Th.eot");
+  src:
+    local("Halvar Breitschrift Thin"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-Th"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Th.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Th.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Th.woff") format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Th.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-XTh.eot");
+  src:
+    local("Halvar Breitschrift ExtraThin"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-XTh"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XTh.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XTh.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XTh.woff") format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-XTh.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-BdSuSlanted.eot");
+  src:
+    local("Halvar Breitschrift Bold SuperSlanted"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-BdSuSlanted"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-BdSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-BdSuSlanted.woff2")
+      format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-BdSuSlanted.woff")
+      format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-BdSuSlanted.ttf")
+      format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-ThSlanted.eot");
+  src:
+    local("Halvar Breitschrift Thin Slanted"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-ThSlanted"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-ThSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-ThSlanted.woff2")
+      format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-ThSlanted.woff")
+      format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-ThSlanted.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-LtSlanted.eot");
+  src:
+    local("Halvar Breitschrift Light Slanted"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-LtSlanted"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-LtSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-LtSlanted.woff2")
+      format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-LtSlanted.woff")
+      format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-LtSlanted.ttf")
+      format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-Hl.eot");
+  src:
+    local("Halvar Breitschrift Hairline"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-Hl"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Hl.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Hl.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Hl.woff") format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Hl.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-MdSlanted.eot");
+  src:
+    local("Halvar Breitschrift Medium Slanted"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-MdSlanted"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-MdSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-MdSlanted.woff2")
+      format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-MdSlanted.woff")
+      format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-MdSlanted.ttf")
+      format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-BdSlanted.eot");
+  src:
+    local("Halvar Breitschrift Bold Slanted"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-BdSlanted"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-BdSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-BdSlanted.woff2")
+      format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-BdSlanted.woff")
+      format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-BdSlanted.ttf")
+      format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-Hl_1.eot");
+  src:
+    local("Halvar Breitschrift Hairline"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-Hl"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Hl_1.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Hl_1.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Hl_1.woff") format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Hl_1.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("../../assets/fonts/HalvarBreit/HalvarBreit-Rg.eot");
+  src:
+    local("Halvar Breitschrift Regular"),
+    local("../../assets/fonts/HalvarBreit/HalvarBreit-Rg"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Rg.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Rg.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Rg.woff") format("woff"),
+    url("../../assets/fonts/HalvarBreit/HalvarBreit-Rg.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Halvar Breit End */
+
+/* Halvar Eng Start */
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-XBdSlanted.eot");
+  src:
+    local("Halvar Engschrift ExtraBold Slanted"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-XBdSlanted"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XBdSlanted.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XBdSlanted.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XBdSlanted.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XBdSlanted.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-BlkSlanted.eot");
+  src:
+    local("Halvar Engschrift Black Slanted"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-BlkSlanted"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-BlkSlanted.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-BlkSlanted.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-BlkSlanted.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-BlkSlanted.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-BdSlanted.eot");
+  src:
+    local("Halvar Engschrift Bold Slanted"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-BdSlanted"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-BdSlanted.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-BdSlanted.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-BdSlanted.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-BdSlanted.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";;
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-BlkSuSlanted.eot");
+  src:
+    local("Halvar Engschrift Black SuperSlanted"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-BlkSuSlanted"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-BlkSuSlanted.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-BlkSuSlanted.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-BlkSuSlanted.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-BlkSuSlanted.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-XBd.eot");
+  src:
+    local("Halvar Engschrift ExtraBold"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-XBd"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XBd.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XBd.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XBd.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XBd.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-Blk.eot");
+  src:
+    local("Halvar Engschrift Black"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-Blk"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Blk.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Blk.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Blk.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Blk.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-BdSuSlanted.eot");
+  src:
+    local("Halvar Engschrift Bold SuperSlanted"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-BdSuSlanted"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-BdSuSlanted.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-BdSuSlanted.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-BdSuSlanted.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-BdSuSlanted.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-Bd.eot");
+  src:
+    local("Halvar Engschrift Bold"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-Bd"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Bd.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Bd.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Bd.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Bd.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-XThSuSlanted.eot");
+  src:
+    local("Halvar Engschrift ExtraThin SuperSlanted"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-XThSuSlanted"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XThSuSlanted.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XThSuSlanted.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XThSuSlanted.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XThSuSlanted.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-XTh.eot");
+  src:
+    local("Halvar Engschrift ExtraThin"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-XTh"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XTh.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XTh.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XTh.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XTh.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-XThSlanted.eot");
+  src:
+    local("Halvar Engschrift ExtraThin Slanted"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-XThSlanted"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XThSlanted.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XThSlanted.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XThSlanted.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XThSlanted.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-XBdSuSlanted.eot");
+  src:
+    local("Halvar Engschrift ExtraBold SuperSlanted"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-XBdSuSlanted"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XBdSuSlanted.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XBdSuSlanted.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XBdSuSlanted.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-XBdSuSlanted.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-HlSuSlanted.eot");
+  src:
+    local("Halvar Engschrift Hairline SuperSlanted"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-HlSuSlanted"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-HlSuSlanted.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-HlSuSlanted.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-HlSuSlanted.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-HlSuSlanted.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-ThSlanted.eot");
+  src:
+    local("Halvar Engschrift Thin Slanted"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-ThSlanted"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-ThSlanted.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-ThSlanted.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-ThSlanted.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-ThSlanted.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-Md.eot");
+  src:
+    local("Halvar Engschrift Medium"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-Md"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Md.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Md.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Md.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Md.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-HlSlanted.eot");
+  src:
+    local("Halvar Engschrift Hairline Slanted"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-HlSlanted"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-HlSlanted.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-HlSlanted.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-HlSlanted.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-HlSlanted.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-Lt.eot");
+  src:
+    local("Halvar Engschrift Light"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-Lt"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Lt.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Lt.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Lt.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Lt.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-RgSuSlanted.eot");
+  src:
+    local("Halvar Engschrift Regular SuperSlanted"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-RgSuSlanted"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-RgSuSlanted.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-RgSuSlanted.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-RgSuSlanted.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-RgSuSlanted.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-LtSuSlanted.eot");
+  src:
+    local("Halvar Engschrift Light SuperSlanted"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-LtSuSlanted"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-LtSuSlanted.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-LtSuSlanted.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-LtSuSlanted.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-LtSuSlanted.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-ThSuSlanted.eot");
+  src:
+    local("Halvar Engschrift Thin SuperSlanted"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-ThSuSlanted"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-ThSuSlanted.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-ThSuSlanted.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-ThSuSlanted.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-ThSuSlanted.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-MdSlanted.eot");
+  src:
+    local("Halvar Engschrift Medium Slanted"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-MdSlanted"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-MdSlanted.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-MdSlanted.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-MdSlanted.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-MdSlanted.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-Th.eot");
+  src:
+    local("Halvar Engschrift Thin"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-Th"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Th.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Th.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Th.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Th.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-RgSlanted.eot");
+  src:
+    local("Halvar Engschrift Regular Slanted"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-RgSlanted"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-RgSlanted.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-RgSlanted.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-RgSlanted.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-RgSlanted.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-Rg.eot");
+  src:
+    local("Halvar Engschrift Regular"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-Rg"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Rg.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Rg.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Rg.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Rg.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-MdSuSlanted.eot");
+  src:
+    local("Halvar Engschrift Medium SuperSlanted"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-MdSuSlanted"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-MdSuSlanted.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-MdSuSlanted.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-MdSuSlanted.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-MdSuSlanted.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-Hl.eot");
+  src:
+    local("Halvar Engschrift Hairline"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-Hl"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Hl.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Hl.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Hl.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-Hl.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("../../assets/fonts/HalvarEng/HalvarEng-LtSlanted.eot");
+  src:
+    local("Halvar Engschrift Light Slanted"),
+    local("../../assets/fonts/HalvarEng/HalvarEng-LtSlanted"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-LtSlanted.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-LtSlanted.woff2") format("woff2"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-LtSlanted.woff") format("woff"),
+    url("../../assets/fonts/HalvarEng/HalvarEng-LtSlanted.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+/* Halvar Eng End */

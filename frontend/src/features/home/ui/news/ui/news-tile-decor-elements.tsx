@@ -1,0 +1,58 @@
+export const newsTileDecorElements = {
+  mainNewsDecor: {
+    content: "''",
+    display: "block",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "530px",
+    height: "100%",
+    borderRadius: "12px",
+    opacity: 0.2,
+    transform: "translateX(calc(-100% + -20px)) rotate(90deg)",
+    background:
+      "linear-gradient(180deg, #3EB6F8 0%, rgba(62, 182, 248, 0.00) 91%)",
+  },
+  secondNewsDecorTop: {
+    content: "''",
+    display: "block",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "116px",
+    borderRadius: "12px",
+    opacity: 0.2,
+    transform: "translateY(calc(-100% + -20px)) rotate(180deg)",
+    background:
+      "linear-gradient(180deg, #D3FF26 0%, rgba(211, 255, 38, 0.00) 87.5%)",
+  },
+  secondNewsDecorRight: {
+    content: "''",
+    display: "block",
+    position: "absolute",
+    top: 0,
+    right: 0,
+    width: "254px",
+    height: "100%",
+    borderRadius: "12px",
+    opacity: 0.2,
+    transform: "translateX(calc(100% + 20px)) rotate(270deg)",
+    background:
+      "linear-gradient(180deg, #3EB6F8 0%, rgba(62, 182, 248, 0.00) 91%)",
+  },
+  moreNewsDecorRight: {
+    content: "''",
+    display: "block",
+    position: "absolute",
+    top: 0,
+    right: 0,
+    width: "254px",
+    height: "100%",
+    borderRadius: "12px",
+    opacity: 0.2,
+    transform: "translateX(calc(100% + 20px)) rotate(270deg)",
+    background:
+      "linear-gradient(180deg, #D3FF26 0%, rgba(211, 255, 38, 0.00) 87.5%)",
+  },
+};
