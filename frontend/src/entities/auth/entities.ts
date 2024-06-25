@@ -27,6 +27,7 @@ export interface UserEntity {
 export interface SignInFormFields {
   login: string;
   password: string;
+  rememberMe: boolean
 }
 
 export interface Store {

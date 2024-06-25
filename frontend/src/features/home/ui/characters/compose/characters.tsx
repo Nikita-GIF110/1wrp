@@ -16,10 +16,15 @@ interface CharactersBlockProps {
   mafia: Array<CharactersEntity>;
 }
 
+interface CharactersBlockProps {
+  onSelectCharacter: (character: CharactersEntity) => void;
+}
+
 export const CharactersBlock = ({
   government = [],
   groups = [],
   mafia = [],
+  onSelectCharacter,
 }: CharactersBlockProps) => (
   <Box>
     <CharactersHeader
@@ -27,11 +32,13 @@ export const CharactersBlock = ({
       padding={{ base: "0 24px", md: "0 12px", xl: 0 }}
     />
 
-    <Box paddingLeft="57px" marginBottom={{ base: "8px", xl: "40px" }}>
+    <Box
+      marginBottom={{ base: "8px", xl: "40px" }}
+      padding={{ base: "0 20px", md: 0 }}
+    >
       <Swiper
         slidesPerView="auto"
         className="characters-slider-height overflow-visible"
-        spaceBetween={20}
         breakpoints={smallTilesSliderBreakpoints}
       >
         <SwiperSlide style={{ width: "auto" }}>
@@ -43,17 +50,24 @@ export const CharactersBlock = ({
 
         {government.map((character) => (
           <SwiperSlide key={character.image.src} style={{ width: "auto" }}>
-            <CharacterTile {...character} gradientVariant="blue" />
+            <CharacterTile
+              {...character}
+              gradientVariant="blue"
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              onSelectCharacter={onSelectCharacter as any}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
     </Box>
 
-    <Box paddingLeft="57px" marginBottom={{ base: "8px", xl: "40px" }}>
+    <Box
+      marginBottom={{ base: "8px", xl: "40px" }}
+      padding={{ base: "0 20px", md: 0 }}
+    >
       <Swiper
         slidesPerView="auto"
         className="characters-slider-height overflow-visible"
-        spaceBetween={20}
         breakpoints={largeTilesSliderBreakpoints}
       >
         <SwiperSlide style={{ width: "auto" }}>
@@ -69,23 +83,24 @@ export const CharactersBlock = ({
               {...character}
               gradientVariant="violet"
               size="medium"
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              onSelectCharacter={onSelectCharacter as any}
             />
           </SwiperSlide>
         ))}
       </Swiper>
     </Box>
 
-    <Box paddingLeft="57px">
+    <Box padding={{ base: "0 20px", md: 0 }}>
       <Swiper
         slidesPerView="auto"
         className="characters-slider-height overflow-visible"
-        spaceBetween={20}
         breakpoints={largeTilesSliderBreakpoints}
       >
         <SwiperSlide style={{ width: "auto" }}>
           <CharactersListHeader
             header="Государственные структуры"
-            color={colors.violet.primary}
+            color={colors.red.primary}
           />
         </SwiperSlide>
 
@@ -95,6 +110,8 @@ export const CharactersBlock = ({
               {...character}
               gradientVariant="red"
               size="medium"
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              onSelectCharacter={onSelectCharacter as any}
             />
           </SwiperSlide>
         ))}

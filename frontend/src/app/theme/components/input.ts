@@ -12,6 +12,23 @@ export const Input = defineMultiStyleConfig({
     },
   },
   variants: {
+    landingMedium: definePartsStyle({
+      field: {
+        padding: "20px 28px",
+        borderRadius: "4px",
+        backgroundColor: "#D1DAE0",
+        textOverflow: "ellipsis",
+        fontSize: "24px",
+        fontWeight: 500,
+        lineHeight: "100%",
+
+        _focus: {
+          color: colors.black,
+          outline: `2px solid ${colors.blue.primary}`,
+        },
+      },
+    }),
+
     outline: definePartsStyle({
       field: {
         border: `1px solid ${colors.gray.primary}`,

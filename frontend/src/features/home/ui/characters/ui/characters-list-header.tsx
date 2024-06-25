@@ -11,7 +11,8 @@ export const CharactersListHeader = ({
 }: CharactersListHeaderProps) => (
   <Box
     color={color}
-    fontSize="38px"
+    fontSize="32px"
+    // fontSize="38px"
     fontWeight={700}
     lineHeight="90%"
     textTransform="uppercase"

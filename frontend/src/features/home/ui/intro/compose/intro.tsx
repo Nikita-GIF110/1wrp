@@ -1,4 +1,3 @@
-import { Link as ReactRouterLink } from "react-router-dom";
 import { Box, Heading, Flex, Text, Link } from "@chakra-ui/react";
 import videoPlaceholder from "assets/images/home/video-placeholder.png";
 import introImageDesktop from "assets/images/home/home-intro.png";
@@ -9,7 +8,11 @@ import { colors } from "shared/config/colors";
 import { useMediaQuery } from "shared/lib/useMediaQuery";
 import { BottomLeftDecor } from "../ui/bottom-left-decor";
 
-export const Intro = () => {
+interface IntroProps {
+  linkHref: string;
+}
+
+export const Intro = ({ linkHref }: IntroProps) => {
   const { isDesktop } = useMediaQuery();
 
   return (
@@ -98,8 +101,7 @@ export const Intro = () => {
           flexDirection={{ base: "column", md: "row" }}
         >
           <Link
-            as={ReactRouterLink}
-            to="/"
+            href={linkHref}
             display="flex"
             alignItems="center"
             gap="19px"

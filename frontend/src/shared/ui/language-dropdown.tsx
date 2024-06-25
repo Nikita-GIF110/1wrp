@@ -84,7 +84,7 @@ export const LanguageDropdown = ({
           height: "10px",
           backgroundColor: colors.white,
           borderRadius: "2px",
-          zIndex: -1
+          zIndex: -1,
         }}
       >
         {languages.map((language, index) => {

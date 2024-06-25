@@ -1,5 +1,5 @@
 const spaceBetweenSm = 8;
-const spaceBetweenMd = 8;
+const spaceBetweenMd = 20;
 
 export const smallTilesSliderBreakpoints = {
   0: {

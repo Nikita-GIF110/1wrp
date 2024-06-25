@@ -51,7 +51,6 @@ export const ServersBlock = ({ servers = [] }: ServersBlockProps) => {
       slidesPerView={2.2}
       spaceBetween={isDesktop ? "64px 100px" : "14px"}
       modules={[Grid]}
-      // className="overflow-visible"
     >
       {servers.map((server) => {
         return (

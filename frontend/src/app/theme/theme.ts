@@ -6,6 +6,8 @@ import { Textarea } from "./components/textarea";
 import { Modal } from "./components/modal";
 import { Select } from "./components/select";
 import { Link } from "./components/link";
+import { Tooltip } from "./components/tooltip";
+import { Checkbox } from "./components/checkbox";
 import { sizes } from "./sizes";
 import { breakpoints } from "./breakpoints";
 import { colors } from "shared/config/colors";
@@ -30,5 +32,15 @@ export const theme = extendTheme({
   },
   sizes,
   colors,
-  components: { Badge, Button, Input, Textarea, Modal, Select, Link },
+  components: {
+    Badge,
+    Button,
+    Input,
+    Textarea,
+    Modal,
+    Select,
+    Link,
+    Tooltip,
+    Checkbox,
+  },
 });

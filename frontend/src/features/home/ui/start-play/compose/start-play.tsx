@@ -1,4 +1,3 @@
-import { Link as ReactRouterLink } from "react-router-dom";
 import { Box, Flex, Link } from "@chakra-ui/react";
 import SteamIcon from "assets/icons/steam.svg?react";
 import EpicGamesIcon from "assets/icons/epic-games.svg?react";
@@ -9,9 +8,19 @@ import { Separator } from "../ui/separator";
 
 interface StartPlayProps {
   header: string;
+  steamHref: string;
+  epicGamesHref: string;
+  downloadLauncherHref: string;
+  chooseServerHref: string;
 }
 
-export const StartPlay = ({ header }: StartPlayProps) => (
+export const StartPlay = ({
+  header,
+  steamHref,
+  epicGamesHref,
+  downloadLauncherHref,
+  chooseServerHref,
+}: StartPlayProps) => (
   <Box>
     <StartPlayHeader header={header} marginBottom="66px" />
 
@@ -25,7 +34,8 @@ export const StartPlay = ({ header }: StartPlayProps) => (
             <>
               <Flex gap="8px" justifyContent="center">
                 <Link
-                  as={ReactRouterLink}
+                  href={steamHref}
+                  target="_blank"
                   variant="smallRoundedLight"
                   size="sm"
                   gap="12px"
@@ -34,7 +44,8 @@ export const StartPlay = ({ header }: StartPlayProps) => (
                   steam
                 </Link>
                 <Link
-                  as={ReactRouterLink}
+                  href={epicGamesHref}
+                  target="_blank"
                   variant="smallRoundedLight"
                   size="sm"
                   gap="12px"
@@ -66,7 +77,8 @@ export const StartPlay = ({ header }: StartPlayProps) => (
           description="Загрузите официальный лаунчер 1WRP. По окончании загрузки произведите установку лаунчера в место, не включающее файлы игры и без использования кириллических символов в пути."
           footer={
             <Link
-              as={ReactRouterLink}
+              href={downloadLauncherHref}
+              target="_blank"
               variant="smallRoundedPrimary"
               size="sm"
               paddingTop="21px"
@@ -96,7 +108,7 @@ export const StartPlay = ({ header }: StartPlayProps) => (
           description="Запустите лаунчер и в открывшемся окне введите IP адрес выбранного сервера."
           footer={
             <Link
-              as={ReactRouterLink}
+              href={chooseServerHref}
               variant="smallRoundedLight"
               size="sm"
               paddingTop="21px"

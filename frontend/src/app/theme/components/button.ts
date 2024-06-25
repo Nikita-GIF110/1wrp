@@ -15,6 +15,7 @@ export const Button = defineStyleConfig({
     large: defineStyle({
       ...buttonStyles,
       color: colors.black,
+      backgroundColor: colors.acidic.primary,
       borderRadius: "md",
 
       _hover: {
@@ -28,6 +29,7 @@ export const Button = defineStyleConfig({
     medium: defineStyle({
       ...buttonStyles,
       color: colors.black,
+      backgroundColor: colors.acidic.primary,
       borderRadius: "md",
 
       _hover: {
@@ -90,7 +92,6 @@ export const Button = defineStyleConfig({
       fontFamily: "Halvar Breitschrift",
       borderRadius: "base",
       backgroundColor: colors.white,
-      // transition: "",
 
       _before: {
         content: "''",

@@ -17,12 +17,16 @@ interface CollapseProps {
 
 const sizeStyles = {
   sm: {
-    padding: "12px 24px",
     fontSize: "16px",
+    buttonPadding: "12px 24px",
+    collapsePadding: "0 24px 24px 24px",
+    collapseMarginTop: "-4px",
   },
   md: {
-    padding: "32px 44px",
     fontSize: "24px",
+    buttonPadding: "32px 44px",
+    collapsePadding: "0 44px 44px 44px",
+    collapseMarginTop: "-8px",
   },
 };
 
@@ -33,14 +37,11 @@ export const Collapse = ({ header, children, size = "md" }: CollapseProps) => {
   return (
     <Box
       color={colors.white}
-      padding={sizeStyles[size].padding}
       backgroundColor={
         isOpen ? "rgba(238, 244, 248, 0.08)" : "rgba(238, 244, 248, 0.03)"
       }
       transition="backgroundColor 0.3s ease-in-out"
-      _hover={{
-        backgroundColor: "rgba(238, 244, 248, 0.08)",
-      }}
+      _hover={{ backgroundColor: "rgba(238, 244, 248, 0.08)" }}
       borderRadius="10px"
     >
       <Button
@@ -53,13 +54,13 @@ export const Collapse = ({ header, children, size = "md" }: CollapseProps) => {
         lineHeight="116%"
         letterSpacing="-1px"
         onClick={onToggle}
-        padding={0}
         width="100%"
         justifyContent="space-between"
         height="auto"
         whiteSpace={isMediumSize ? "nowrap" : "wrap"}
         textAlign="left"
         fontSize={sizeStyles[size].fontSize}
+        padding={sizeStyles[size].buttonPadding}
       >
         <Box
           overflow={isMediumSize ? "hidden" : undefined}
@@ -74,7 +75,7 @@ export const Collapse = ({ header, children, size = "md" }: CollapseProps) => {
       </Button>
 
       <ChakraCollapse in={isOpen}>
-        <Box marginTop="24px">{children}</Box>
+        <Box padding={sizeStyles[size].collapsePadding}>{children}</Box>
       </ChakraCollapse>
     </Box>
   );

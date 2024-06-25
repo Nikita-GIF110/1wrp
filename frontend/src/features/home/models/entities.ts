@@ -1,3 +1,5 @@
+import type { Nullable } from "entities/utils";
+
 export interface NewsEntity {
   isNew: boolean;
   header: string;
@@ -39,4 +41,14 @@ export interface QuestionEntity {
   id: number;
   name: string;
   description: string;
+}
+
+export interface Store {
+  selectedCharacter: Nullable<CharactersEntity>;
+  characterDrawerIsOpen: boolean;
+}
+
+export interface Actions {
+  viewCharacters: (character: CharactersEntity) => void;
+  closeCharactersDrawer: () => void;
 }

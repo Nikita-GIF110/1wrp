@@ -1,4 +1,7 @@
-import type { DrawerProps as ChakraDrawerProps } from "@chakra-ui/react";
+import type {
+  DrawerProps as ChakraDrawerProps,
+  DrawerContentProps,
+} from "@chakra-ui/react";
 import {
   Drawer as ChakraDrawer,
   DrawerBody,
@@ -7,33 +10,45 @@ import {
 } from "@chakra-ui/react";
 import { colors } from "shared/config/colors";
 
-interface DrawerProps extends ChakraDrawerProps {}
+interface DrawerProps extends ChakraDrawerProps {
+  backgroundColor?: string;
+  minWidth?: DrawerContentProps["minWidth"];
+  padding?: DrawerContentProps["padding"];
+}
+
+const defaultDrawerContentMinWidth = {
+  base: "300px",
+  md: "460px",
+};
+
+const defaultDrawerContentPadding = {
+  base: "36px 16px",
+  md: "60px 36px 60px 76px",
+};
 
 export const Drawer = ({
   onClose,
   children,
+  backgroundColor = colors.black,
+  minWidth = defaultDrawerContentMinWidth,
+  padding = defaultDrawerContentPadding,
   ...otherDrawerProps
 }: DrawerProps) => (
   <ChakraDrawer onClose={onClose} {...otherDrawerProps}>
     <DrawerOverlay />
 
     <DrawerContent
-      backgroundColor={colors.black}
+      backgroundColor={backgroundColor}
       borderLeftRadius="64px"
-      minWidth={{
-        base: "300px",
-        md: "460px",
-      }}
-      padding={{
-        base: "40px 20px",
-        md: "64px 40px 64px 80px",
-      }}
+      minWidth={minWidth}
+      padding={padding}
     >
       <DrawerBody
-        display="flex"
-        columnGap="32px"
-        justifyContent="space-between"
-        padding={0}
+        padding="4px"
+        sx={{
+          "::-webkit-scrollbar": { width: 0 },
+          "-ms-overflow-style": "none",
+        }}
       >
         {children}
       </DrawerBody>

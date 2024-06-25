@@ -3,14 +3,16 @@ import UserIcon from "assets/icons/user-icon.svg?react";
 
 interface UserPanelProps {
   placeholder?: string;
+  onClick: () => void;
 }
 
-export const UserPanel = ({ placeholder }: UserPanelProps) => (
+export const UserPanel = ({ placeholder, onClick }: UserPanelProps) => (
   <Button
     variant="smallRoundedLight"
     size="sm"
     paddingTop="14px"
     paddingBottom="14px"
+    onClick={onClick}
   >
     <Box
       as={UserIcon}

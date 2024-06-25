@@ -19,6 +19,10 @@ const LinkItem = ({ icon }: LinkItemProps) => (
       as={icon}
       width={{ base: "80px", md: "190px" }}
       height={{ base: "80px", md: "190px" }}
+      transition="transform 0.2s ease-in"
+      _hover={{
+        transform: "scale(1.05)",
+      }}
     />
   </Link>
 );
@@ -65,14 +69,7 @@ export const Contacts = () => (
       flexWrap="wrap"
       justifyContent="center"
     >
-      <Link to="/">
-        <Box
-          as={GraffitiLogoYouTube}
-          width={{ base: "80px", md: "190px" }}
-          height={{ base: "80px", md: "190px" }}
-        />
-      </Link>
-
+      <LinkItem icon={GraffitiLogoYouTube} />
       <LinkItem icon={GraffitiLogoDiscord} />
       <LinkItem icon={GraffitiLogoVK} />
       <LinkItem icon={GraffitiLogoTelegram} />
@@ -80,7 +77,7 @@ export const Contacts = () => (
     </Flex>
 
     <Box
-      fontSize={{ base:" 44px", md: "80px" }}
+      fontSize={{ base: " 44px", md: "80px" }}
       fontWeight={900}
       lineHeight={{ base: "100%", md: "130%" }}
       textTransform="uppercase"

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Box, Flex } from "@chakra-ui/react";
 import { LANGUAGES } from "features/layout/config/base";
 import type { SelectOption } from "entities/utils";
@@ -7,8 +6,15 @@ import { colors } from "shared/config/colors";
 import { useI18N } from "shared/lib/useI18n";
 import { Logo } from "shared/ui/logo";
 import { LanguageDropdown } from "shared/ui/language-dropdown";
+
 import payments from "assets/images/payments.png";
-import { SocialLinkSmall } from "../ui/social-links-small";
+import DiscordSmall from "assets/icons/discord-small.svg?react";
+import VkSmall from "assets/icons/vk-small.svg?react";
+import YouTubeSmall from "assets/icons/youtube-small.svg?react";
+import TelegramSmall from "assets/icons/telegram-small.svg?react";
+import WinSmall from "assets/icons/1win-small.svg?react";
+
+import { NavLink } from "../ui/nav-link";
 
 export const Footer = () => {
   const { setLang } = useI18N();
@@ -64,32 +70,42 @@ export const Footer = () => {
             Vyronos Street. 3105. Limassol. LB. CY120009.
           </Box>
 
-          <Box lineHeight={{ base: "152%", md: "146%" }} opacity={0.5}>
-            <Box as={Link} to="/" display="block">
-              Политика конфиденциальности
-            </Box>
-            <Box as={Link} to="/" display="block">
-              Пользовательское соглашение
-            </Box>
-            <Box as={Link} to="/" display="block">
-              Публичная оферта
-            </Box>
-            <Box as={Link} to="/" display="block">
-              Политика Cookie файлов
-            </Box>
-            <Box as={Link} to="/" display="block">
-              Правила сервера
-            </Box>
+          <Box lineHeight={{ base: "152%", md: "146%" }}>
+            <NavLink to="/">Политика конфиденциальности</NavLink>
+            <NavLink to="/">Пользовательское соглашение</NavLink>
+            <NavLink to="/">Публичная оферта</NavLink>
+            <NavLink to="/">Политика Cookie файлов</NavLink>
+            <NavLink to="/">Правила сервера</NavLink>
           </Box>
 
-          <Box opacity={0.5} maxWidth="293px" marginTop={{ base: "18px", md: 0 }}>
+          <Box
+            opacity={0.5}
+            maxWidth="293px"
+            marginTop={{ base: "18px", md: 0 }}
+          >
             <Box marginRight="28px" lineHeight="148%">
               Канал поддержки в Discord
               <br />
               Поддержка в ВК
             </Box>
 
-            <SocialLinkSmall marginTop="24px" />
+            <Flex marginTop="24px" columnGap="28px">
+              <NavLink to="/">
+                <Box as={VkSmall} color={colors.white} />
+              </NavLink>
+              <NavLink to="/">
+                <Box as={TelegramSmall} color={colors.white} />
+              </NavLink>
+              <NavLink to="/">
+                <Box as={DiscordSmall} color={colors.white} />
+              </NavLink>
+              <NavLink to="/">
+                <Box as={YouTubeSmall} color={colors.white} />
+              </NavLink>
+              <NavLink to="/">
+                <Box as={WinSmall} color={colors.white} />
+              </NavLink>
+            </Flex>
           </Box>
         </Flex>
 
