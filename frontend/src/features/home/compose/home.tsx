@@ -1,4 +1,5 @@
 import { Box, Flex, Button, Tooltip } from "@chakra-ui/react";
+
 import { AboutBlock } from "features/home/ui/about";
 import { Intro } from "features/home/ui/intro";
 import { NewsBlock } from "features/home/ui/news";
@@ -32,6 +33,7 @@ import LinkChain from "assets/images/home/link-chain-icon.svg?react";
 
 import "swiper/css";
 import "swiper/css/grid";
+import "yet-another-react-lightbox/styles.css";
 
 const Home = () => {
   const { isDesktop } = useMediaQuery();
@@ -39,6 +41,7 @@ const Home = () => {
   // Character actions
   const viewCharacters = useHome((state) => state.viewCharacters);
   const selectedCharacter = useHome((state) => state.selectedCharacter);
+  const selectedCharacterOptions = useHome((state) => state.options);
   const characterDrawerIsOpen = useHome((state) => state.characterDrawerIsOpen);
   const closeCharactersDrawer = useHome((state) => state.closeCharactersDrawer);
 
@@ -84,13 +87,15 @@ const Home = () => {
           <ServersHeader header="Сервера 1wrp" />
         </Box>
 
-        <Container
-          maxWidth={{ md: "100%", xl: "container.xl" }}
-          marginBottom={{ base: "52px", xl: "138px" }}
-          padding={{ base: "0 20px", md: 0, xl: "0 20px" }}
-        >
-          <ServersBlock servers={SERVERS_LIST} />
-        </Container>
+        <Box overflowX="hidden">
+          <Container
+            maxWidth={{ md: "100%", xl: "container.xl" }}
+            marginBottom={{ base: "52px", xl: "138px" }}
+            padding={{ base: "0 20px", md: 0, xl: "0 20px" }}
+          >
+            <ServersBlock servers={SERVERS_LIST} />
+          </Container>
+        </Box>
 
         {isDesktop && (
           <Container marginBottom="151px" id="start-play">
@@ -130,41 +135,47 @@ const Home = () => {
         isOpen={characterDrawerIsOpen}
         onClose={closeCharactersDrawer}
         backgroundColor={colors.white}
-        minWidth={{ xl: "950px" }}
+        minWidth={{ base: "350px", md: "650px", xl: "950px" }}
+        padding={{ base: "24px 32px", md: "64px 128px 64px 80px" }}
+        borderLeftRadius={{ base: "44px", md: "64px" }}
+        autoFocus={false}
       >
-        <Flex justifyContent="space-between" columnGap="32px" height="100%">
-          {selectedCharacter && (
-            <CharacterInfo
-              previewImage={selectedCharacter.image}
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              gradientBg={(selectedCharacter as any).gradientBg}
-            />
-          )}
+        {selectedCharacter && selectedCharacterOptions && (
+          <CharacterInfo
+            characterpreviewImage={selectedCharacter.image}
+            images={selectedCharacter.images}
+            gradientBg={selectedCharacterOptions.gradientBg}
+          />
+        )}
 
-          {/* Right */}
-          <Flex flexDirection="column" rowGap="12px">
+        <Flex
+          flexDirection="column"
+          rowGap="12px"
+          position="absolute"
+          top={{ base: "15px", md: "64px" }}
+          right={{ base: "15px", md: "40px" }}
+        >
+          <Button
+            onClick={closeCharactersDrawer}
+            variant="circleLight"
+            backgroundColor="#BEC7CD"
+          >
+            <Box as={CloseIcon} width="24px" height="24px" />
+          </Button>
+
+          <Tooltip
+            hasArrow
+            label="Скопировать ссылку на профессию"
+            placement="bottom-end"
+          >
             <Button
               onClick={closeCharactersDrawer}
               variant="circleLight"
               backgroundColor="#BEC7CD"
             >
-              <Box as={CloseIcon} width="24px" height="24px" />
+              <Box as={LinkChain} width="24px" height="24px" />
             </Button>
-
-            <Tooltip
-              hasArrow
-              label="Скопировать ссылку на профессию"
-              placement="bottom-end"
-            >
-              <Button
-                onClick={closeCharactersDrawer}
-                variant="circleLight"
-                backgroundColor="#BEC7CD"
-              >
-                <Box as={LinkChain} width="24px" height="24px" />
-              </Button>
-            </Tooltip>
-          </Flex>
+          </Tooltip>
         </Flex>
       </Drawer>
     </>

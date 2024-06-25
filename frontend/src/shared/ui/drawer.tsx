@@ -14,6 +14,7 @@ interface DrawerProps extends ChakraDrawerProps {
   backgroundColor?: string;
   minWidth?: DrawerContentProps["minWidth"];
   padding?: DrawerContentProps["padding"];
+  borderLeftRadius?: DrawerContentProps["borderLeftRadius"];
 }
 
 const defaultDrawerContentMinWidth = {
@@ -32,6 +33,7 @@ export const Drawer = ({
   backgroundColor = colors.black,
   minWidth = defaultDrawerContentMinWidth,
   padding = defaultDrawerContentPadding,
+  borderLeftRadius,
   ...otherDrawerProps
 }: DrawerProps) => (
   <ChakraDrawer onClose={onClose} {...otherDrawerProps}>
@@ -39,9 +41,10 @@ export const Drawer = ({
 
     <DrawerContent
       backgroundColor={backgroundColor}
-      borderLeftRadius="64px"
+      borderLeftRadius={borderLeftRadius}
       minWidth={minWidth}
       padding={padding}
+      overflow="hidden"
     >
       <DrawerBody
         padding="4px"

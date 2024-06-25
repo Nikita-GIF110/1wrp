@@ -1,6 +1,14 @@
 import { Suspense } from "react";
+import { Link as ReactRouterLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
-import { Box, Button, Flex, useDisclosure, Tooltip } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  useDisclosure,
+  Tooltip,
+  Link,
+} from "@chakra-ui/react";
 import { UserPanel } from "features/layout/ui/user-panel";
 import { MenuListDesktop, MenuListMobile } from "features/layout/ui/menu-list";
 import { Header } from "features/layout/ui/header";
@@ -22,6 +30,7 @@ import { colors } from "shared/config/colors";
 
 import LinkChain from "assets/images/home/link-chain-icon.svg?react";
 import CloseIcon from "assets/icons/close-icon.svg?react";
+import UserIcon from "assets/icons/user-icon.svg?react";
 
 export const Layout = () => {
   const { setLang } = useI18N();
@@ -38,27 +47,40 @@ export const Layout = () => {
 
   return (
     <>
-      {/* Drawer */}
+      {/* Mobile Menu */}
       {(isMobile || isTablet) && (
         <Drawer
           isOpen={mobileMenuDrawer.isOpen}
           onClose={mobileMenuDrawer.onClose}
+          padding={{ base: "24px 32px", md: "64px 120px 64px 80px" }}
+          minWidth={{ base: "100%", md: "460px" }}
+          borderLeftRadius={{ md: "64px" }}
         >
-          <Flex justifyContent="space-between" columnGap="32px" height="100%">
-            {/* Left */}
-            <Flex flexDirection="column" justifyContent="space-between">
-              <Logo padding="24px 0" />
-              <MenuListMobile list={HEADER_NAVIGATION} />
-              <UserPanel placeholder="Войти" onClick={signInFormState.onOpen} />
-            </Flex>
+          <Flex
+            flexDirection="column"
+            height="100%"
+            justifyContent="space-between"
+          >
+            <Logo padding="24px 0" />
+            <MenuListMobile list={HEADER_NAVIGATION} />
+            <UserPanel
+              placeholder="Войти"
+              onClick={signInFormState.onOpen}
+              width="100%"
+            />
+          </Flex>
 
-            {/* Right */}
-            <Flex flexDirection="column" rowGap="32px">
-              <Button onClick={mobileMenuDrawer.onClose} variant="circleLight">
-                <Box as={CloseIcon} width="24px" height="24px" />
-              </Button>
-              <LanguageDropdown languages={LANGUAGES} onChage={setLanguage} />
-            </Flex>
+          <Flex
+            flexDirection="column"
+            rowGap="32px"
+            position="absolute"
+            top={{ base: "24px", md: "64px" }}
+            right={{ base: "32px", md: "40px" }}
+          >
+            <Button onClick={mobileMenuDrawer.onClose} variant="circleLight">
+              <Box as={CloseIcon} width="24px" height="24px" />
+            </Button>
+            <LanguageDropdown languages={LANGUAGES} onChage={setLanguage} />
           </Flex>
         </Drawer>
       )}
@@ -68,39 +90,59 @@ export const Layout = () => {
         isOpen={signInFormState.isOpen}
         onClose={signInFormState.onClose}
         backgroundColor={colors.white}
-        minWidth={{ xl: "630px" }}
+        minWidth={{ base: "100%", md: "515px", xl: "630px" }}
+        borderLeftRadius={{ md: "44px" }}
+        padding={{ base: "24px 32px", md: "64px 128px 64px 80px" }}
       >
-        <Flex justifyContent="space-between" columnGap="32px" height="100%">
-          <SignInForm
-            onSubmit={onSubmit}
-            validate={validate}
-            initialValues={initialValues}
-          />
+        <Flex flexDirection="column" height="100%">
+          <Box marginTop="auto">
+            <SignInForm
+              onSubmit={onSubmit}
+              validate={validate}
+              initialValues={initialValues}
+            />
+          </Box>
 
-          {/* Right */}
-          <Flex flexDirection="column" rowGap="12px">
+          <Link
+            as={ReactRouterLink}
+            variant="smallRoundedLight"
+            size="sm"
+            backgroundColor={colors.blue.primary}
+            color={colors.white}
+            marginTop="12px"
+          >
+            <Box as={UserIcon} width="20px" height="20px" marginRight="19px" />
+            Зарегистрироваться
+          </Link>
+        </Flex>
+
+        <Flex
+          flexDirection="column"
+          rowGap="12px"
+          position="absolute"
+          top={{ base: "24px", md: "64px" }}
+          right={{ base: "32px", md: "40px" }}
+        >
+          <Button
+            onClick={signInFormState.onClose}
+            variant="circleLight"
+            backgroundColor="#BEC7CD"
+          >
+            <Box as={CloseIcon} width="24px" height="24px" />
+          </Button>
+
+          <Tooltip hasArrow label="какой-то текст" placement="bottom-end">
             <Button
               onClick={signInFormState.onClose}
               variant="circleLight"
               backgroundColor="#BEC7CD"
             >
-              <Box as={CloseIcon} width="24px" height="24px" />
+              <Box as={LinkChain} width="24px" height="24px" />
             </Button>
-
-            <Tooltip hasArrow label="какой-то текст" placement="bottom-end">
-              <Button
-                onClick={signInFormState.onClose}
-                variant="circleLight"
-                backgroundColor="#BEC7CD"
-              >
-                <Box as={LinkChain} width="24px" height="24px" />
-              </Button>
-            </Tooltip>
-          </Flex>
+          </Tooltip>
         </Flex>
       </Drawer>
 
-      {/* Header */}
       <Box position="absolute" top={0} left={0} width="100%">
         {isDesktop && (
           <Header

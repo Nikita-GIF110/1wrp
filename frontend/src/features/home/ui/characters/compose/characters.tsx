@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Box } from "@chakra-ui/react";
-import type { CharactersEntity } from "features/home/models";
+import type { CharactersEntity, CharacterOptions } from "features/home/models";
 import { colors } from "shared/config/colors";
 import { CharactersHeader } from "../ui/characters-header";
 import { CharactersListHeader } from "../ui/characters-list-header";
@@ -17,7 +17,10 @@ interface CharactersBlockProps {
 }
 
 interface CharactersBlockProps {
-  onSelectCharacter: (character: CharactersEntity) => void;
+  onSelectCharacter: (
+    character: CharactersEntity,
+    options: CharacterOptions
+  ) => void;
 }
 
 export const CharactersBlock = ({
@@ -51,10 +54,9 @@ export const CharactersBlock = ({
         {government.map((character) => (
           <SwiperSlide key={character.image.src} style={{ width: "auto" }}>
             <CharacterTile
-              {...character}
+              character={character}
               gradientVariant="blue"
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              onSelectCharacter={onSelectCharacter as any}
+              onSelectCharacter={onSelectCharacter}
             />
           </SwiperSlide>
         ))}
@@ -80,11 +82,10 @@ export const CharactersBlock = ({
         {groups.map((character) => (
           <SwiperSlide key={character.image.src} style={{ width: "auto" }}>
             <CharacterTile
-              {...character}
+              character={character}
               gradientVariant="violet"
               size="medium"
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              onSelectCharacter={onSelectCharacter as any}
+              onSelectCharacter={onSelectCharacter}
             />
           </SwiperSlide>
         ))}
@@ -107,11 +108,10 @@ export const CharactersBlock = ({
         {mafia.map((character) => (
           <SwiperSlide key={character.image.src} style={{ width: "auto" }}>
             <CharacterTile
-              {...character}
               gradientVariant="red"
               size="medium"
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              onSelectCharacter={onSelectCharacter as any}
+              character={character}
+              onSelectCharacter={onSelectCharacter}
             />
           </SwiperSlide>
         ))}

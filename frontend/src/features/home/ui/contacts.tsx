@@ -51,16 +51,14 @@ export const Contacts = () => (
     _after={{
       content: "''",
       position: "absolute",
-      bottom: 0,
+      bottom: "-1052.5px",
       left: "50%",
       transform: "translateX(-50%)",
-      width: "100%",
-      height: "500px",
+      width: "1465px",
+      height: "1465px",
       opacity: 0.56,
-      background:
-        "radial-gradient(51.6% 143.73% at 50% 156.46%, #00A3FF 0%, rgba(12, 13, 17, 0.00) 100%)",
+      background: "radial-gradient(50% 50% at 50% 50%, #00A3FF 0%, rgba(12, 13, 17, 0.00) 100%)",
       pointerEvents: "none",
-      zIndex: -1,
     }}
   >
     <Flex
@@ -87,6 +85,7 @@ export const Contacts = () => (
       bottom={{ base: "-10px", md: "-35px" }}
       left="50%"
       transform="translate(-50%, 0)"
+      zIndex={1}
     >
       контакты
     </Box>

@@ -43,6 +43,17 @@ export const Intro = ({ linkHref }: IntroProps) => {
         </Flex>
       )}
 
+      {/* Overlay */}
+      <Box
+        position="absolute"
+        top={0}
+        left={0}
+        width="100%"
+        height="100%"
+        backgroundColor="#0C6AD9"
+        opacity={0.6}
+      />
+
       <Box
         as="img"
         src={isDesktop ? introImageDesktop : introImageMobile}

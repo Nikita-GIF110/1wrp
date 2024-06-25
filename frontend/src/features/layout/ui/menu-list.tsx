@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { Box, ListProps } from "@chakra-ui/react";
 import { List, ListItem, Link } from "@chakra-ui/react";
-import { CrownIcon } from "assets/icons/crown-icon";
+import CrownIcon from "assets/icons/crown-icon.svg?react";
 import { colors } from "shared/config/colors";
 
 interface MenuListProps extends ListProps {
@@ -27,13 +27,20 @@ const MenuItem = ({ to, children }: MenuItemProps) => (
     fontWeight={500}
     lineHeight="80%"
     color={colors.white}
+    display="inline-block"
   >
     {children}
   </Link>
 );
 
 export const MenuListDesktop = ({ list, ...otherListProps }: MenuListProps) => (
-  <List display="flex" alignItems="center" {...otherListProps}>
+  <List
+    display="flex"
+    alignItems="center"
+    justifyContent="center"
+    flexWrap="wrap"
+    {...otherListProps}
+  >
     {list.map((link, index) => (
       <ListItem
         key={link.label}
@@ -77,14 +84,14 @@ export const MenuListDesktop = ({ list, ...otherListProps }: MenuListProps) => (
 
           {list.length - 1 === index && (
             <Box
-              width="20px"
-              height="20px"
+              as={CrownIcon}
+              width="14px"
+              height="14px"
               position="absolute"
-              transform="rotate(5deg)"
-              right="8px"
-              top="-15px"
+              transform="rotate(25deg)"
+              right="13px"
+              top="-2px"
             >
-              <CrownIcon />
             </Box>
           )}
         </MenuItem>

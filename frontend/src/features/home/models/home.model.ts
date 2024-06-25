@@ -6,10 +6,13 @@ import type { Store, Actions } from "./entities";
 export const useHome = create<Store & Actions>()(
   immer((set) => ({
     selectedCharacter: null,
+    options: null,
     characterDrawerIsOpen: false,
-    viewCharacters: (selectedCharacter) => {
+    images: [],
+    viewCharacters: (selectedCharacter, options) => {
       set({
         selectedCharacter,
+        options,
         characterDrawerIsOpen: true,
       });
     },

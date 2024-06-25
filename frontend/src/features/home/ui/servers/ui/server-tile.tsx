@@ -1,10 +1,17 @@
+import { Fragment } from "react/jsx-runtime";
 import type { BoxProps } from "@chakra-ui/react";
 import { Box, Flex, Button } from "@chakra-ui/react";
 import { useClipboard } from "@chakra-ui/react";
 import { colors } from "shared/config/colors";
 import { useMediaQuery } from "shared/lib/useMediaQuery";
-import TileDecorFrame from "assets/images/home/server-tile-decor-frame-1.svg?react";
-import ServerIcon from "assets/images/home/server-icon-1.svg?react";
+import TileDecorFrame1 from "assets/images/home/server-tile-decor-frame-1.svg?react";
+import TileDecorFrame2 from "assets/images/home/server-tile-decor-frame-2.svg?react";
+import TileDecorFrame3 from "assets/images/home/server-tile-decor-frame-3.svg?react";
+import TileDecorFrame4 from "assets/images/home/server-tile-decor-frame-4.svg?react";
+import TileDecorFrame5 from "assets/images/home/server-tile-decor-frame-5.svg?react";
+import ServerIcon1 from "assets/images/home/server-icon-1.svg?react";
+import ServerIcon2 from "assets/images/home/server-icon-2.svg?react";
+import ServerIcon3 from "assets/images/home/server-icon-3.svg?react";
 import CopyIcon from "assets/icons/copy-icon.svg?react";
 import CheckIcon from "assets/icons/check-icon.svg?react";
 
@@ -14,6 +21,7 @@ interface ServerTileProps {
   onlineCount: number;
   registeredCount: number;
   link: string;
+  index?: number;
 }
 
 interface StatisticsItem {
@@ -21,8 +29,9 @@ interface StatisticsItem {
   count: number;
 }
 
-interface CopyButtonProps extends Omit<BoxProps, "position | overflow"> {
-  text: string;
+interface CopyWrapperProps extends Omit<BoxProps, "position | overflow"> {
+  hasCopied: boolean;
+  onCopyClick: () => void;
 }
 
 const StatisticsItem = ({ header, count }: StatisticsItem) => (
@@ -60,54 +69,58 @@ const StatisticsItem = ({ header, count }: StatisticsItem) => (
     </Box>
   </Flex>
 );
-const CopyButton = ({ text, ...otherBoxProps }: CopyButtonProps) => {
-  const { onCopy, hasCopied, setValue } = useClipboard("");
+const CopyWrapper = ({
+  hasCopied,
+  children,
+  onCopyClick,
+  ...otherCopyWrapperProps
+}: CopyWrapperProps) => (
+  <Box
+    position="relative"
+    overflow="hidden"
+    cursor="pointer"
+    {...otherCopyWrapperProps}
+  >
+    {children}
 
-  return (
-    <Box
-      position="relative"
-      borderRadius="6px"
-      overflow="hidden"
-      cursor="pointer"
-      {...otherBoxProps}
+    <Flex
+      opacity={0}
+      position="absolute"
+      top={0}
+      left={0}
+      width="100%"
+      height="100%"
+      justify="center"
+      alignItems="center"
+      transition="opacity 0.2s ease-in"
+      onClick={onCopyClick}
+      _hover={{
+        opacity: 1,
+        backgroundColor: hasCopied
+          ? "rgba(0, 163, 255, 0.80)"
+          : "rgba(12, 13, 17, 0.90)",
+      }}
     >
-      <Button
-        variant="mediumDark"
-        size="md"
-        fontSize="20px"
-        overflow="hidden"
-        textOverflow="ellipsis"
-        whiteSpace="nowrap"
-        width="100%"
-      >
-        {text}
-      </Button>
+      <Box as={hasCopied ? CheckIcon : CopyIcon} color={colors.white} />
+    </Flex>
+  </Box>
+);
 
-      <Flex
-        opacity={0}
-        position="absolute"
-        top={0}
-        left={0}
-        width="100%"
-        height="100%"
-        justify="center"
-        alignItems="center"
-        transition="opacity 0.2s ease-in"
-        _hover={{
-          opacity: 1,
-          backgroundColor: hasCopied
-            ? "rgba(0, 163, 255, 0.80)"
-            : "rgba(12, 13, 17, 0.90)",
-        }}
-        onClick={() => {
-          setValue(text);
-          onCopy();
-        }}
-      >
-        <Box as={hasCopied ? CheckIcon : CopyIcon} color={colors.white} />
-      </Flex>
-    </Box>
-  );
+const icons = {
+  0: ServerIcon1,
+  1: ServerIcon2,
+  2: ServerIcon3,
+  3: ServerIcon3,
+  4: ServerIcon1,
+  5: ServerIcon2,
+};
+const frames = {
+  0: TileDecorFrame1,
+  1: TileDecorFrame2,
+  2: TileDecorFrame3,
+  3: TileDecorFrame4,
+  4: TileDecorFrame5,
+  5: TileDecorFrame1,
 };
 
 export const ServerTile = ({
@@ -115,68 +128,103 @@ export const ServerTile = ({
   onlineCount,
   registeredCount,
   link,
+  index = 0,
 }: ServerTileProps) => {
   const { isDesktop, isTablet } = useMediaQuery();
+  const { onCopy, hasCopied, setValue } = useClipboard("");
+
+  const WrapperComponent = !isDesktop ? CopyWrapper : Fragment;
+
+  const onCopyClick = () => {
+    setValue(link);
+    onCopy();
+  };
 
   return (
-    <Flex
-      flexDirection="column"
-      rowGap={{ base: "4px", md: "20px" }}
-      backgroundColor={colors.white}
-      borderRadius="md"
-      position="relative"
-      padding={{
-        base: "12px",
-        md: "24px 24px 24px 80px",
-        xl: "27px 40px 27px 100px",
-      }}
+    <WrapperComponent
+      onCopyClick={onCopyClick}
+      hasCopied={hasCopied}
+      borderRadius="6px"
     >
-      {(isDesktop || isTablet) && (
-        <>
-          <Box
-            as={TileDecorFrame}
-            position="absolute"
-            top="-4px"
-            left="-69px"
-          />
-
-          <Box
-            as={ServerIcon}
-            position="absolute"
-            top="39px"
-            left="-80px"
-            width={160}
-            height={160}
-          />
-        </>
-      )}
-
-      <Box
-        fontSize={{
-          base: "18px",
-          md: "24px",
-          xl: "40px",
-        }}
-        fontWeight={900}
-        lineHeight="100%"
-        textTransform="uppercase"
-      >
-        {name}
-      </Box>
-
       <Flex
-        justifyContent="space-between"
-        rowGap={{ base: "2px", md: "20px" }}
-        flexDirection={{
-          base: "column",
-          xl: "row",
+        flexDirection="column"
+        rowGap={{ base: "4px", md: "20px" }}
+        backgroundColor={colors.white}
+        borderRadius="md"
+        position="relative"
+        padding={{
+          base: "12px",
+          md: "24px 24px 24px 80px",
+          xl: "27px 40px 27px 100px",
         }}
       >
-        <StatisticsItem header="онлайн игроков" count={onlineCount} />
-        <StatisticsItem header="зарегистрировано" count={registeredCount} />
-      </Flex>
+        {(isDesktop || isTablet) && (
+          <>
+            <Box
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              as={(frames as any)[index]}
+              position="absolute"
+              top="-14px"
+              left="-69px"
+            />
 
-      {(isDesktop || isTablet) && <CopyButton text={link} />}
-    </Flex>
+            <Box
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              as={(icons as any)[index]}
+              position="absolute"
+              top="39px"
+              left="-80px"
+              width={160}
+              height={160}
+            />
+          </>
+        )}
+
+        <Box
+          fontSize={{
+            base: "18px",
+            md: "24px",
+            xl: "40px",
+          }}
+          fontWeight={900}
+          lineHeight="100%"
+          textTransform="uppercase"
+        >
+          {name}
+        </Box>
+
+        <Flex
+          justifyContent="space-between"
+          rowGap={{ base: "2px", md: "20px" }}
+          flexDirection={{
+            base: "column",
+            xl: "row",
+          }}
+        >
+          <StatisticsItem header="онлайн игроков" count={onlineCount} />
+          <StatisticsItem header="зарегистрировано" count={registeredCount} />
+        </Flex>
+
+        {(isDesktop || isTablet) && (
+          <CopyWrapper
+            hasCopied={hasCopied}
+            onCopyClick={onCopyClick}
+            borderRadius="6px"
+          >
+            <Button
+              variant="mediumDark"
+              size="md"
+              fontSize="20px"
+              overflow="hidden"
+              textOverflow="ellipsis"
+              whiteSpace="nowrap"
+              width="100%"
+            >
+              {link}
+            </Button>
+          </CopyWrapper>
+        )}
+      </Flex>
+    </WrapperComponent>
   );
 };

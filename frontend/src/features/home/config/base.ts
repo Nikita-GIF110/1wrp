@@ -27,6 +27,11 @@ import news1 from "assets/images/home/news-image-1.png";
 import news2 from "assets/images/home/news-image-1.png";
 import news3 from "assets/images/home/news-image-3.png";
 import news4 from "assets/images/home/news-image-2.png";
+// Info
+import infoImg1 from "assets/images/home/info-image-1.png";
+import infoImg2 from "assets/images/home/info-image-2.png";
+import infoImg3 from "assets/images/home/info-image-3.png";
+import infoImg4 from "assets/images/home/info-image-4.png";
 
 export const NEWS_LIST: Array<NewsEntity> = [
   {
@@ -155,6 +160,12 @@ export const CHARACTERS_GOVERNMENT_AGENCIES_LIST: Array<CharactersEntity> = [
       alt: "",
       title: "",
     },
+    images: [
+      { src: infoImg1, alt: "", title: "" },
+      { src: infoImg2, alt: "", title: "" },
+      { src: infoImg3, alt: "", title: "" },
+      { src: infoImg4, alt: "", title: "" },
+    ],
   },
   {
     id: 2,
@@ -165,6 +176,12 @@ export const CHARACTERS_GOVERNMENT_AGENCIES_LIST: Array<CharactersEntity> = [
       alt: "",
       title: "",
     },
+    images: [
+      { src: infoImg1, alt: "", title: "" },
+      { src: infoImg2, alt: "", title: "" },
+      { src: infoImg3, alt: "", title: "" },
+      { src: infoImg4, alt: "", title: "" },
+    ],
   },
   {
     id: 3,
@@ -175,6 +192,12 @@ export const CHARACTERS_GOVERNMENT_AGENCIES_LIST: Array<CharactersEntity> = [
       alt: "",
       title: "",
     },
+    images: [
+      { src: infoImg1, alt: "", title: "" },
+      { src: infoImg2, alt: "", title: "" },
+      { src: infoImg3, alt: "", title: "" },
+      { src: infoImg4, alt: "", title: "" },
+    ],
   },
   {
     id: 4,
@@ -185,6 +208,12 @@ export const CHARACTERS_GOVERNMENT_AGENCIES_LIST: Array<CharactersEntity> = [
       alt: "",
       title: "",
     },
+    images: [
+      { src: infoImg1, alt: "", title: "" },
+      { src: infoImg2, alt: "", title: "" },
+      { src: infoImg3, alt: "", title: "" },
+      { src: infoImg4, alt: "", title: "" },
+    ],
   },
   {
     id: 5,
@@ -195,6 +224,12 @@ export const CHARACTERS_GOVERNMENT_AGENCIES_LIST: Array<CharactersEntity> = [
       alt: "",
       title: "",
     },
+    images: [
+      { src: infoImg1, alt: "", title: "" },
+      { src: infoImg2, alt: "", title: "" },
+      { src: infoImg3, alt: "", title: "" },
+      { src: infoImg4, alt: "", title: "" },
+    ],
   },
   {
     id: 6,
@@ -205,6 +240,12 @@ export const CHARACTERS_GOVERNMENT_AGENCIES_LIST: Array<CharactersEntity> = [
       alt: "",
       title: "",
     },
+    images: [
+      { src: infoImg1, alt: "", title: "" },
+      { src: infoImg2, alt: "", title: "" },
+      { src: infoImg3, alt: "", title: "" },
+      { src: infoImg4, alt: "", title: "" },
+    ],
   },
   {
     id: 7,
@@ -215,6 +256,12 @@ export const CHARACTERS_GOVERNMENT_AGENCIES_LIST: Array<CharactersEntity> = [
       alt: "",
       title: "",
     },
+    images: [
+      { src: infoImg1, alt: "", title: "" },
+      { src: infoImg2, alt: "", title: "" },
+      { src: infoImg3, alt: "", title: "" },
+      { src: infoImg4, alt: "", title: "" },
+    ],
   },
   {
     id: 8,
@@ -225,6 +272,12 @@ export const CHARACTERS_GOVERNMENT_AGENCIES_LIST: Array<CharactersEntity> = [
       alt: "",
       title: "",
     },
+    images: [
+      { src: infoImg1, alt: "", title: "" },
+      { src: infoImg2, alt: "", title: "" },
+      { src: infoImg3, alt: "", title: "" },
+      { src: infoImg4, alt: "", title: "" },
+    ],
   },
 ];
 
@@ -238,6 +291,12 @@ export const CHARACTERS_STREER_GROUPS_AGENCIES_LIST: Array<CharactersEntity> = [
       alt: "",
       title: "",
     },
+    images: [
+      { src: infoImg1, alt: "", title: "" },
+      { src: infoImg2, alt: "", title: "" },
+      { src: infoImg3, alt: "", title: "" },
+      { src: infoImg4, alt: "", title: "" },
+    ],
   },
   {
     id: 1,
@@ -248,6 +307,12 @@ export const CHARACTERS_STREER_GROUPS_AGENCIES_LIST: Array<CharactersEntity> = [
       alt: "",
       title: "",
     },
+    images: [
+      { src: infoImg1, alt: "", title: "" },
+      { src: infoImg2, alt: "", title: "" },
+      { src: infoImg3, alt: "", title: "" },
+      { src: infoImg4, alt: "", title: "" },
+    ],
   },
   {
     id: 1,
@@ -258,6 +323,12 @@ export const CHARACTERS_STREER_GROUPS_AGENCIES_LIST: Array<CharactersEntity> = [
       alt: "",
       title: "",
     },
+    images: [
+      { src: infoImg1, alt: "", title: "" },
+      { src: infoImg2, alt: "", title: "" },
+      { src: infoImg3, alt: "", title: "" },
+      { src: infoImg4, alt: "", title: "" },
+    ],
   },
 ];
 
@@ -271,6 +342,12 @@ export const CHARACTERS_MAFIA_AGENCIES_LIST: Array<CharactersEntity> = [
       alt: "",
       title: "",
     },
+    images: [
+      { src: infoImg1, alt: "", title: "" },
+      { src: infoImg2, alt: "", title: "" },
+      { src: infoImg3, alt: "", title: "" },
+      { src: infoImg4, alt: "", title: "" },
+    ],
   },
   {
     id: 1,
@@ -281,6 +358,12 @@ export const CHARACTERS_MAFIA_AGENCIES_LIST: Array<CharactersEntity> = [
       alt: "",
       title: "",
     },
+    images: [
+      { src: infoImg1, alt: "", title: "" },
+      { src: infoImg2, alt: "", title: "" },
+      { src: infoImg3, alt: "", title: "" },
+      { src: infoImg4, alt: "", title: "" },
+    ],
   },
   {
     id: 1,
@@ -291,6 +374,12 @@ export const CHARACTERS_MAFIA_AGENCIES_LIST: Array<CharactersEntity> = [
       alt: "",
       title: "",
     },
+    images: [
+      { src: infoImg1, alt: "", title: "" },
+      { src: infoImg2, alt: "", title: "" },
+      { src: infoImg3, alt: "", title: "" },
+      { src: infoImg4, alt: "", title: "" },
+    ],
   },
 ];
 

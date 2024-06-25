@@ -24,6 +24,7 @@
     "react-lazyload": "^3.2.1",
     "react-router-dom": "^6.23.0",
     "swiper": "^11.1.4",
+    "yet-another-react-lightbox": "^3.20.0",
     "yup": "^1.4.0",
     "zustand": "^4.5.2"
   },

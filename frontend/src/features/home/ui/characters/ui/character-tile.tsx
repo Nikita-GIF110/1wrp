@@ -1,43 +1,39 @@
 import { Box, Flex } from "@chakra-ui/react";
 import InfoIcon from "assets/images/home/info-icon.svg?react";
+import type { CharactersEntity, CharacterOptions } from "features/home/models";
 import { colors } from "shared/config/colors";
 
 type GradientsType = "blue" | "violet" | "red";
 type SizesType = "small" | "medium";
 
 interface CharacterTileProps {
-  name: string;
-  image: {
-    src: string;
-    alt: string;
-    title: string;
-  };
+  character: CharactersEntity;
   gradientVariant?: GradientsType;
   size?: SizesType;
-  onSelectCharacter: (character: {
-    name: string;
-    image: {
-      src: string;
-      alt: string;
-      title: string;
-    };
-    gradientBg: string;
-    gradientHover: string;
-  }) => void;
+  onSelectCharacter: (
+    character: CharactersEntity,
+    options: CharacterOptions
+  ) => void;
 }
 
-const gradients: Record<GradientsType, { bg: string; hover: string }> = {
+const gradients: Record<
+  GradientsType,
+  { bg: string; hover: string; active: string }
+> = {
   blue: {
     bg: "linear-gradient(0deg, rgba(0, 163, 255, 0.50) 0%, rgba(0, 163, 255, 0.00) 100%)",
     hover: "linear-gradient(0deg, #00A3FF 0%, rgba(0, 163, 255, 0.00) 100%)",
+    active: "",
   },
   violet: {
     bg: "linear-gradient(0deg, rgba(171, 34, 255, 0.50) 0%, rgba(171, 34, 255, 0.00) 100%)",
     hover: "linear-gradient(0deg, #AB22FF 0%, rgba(171, 34, 255, 0.00) 100%)",
+    active: "",
   },
   red: {
     bg: "linear-gradient(0deg, rgba(243, 47, 47, 0.50) 0%, rgba(243, 47, 47, 0.00) 100%)",
     hover: "linear-gradient(0deg, #F32F2F 0%, rgba(243, 47, 47, 0.00) 100%)",
+    active: "",
   },
 };
 const sizes: Record<SizesType, { width: string; height: string }> = {
@@ -52,18 +48,14 @@ const sizes: Record<SizesType, { width: string; height: string }> = {
 };
 
 export const CharacterTile = ({
-  name,
-  image,
+  character,
   gradientVariant = "blue",
   size = "small",
-  onSelectCharacter
+  onSelectCharacter,
 }: CharacterTileProps) => {
   const onClick = () => {
-    onSelectCharacter({
-      name,
-      image,
+    onSelectCharacter(character, {
       gradientBg: gradients[gradientVariant].bg,
-      gradientHover: gradients[gradientVariant].hover,
     });
   };
 
@@ -87,10 +79,27 @@ export const CharacterTile = ({
           transform: "scale(1.03)",
         },
       }}
+      _active={{
+        _after: {
+          opacity: 0.3,
+        },
+      }}
+      _after={{
+        content: "''",
+        display: "block",
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        transition: "all 0.2s ease-in-out",
+        opacity: 0,
+        backgroundColor: colors[gradientVariant].primary,
+      }}
     >
       <Box
         as="img"
-        {...image}
+        {...character.image}
         maxWidth="100%"
         height="auto"
         objectFit="cover"
@@ -111,6 +120,7 @@ export const CharacterTile = ({
         transition="all 0.3s ease-in-out"
         flexDirection="column"
         alignItems="center"
+        justifyContent="flex-end"
         fontSize="12px"
         fontWeight={800}
         lineHeight="54px"
@@ -120,7 +130,7 @@ export const CharacterTile = ({
       >
         <InfoIcon />
 
-        {name}
+        {character.name}
       </Flex>
     </Flex>
   );

@@ -1,4 +1,4 @@
-import type { Nullable } from "entities/utils";
+import type { Nullable, Image } from "entities/utils";
 
 export interface NewsEntity {
   isNew: boolean;
@@ -30,11 +30,12 @@ export interface CharactersEntity {
   id: number;
   name: string;
   link: string;
-  image: {
-    src: string;
-    alt: string;
-    title: string;
-  };
+  image: Image;
+  images: Array<Image>;
+}
+
+export interface CharacterOptions {
+  gradientBg: string;
 }
 
 export interface QuestionEntity {
@@ -45,10 +46,14 @@ export interface QuestionEntity {
 
 export interface Store {
   selectedCharacter: Nullable<CharactersEntity>;
+  options: Nullable<CharacterOptions>;
   characterDrawerIsOpen: boolean;
 }
 
 export interface Actions {
-  viewCharacters: (character: CharactersEntity) => void;
+  viewCharacters: (
+    character: CharactersEntity,
+    options: CharacterOptions
+  ) => void;
   closeCharactersDrawer: () => void;
 }

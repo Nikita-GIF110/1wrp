@@ -7,6 +7,12 @@ export type SelectOption<Value = string, Label = string> = {
   label: Label;
 };
 
+export interface Image {
+  src: string;
+  alt: string;
+  title: string;
+}
+
 export type OnSubmitForm<FormValues> = (
   values: FormValues,
   form: FormApi<FormValues, Partial<FormValues>>,

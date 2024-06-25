@@ -1,3 +1,4 @@
+import { Link as ReactRouterLink } from "react-router-dom";
 import { Field, withTypes } from "react-final-form";
 import type { InputProps, CheckboxProps } from "@chakra-ui/react";
 import {
@@ -9,6 +10,7 @@ import {
   Button,
   Checkbox,
   FormHelperText,
+  Link,
 } from "@chakra-ui/react";
 import type { SignInFormFields } from "entities/auth";
 import type { OnSubmitForm, ValidateForm } from "entities/utils";
@@ -31,33 +33,38 @@ interface FormCheckboxProps extends CheckboxProps {
   label: string;
 }
 
-const FormInput = ({ name, ...otherInputProps }: FormInputProps) => (
+const FormInput = ({
+  name,
+  label,
+  placeholder,
+  ...otherInputProps
+}: FormInputProps) => (
   <Field name={name}>
-    {({ input, meta }) => {
-      console.log(meta.touched);
-      console.log(meta.error);
-
-      return (
-        <FormControl marginBottom="16px">
-          <FormLabel
-            color={colors.black}
-            fontWeight={500}
-            fontSize="16px"
-            lineHeight="100%"
-            letterSpacing="-0.64px"
-            textTransform="uppercase"
-            marginBottom="6px"
-            opacity={0.6}
-          >
-            Login
-          </FormLabel>
-          <Input {...input} {...otherInputProps} variant="landingMedium" />
-          {meta.touched && meta.error && (
-            <FormHelperText>{meta.error}</FormHelperText>
-          )}
-        </FormControl>
-      );
-    }}
+    {({ input, meta }) => (
+      <FormControl marginBottom="16px">
+        <FormLabel
+          color={colors.black}
+          fontWeight={500}
+          fontSize="16px"
+          lineHeight="100%"
+          letterSpacing="-0.64px"
+          textTransform="uppercase"
+          marginBottom="6px"
+          opacity={0.6}
+        >
+          {label}
+        </FormLabel>
+        <Input
+          {...input}
+          {...otherInputProps}
+          variant="landingMedium"
+          placeholder={placeholder}
+        />
+        {meta.touched && meta.error && (
+          <FormHelperText>{meta.error}</FormHelperText>
+        )}
+      </FormControl>
+    )}
   </Field>
 );
 
@@ -71,7 +78,7 @@ const FormCheckbox = ({
       const isChecked = input.checked;
 
       return (
-        <FormControl marginBottom="32px" marginTop="32px">
+        <FormControl marginBottom="32px" marginTop="32px" width="auto">
           <Checkbox
             variant="landingMedium"
             defaultChecked={isChecked}
@@ -93,7 +100,7 @@ export const SignInForm = ({
   validate,
   initialValues,
 }: SignInFormProps) => (
-  <Flex justifyContent="flex-end" flexDirection="column">
+  <Flex flexDirection="column">
     <Box
       fontSize="28px"
       fontWeight={700}
@@ -114,18 +121,32 @@ export const SignInForm = ({
             name="password"
             label="password"
             type="password"
+            placeholder="Ваш пароль"
             autoComplete="new-password"
           />
 
-          <FormCheckbox name="rememberMe" label="Запомнить меня" />
+          <Flex justifyContent="space-between" alignItems="center">
+            <FormCheckbox name="rememberMe" label="Запомнить меня" />
 
-          <Button variant="medium" size="md" type="submit">
+            <Link
+              as={ReactRouterLink}
+              to="/"
+              color={colors.blue.primary}
+              fontSize="14px"
+              fontWeight={800}
+              lineHeight="100%"
+            >
+              Забыл пароль
+            </Link>
+          </Flex>
+
+          <Button variant="medium" size="md" type="submit" width="100%">
             Войти
             <Box
               as={ThinArrowIcon}
               width="26px"
               height="26px"
-              marginLeft="19px"
+              marginLeft="auto"
             />
           </Button>
         </form>
