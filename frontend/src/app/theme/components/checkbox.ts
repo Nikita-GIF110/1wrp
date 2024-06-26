@@ -11,11 +11,13 @@ export const Checkbox = defineMultiStyleConfig({
   variants: {
     landingMedium: definePartsStyle({
       control: {
-        background: "#829199",
+        border: "none",
+        background: "#677176",
         borderRadius: "4px",
         padding: "4px",
         width: "30px",
         height: "30px",
+        transition: "background 0.2s ease-in",
 
         _hover: {
           background: "#829199",
@@ -25,11 +27,11 @@ export const Checkbox = defineMultiStyleConfig({
           background: colors.blue.primary,
         },
         // _active: {
-        //   background: "red"
-        //   // background: "linear-gradient(0deg, rgba(12, 13, 17, 0.20) 0%, rgba(12, 13, 17, 0.20) 100%), var(--Blue, #00A3FF)"
-        // }
+        //   background:
+        //     "linear-gradient(0deg, rgba(12, 13, 17, 0.20) 0%, rgba(12, 13, 17, 0.20) 100%), var(--Blue, #00A3FF)",
+        // },
       },
-   
+
       icon: {
         width: "18px",
         height: "18px",

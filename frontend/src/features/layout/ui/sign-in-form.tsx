@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { Field, withTypes } from "react-final-form";
 import type { InputProps, CheckboxProps } from "@chakra-ui/react";
@@ -16,8 +17,8 @@ import type { SignInFormFields } from "entities/auth";
 import type { OnSubmitForm, ValidateForm } from "entities/utils";
 import { colors } from "shared/config/colors";
 import ThinArrowIcon from "assets/images/home/thin-arrow-icon.svg?react";
-// import CheckIcon from "assets/icons/check-icon.svg?react";
-// import CloseIcon from "assets/icons/close-icon.svg?react";
+import CheckIcon from "assets/icons/check-icon.svg?react";
+import CloseIcon from "assets/icons/close-icon.svg?react";
 
 interface SignInFormProps {
   onSubmit: OnSubmitForm<SignInFormFields>;
@@ -74,36 +75,55 @@ const FormCheckbox = ({
   name,
   label,
   ...otherInputProps
-}: FormCheckboxProps) => (
-  <Field name={name} type="checkbox">
-    {({ input }) => {
-      const isChecked = input.checked;
+}: FormCheckboxProps) => {
+  return (
+    <Field name={name} type="checkbox">
+      {({ input }) => {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const [isHover, setIsHover] = useState<boolean>(false);
+        const isChecked = input.checked;
 
-      return (
-        <FormControl width="auto">
-          <Checkbox
-            variant="landingMedium"
-            defaultChecked={isChecked}
-            // icon={<CloseIcon />}
-            // checkedIcon={<CloseIcon />}
-            // checkedIcon={<CloseIcon />}
-            {...input}
-            {...otherInputProps}
-          >
-            {label}
-          </Checkbox>
-        </FormControl>
-      );
-    }}
-  </Field>
-);
+        return (
+          <FormControl width="auto">
+            <Checkbox
+              variant="landingMedium"
+              onMouseEnter={() => setIsHover(true)}
+              onMouseLeave={() => setIsHover(false)}
+              defaultChecked={isChecked}
+              icon={
+                isChecked ? (
+                  <Box
+                    as={CheckIcon}
+                    color={isChecked ? colors.white : colors.black}
+                    opacity={isHover ? 0.7 : 1}
+                    transition="opacity 0.2s ease-in"
+                  />
+                ) : (
+                  <Box
+                    as={isHover ? CheckIcon : CloseIcon}
+                    color={isChecked || isHover ? colors.white : colors.black}
+                    opacity={0.2}
+                    transition="opacity 0.2s ease-in"
+                  />
+                )
+              }
+              {...input}
+              {...otherInputProps}
+            >
+              {label}
+            </Checkbox>
+          </FormControl>
+        );
+      }}
+    </Field>
+  );
+};
 
 const { Form } = withTypes<SignInFormFields>();
 
 export const SignInForm = ({
   onSubmit,
   validate,
-  initialValues,
 }: SignInFormProps) => (
   <Flex flexDirection="column">
     <Box
@@ -119,7 +139,8 @@ export const SignInForm = ({
       Личный кабинет
     </Box>
 
-    <Form onSubmit={onSubmit} validate={validate} initialValues={initialValues}>
+    {/*  initialValues={initialValues} */}
+    <Form onSubmit={onSubmit} validate={validate}>
       {({ handleSubmit }) => (
         <form onSubmit={handleSubmit}>
           <FormInput name="login" placeholder="Ваш логин" label="login" />

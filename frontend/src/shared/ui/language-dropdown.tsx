@@ -69,45 +69,49 @@ export const LanguageDropdown = ({
         width="36px"
         padding="2px"
         borderRadius="4px"
-        position="relative"
-        _before={{
-          content: "''",
-          position: "absolute",
-          top: 0,
-          left: "50%",
-          transform: "translate(-50%, -50%) rotate(45deg)",
-          width: "10px",
-          height: "10px",
-          backgroundColor: colors.white,
-          borderRadius: "2px",
-          zIndex: -1,
-        }}
       >
-        {languages.map((language, index) => {
-          const isFirst = index === 0;
-          const isLast = index === languages.length - 1;
+        <Box
+          position="relative"
+          _before={{
+            content: "''",
+            position: "absolute",
+            top: 0,
+            left: "50%",
+            transform: "translate(-50%, calc(-52% - 2px)) rotate(45deg)",
+            width: "10px",
+            height: "10px",
+            backgroundColor: colors.white,
+            borderRadius: "2px",
+            zIndex: -1,
+            border: "none",
+          }}
+        >
+          {languages.map((language, index) => {
+            const isFirst = index === 0;
+            const isLast = index === languages.length - 1;
 
-          return (
-            <MenuItem
-              key={language.label}
-              onClick={handelChangeLanguage(language)}
-              padding="2px"
-              justifyContent="center"
-              borderTopRadius={isFirst ? "4px" : "0"}
-              borderBottomRadius={isLast ? "4px" : "0"}
-              _hover={{
-                backgroundColor: "rgba(12, 13, 17, 0.40)",
-              }}
-            >
-              <Box
-                as={language.value === "ru" ? RuFlag : EnFlag}
-                width="24px"
-                height="24px"
-                visibility="visible"
-              />
-            </MenuItem>
-          );
-        })}
+            return (
+              <MenuItem
+                key={language.label}
+                onClick={handelChangeLanguage(language)}
+                padding="2px"
+                justifyContent="center"
+                borderTopRadius={isFirst ? "4px" : "0"}
+                borderBottomRadius={isLast ? "4px" : "0"}
+                _hover={{
+                  backgroundColor: "rgba(12, 13, 17, 0.40)",
+                }}
+              >
+                <Box
+                  as={language.value === "ru" ? RuFlag : EnFlag}
+                  width="24px"
+                  height="24px"
+                  visibility="visible"
+                />
+              </MenuItem>
+            );
+          })}
+        </Box>
       </MenuList>
     </Menu>
   );

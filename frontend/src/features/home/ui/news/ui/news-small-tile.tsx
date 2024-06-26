@@ -36,6 +36,7 @@ export const NewsSmallTile = ({
     title={image.title}
     backgroundColor={colors.blue.primary}
     position="relative"
+    minHeight="230px"
     sx={{
       ".hover-traget-text": {
         transition: "transform 0.2s ease-in-out",
@@ -88,7 +89,7 @@ export const NewsSmallTile = ({
         width="100%"
         height="100%"
         backgroundSize="cover"
-        transform="transform 0.2s ease-in-out"
+        transition="transform 0.3s ease-in-out"
         className="hover-target-image"
       />
     </LazyLoad>
