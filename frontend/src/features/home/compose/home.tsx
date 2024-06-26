@@ -1,4 +1,5 @@
 import { Box, Flex, Button } from "@chakra-ui/react";
+import LazyLoad from "react-lazyload";
 
 import { AboutBlock } from "features/home/ui/about";
 import { Intro } from "features/home/ui/intro";
@@ -141,13 +142,15 @@ const Home = () => {
         borderLeftRadius={{ base: "44px", md: "64px" }}
         autoFocus={false}
       >
-        {selectedCharacter && selectedCharacterOptions && (
-          <CharacterInfo
-            characterpreviewImage={selectedCharacter.image}
-            images={selectedCharacter.images}
-            gradientBg={selectedCharacterOptions.gradientBg}
-          />
-        )}
+        <LazyLoad>
+          {selectedCharacter && selectedCharacterOptions && (
+            <CharacterInfo
+              characterpreviewImage={selectedCharacter.image}
+              images={selectedCharacter.images}
+              gradientBg={selectedCharacterOptions.gradientBg}
+            />
+          )}
+        </LazyLoad>
 
         <Flex
           flexDirection="column"

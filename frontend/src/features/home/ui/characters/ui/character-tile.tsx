@@ -1,4 +1,5 @@
 import { Box, Flex } from "@chakra-ui/react";
+import LazyLoad from "react-lazyload";
 import InfoIcon from "assets/images/home/info-icon.svg?react";
 import type { CharactersEntity, CharacterOptions } from "features/home/models";
 import { colors } from "shared/config/colors";
@@ -97,15 +98,17 @@ export const CharacterTile = ({
         backgroundColor: colors[gradientVariant].primary,
       }}
     >
-      <Box
-        as="img"
-        {...character.image}
-        maxWidth="100%"
-        height="auto"
-        objectFit="cover"
-        transition="all 0.3s ease-in-out"
-        className={size === "small" ? "" : "hover-target-img"}
-      />
+      <LazyLoad height={sizes[size].height} offset={10}>
+        <Box
+          as="img"
+          {...character.image}
+          maxWidth="100%"
+          height="auto"
+          objectFit="cover"
+          transition="all 0.3s ease-in-out"
+          className={size === "small" ? "" : "hover-target-img"}
+        />
+      </LazyLoad>
 
       <Flex
         className="hover-target-info"

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import type { BoxProps } from "@chakra-ui/react";
 import { Badge, Box, Stack } from "@chakra-ui/react";
+import LazyLoad from "react-lazyload";
 import { colors } from "shared/config/colors";
 
 interface NewsSmallTileProps extends BoxProps {
@@ -40,21 +41,6 @@ export const NewsSmallTile = ({
         transition: "transform 0.2s ease-in-out",
       },
     }}
-    _before={{
-      content: "''",
-      position: "absolute",
-      top: 0,
-      left: 0,
-      zIndex: 0,
-      width: "100%",
-      height: "100%",
-      backgroundRepeat: "no-repeat",
-      backgroundPosition: "bottom right",
-      backgroundSize: "cover",
-      backgroundImage: image.src,
-      pointerEvents: "none",
-      transition: "transform 0.2s ease-in-out",
-    }}
     _after={{
       content: "''",
       display: { base: "block", md: "none" },
@@ -68,7 +54,7 @@ export const NewsSmallTile = ({
       zIndex: 1,
     }}
     _hover={{
-      _before: {
+      ".hover-target-image": {
         transform: "scale(1.1)",
       },
 
@@ -90,6 +76,22 @@ export const NewsSmallTile = ({
         <Badge variant="boxyDark">04 марта</Badge>
       </Stack>
     )}
+
+    <LazyLoad>
+      <Box
+        as="img"
+        src={image.src}
+        pointerEvents="none"
+        position="absolute"
+        top={0}
+        left={0}
+        width="100%"
+        height="100%"
+        backgroundSize="cover"
+        transform="transform 0.2s ease-in-out"
+        className="hover-target-image"
+      />
+    </LazyLoad>
 
     <Box
       color={colors.white}
