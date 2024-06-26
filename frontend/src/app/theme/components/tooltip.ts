@@ -3,6 +3,8 @@ import { colors } from "shared/config/colors";
 
 export const Tooltip = defineStyleConfig({
   baseStyle: defineStyle({
+    "--tooltip-bg": colors.black,
+
     padding: "6px 12px",
     background: colors.black,
     fontFamily: "Halvar Breitschrift",
@@ -13,14 +15,5 @@ export const Tooltip = defineStyleConfig({
     color: colors.white,
     maxWidth: "auto",
     borderRadius: "4px",
-
-    "chakra-tooltip__arrow-wrapper. .chakra-tooltip__arrow": {
-      borderRadius: "2px",
-      background: colors.black,
-    },
-    // ".chakra-tooltip__arrow-wrapper": {
-    // //   borderRadius: "1px",
-    // //   overflow: "hidden",
-    // },
   }),
 });

@@ -45,6 +45,7 @@ export const NewsSmallTile = ({
       position: "absolute",
       top: 0,
       left: 0,
+      zIndex: 0,
       width: "100%",
       height: "100%",
       backgroundRepeat: "no-repeat",
@@ -53,6 +54,18 @@ export const NewsSmallTile = ({
       backgroundImage: image.src,
       pointerEvents: "none",
       transition: "transform 0.2s ease-in-out",
+    }}
+    _after={{
+      content: "''",
+      display: { base: "block", md: "none" },
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      backgroundColor: colors.black,
+      opacity: 0.45,
+      zIndex: 1,
     }}
     _hover={{
       _before: {
@@ -66,13 +79,24 @@ export const NewsSmallTile = ({
     {...boxProps}
   >
     {isNew && (
-      <Stack direction="row" gap="6px" position="relative" marginBottom="25px">
+      <Stack
+        direction="row"
+        gap="6px"
+        position="relative"
+        marginBottom="25px"
+        zIndex={2}
+      >
         <Badge variant="boxy">News</Badge>
         <Badge variant="boxyDark">04 марта</Badge>
       </Stack>
     )}
 
-    <Box color={colors.white} position="relative" className="hover-traget-text">
+    <Box
+      color={colors.white}
+      position="relative"
+      className="hover-traget-text"
+      zIndex={2}
+    >
       <Box
         fontSize="32px"
         fontWeight={900}

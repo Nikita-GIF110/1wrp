@@ -27,22 +27,6 @@ export const Intro = ({ linkHref }: IntroProps) => {
       padding={{ base: "12px", md: "47px 45px 65px 45px", xl: "64px" }}
       marginTop={{ base: "72px", md: 0 }}
     >
-      {isDesktop && (
-        <Flex
-          position="absolute"
-          width="100%"
-          height="100%"
-          bottom={0}
-          left={0}
-          alignItems="flex-end"
-          justifyContent="space-between"
-          padding="60px"
-        >
-          <BottomLeftDecor />
-          <BottomRightDecor />
-        </Flex>
-      )}
-
       {/* Overlay */}
       <Box
         position="absolute"
@@ -152,6 +136,22 @@ export const Intro = ({ linkHref }: IntroProps) => {
           </Box>
         </Flex>
       </Flex>
+
+      {isDesktop && (
+        <Flex
+          position="absolute"
+          width="100%"
+          height="100%"
+          bottom={0}
+          left={0}
+          alignItems="flex-end"
+          justifyContent="space-between"
+          padding="60px"
+        >
+          <BottomLeftDecor />
+          <BottomRightDecor />
+        </Flex>
+      )}
     </Flex>
   );
 };

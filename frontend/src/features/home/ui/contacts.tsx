@@ -7,7 +7,7 @@ import GraffitiLogoTelegram from "assets/images/home/graffiti-logo-Telegram.svg?
 import GraffitiLogoDiscord from "assets/images/home/graffiti-logo-Discord.svg?react";
 import GraffitiLogoVK from "assets/images/home/graffiti-logo-VK.svg?react";
 import { colors } from "shared/config/colors";
-import bg from "assets/images/home/contacts-bg.png";
+import bg from "assets/images/home/contacts-bg.webp";
 
 interface LinkItemProps {
   icon: FunctionComponent<React.SVGAttributes<SVGElement>>;

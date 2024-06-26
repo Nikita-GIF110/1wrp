@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useId } from "react";
 import type { MenuProps } from "@chakra-ui/react";
 import {
   Menu,
@@ -18,12 +18,6 @@ const defaultoption = {
   label: "RU",
   value: "ru",
 };
-const getLangIcon = (leng: string) => {
-  if (leng === "ru") {
-    return RuFlag;
-  }
-  return EnFlag;
-};
 
 interface LanguageDropdownProps extends Omit<MenuProps, "children"> {
   languages: Array<SelectOption>;
@@ -35,6 +29,7 @@ export const LanguageDropdown = ({
   onChage,
   ...otherMenuProps
 }: LanguageDropdownProps) => {
+  const menuId = useId();
   const [selectedLanguage, setSelectedLanguage] = useState(defaultoption);
 
   const handelChangeLanguage =
@@ -46,7 +41,7 @@ export const LanguageDropdown = ({
     };
 
   return (
-    <Menu flip gutter={0} matchWidth placement="bottom" {...otherMenuProps}>
+    <Menu flip boundary="scrollParent" placement="bottom" {...otherMenuProps}>
       <MenuButton
         as={Button}
         padding={0}
@@ -69,6 +64,7 @@ export const LanguageDropdown = ({
       </MenuButton>
 
       <MenuList
+        id={menuId}
         minWidth="auto"
         width="36px"
         padding="2px"
@@ -104,9 +100,10 @@ export const LanguageDropdown = ({
               }}
             >
               <Box
-                as={getLangIcon(language.value)}
+                as={language.value === "ru" ? RuFlag : EnFlag}
                 width="24px"
                 height="24px"
+                visibility="visible"
               />
             </MenuItem>
           );

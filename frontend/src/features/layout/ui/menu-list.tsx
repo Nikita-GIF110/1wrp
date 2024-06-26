@@ -72,7 +72,7 @@ export const MenuListDesktop = ({ list, ...otherListProps }: MenuListProps) => (
         }}
         _hover={{
           _before: {
-            top: "-225%",
+            top: "-130%",
           },
           _after: {
             transform: "translateX(-50%) scale(1)",

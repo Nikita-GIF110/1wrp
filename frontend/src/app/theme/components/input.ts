@@ -21,6 +21,7 @@ export const Input = defineMultiStyleConfig({
         fontSize: "24px",
         fontWeight: 500,
         lineHeight: "100%",
+        height: "auto",
 
         _focus: {
           color: colors.black,

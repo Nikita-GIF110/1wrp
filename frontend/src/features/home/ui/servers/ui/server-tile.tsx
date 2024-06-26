@@ -130,10 +130,10 @@ export const ServerTile = ({
   link,
   index = 0,
 }: ServerTileProps) => {
-  const { isDesktop, isTablet } = useMediaQuery();
+  const { isDesktop, isTablet, isMobile } = useMediaQuery();
   const { onCopy, hasCopied, setValue } = useClipboard("");
 
-  const WrapperComponent = !isDesktop ? CopyWrapper : Fragment;
+  const WrapperComponent = isMobile ? CopyWrapper : Fragment;
 
   const onCopyClick = () => {
     setValue(link);

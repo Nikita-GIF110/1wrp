@@ -7,7 +7,7 @@ import { useI18N } from "shared/lib/useI18n";
 import { Logo } from "shared/ui/logo";
 import { LanguageDropdown } from "shared/ui/language-dropdown";
 
-import payments from "assets/images/payments.png";
+import payments from "assets/images/payments.webp";
 import DiscordSmall from "assets/icons/discord-small.svg?react";
 import VkSmall from "assets/icons/vk-small.svg?react";
 import YouTubeSmall from "assets/icons/youtube-small.svg?react";

@@ -19,7 +19,7 @@ export const Support = ({
   <Box
     color={colors.white}
     padding={{ base: "0 19px 0 24px", md: "44px", xl: "80px" }}
-    backgroundColor="rgba(238, 244, 248, 0.03)"
+    backgroundColor={{ md: "rgba(238, 244, 248, 0.03)" }}
     borderRadius="10px"
   >
     <Box

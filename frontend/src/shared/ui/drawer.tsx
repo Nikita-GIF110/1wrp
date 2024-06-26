@@ -43,11 +43,10 @@ export const Drawer = ({
       backgroundColor={backgroundColor}
       borderLeftRadius={borderLeftRadius}
       minWidth={minWidth}
-      padding={padding}
       overflow="hidden"
     >
       <DrawerBody
-        padding="4px"
+        padding={padding}
         sx={{
           "::-webkit-scrollbar": { width: 0 },
           "-ms-overflow-style": "none",

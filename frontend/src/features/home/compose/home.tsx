@@ -1,4 +1,4 @@
-import { Box, Flex, Button, Tooltip } from "@chakra-ui/react";
+import { Box, Flex, Button } from "@chakra-ui/react";
 
 import { AboutBlock } from "features/home/ui/about";
 import { Intro } from "features/home/ui/intro";
@@ -25,6 +25,7 @@ import { useMediaQuery } from "shared/lib/useMediaQuery";
 import { Container } from "shared/ui/container";
 import { Drawer } from "shared/ui/drawer";
 import { colors } from "shared/config/colors";
+import { CopyButton } from "shared/ui/copy-button";
 
 import newInStoreImage from "assets/images/home/new-in-store-image.png";
 import langingBg from "assets/images/home/bg-body.webp";
@@ -135,7 +136,7 @@ const Home = () => {
         isOpen={characterDrawerIsOpen}
         onClose={closeCharactersDrawer}
         backgroundColor={colors.white}
-        minWidth={{ base: "350px", md: "650px", xl: "950px" }}
+        minWidth={{ base: "100%", md: "650px", xl: "950px" }}
         padding={{ base: "24px 32px", md: "64px 128px 64px 80px" }}
         borderLeftRadius={{ base: "44px", md: "64px" }}
         autoFocus={false}
@@ -163,19 +164,12 @@ const Home = () => {
             <Box as={CloseIcon} width="24px" height="24px" />
           </Button>
 
-          <Tooltip
-            hasArrow
-            label="Скопировать ссылку на профессию"
-            placement="bottom-end"
+          <CopyButton
+            tooltipLabel="Скопировать ссылку на профессию"
+            copyText="some copy text"
           >
-            <Button
-              onClick={closeCharactersDrawer}
-              variant="circleLight"
-              backgroundColor="#BEC7CD"
-            >
-              <Box as={LinkChain} width="24px" height="24px" />
-            </Button>
-          </Tooltip>
+            <Box as={LinkChain} width="24px" height="24px" />
+          </CopyButton>
         </Flex>
       </Drawer>
     </>

@@ -23,15 +23,15 @@ import mafia1 from "assets/images/home/profession/mafia-1.png";
 import mafia2 from "assets/images/home/profession/mafia-2.png";
 import mafia3 from "assets/images/home/profession/mafia-3.png";
 // News
-import news1 from "assets/images/home/news-image-1.png";
-import news2 from "assets/images/home/news-image-1.png";
-import news3 from "assets/images/home/news-image-3.png";
-import news4 from "assets/images/home/news-image-2.png";
+import news1 from "assets/images/home/news-image-1.webp";
+import news2 from "assets/images/home/news-image-1.webp";
+import news3 from "assets/images/home/news-image-3.webp";
+import news4 from "assets/images/home/news-image-2.webp";
 // Info
-import infoImg1 from "assets/images/home/info-image-1.png";
-import infoImg2 from "assets/images/home/info-image-2.png";
-import infoImg3 from "assets/images/home/info-image-3.png";
-import infoImg4 from "assets/images/home/info-image-4.png";
+import infoImg1 from "assets/images/home/info-image-1.webp";
+import infoImg2 from "assets/images/home/info-image-2.webp";
+import infoImg3 from "assets/images/home/info-image-3.webp";
+import infoImg4 from "assets/images/home/info-image-4.webp";
 
 export const NEWS_LIST: Array<NewsEntity> = [
   {

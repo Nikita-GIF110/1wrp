@@ -3,13 +3,13 @@ export const serversSliderBrekpoints = {
     grid: { rows: 6 },
     slidesPerView: 1,
     allowTouchMove: false,
-    spaceBetween: 14,
+    spaceBetween: 4,
   },
   576: {
     grid: { rows: 3 },
     slidesPerView: 2,
     allowTouchMove: false,
-    spaceBetween: 14,
+    spaceBetween: 4,
   },
   768: {
     grid: { rows: 2 },

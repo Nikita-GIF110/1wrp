@@ -2,7 +2,7 @@ import { Box, Flex } from "@chakra-ui/react";
 import DecorSvg from "assets/images/home/about-decor-svg.svg?react";
 import type { SocialLinkEntity } from "features/home/models";
 import { colors } from "shared/config/colors";
-import bg from "assets/images/home/about-bg-placeholder.png";
+import bg from "assets/images/home/about-bg-placeholder.webp";
 import { AboutHeader } from "../ui/about-header";
 import { SocialLink } from "../ui/social-link";
 

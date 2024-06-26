@@ -93,9 +93,9 @@ export const CharacterInfo = ({
             fontSize="16px"
             lineHeight="130%"
             letterSpacing="-1px"
-            textTransform="uppercase"
             fontWeight={500}
             opacity={0.6}
+            fontFamily="Halvar Breitschrift"
           >
             {/* {description}
              */}
@@ -146,7 +146,12 @@ export const CharacterInfo = ({
           ))}
         </Flex>
 
-        <Link as={ReactRouterLink} variant="medium" size="md">
+        <Link
+          as={ReactRouterLink}
+          variant="medium"
+          size="md"
+          marginBottom="24px"
+        >
           подробнее
         </Link>
       </Box>

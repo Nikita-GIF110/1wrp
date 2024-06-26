@@ -1,14 +1,7 @@
 import { Suspense } from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
-import {
-  Box,
-  Button,
-  Flex,
-  useDisclosure,
-  Tooltip,
-  Link,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, useDisclosure, Link } from "@chakra-ui/react";
 import { UserPanel } from "features/layout/ui/user-panel";
 import { MenuListDesktop, MenuListMobile } from "features/layout/ui/menu-list";
 import { Header } from "features/layout/ui/header";
@@ -26,6 +19,7 @@ import { LanguageDropdown } from "shared/ui/language-dropdown";
 import { useMediaQuery } from "shared/lib/useMediaQuery";
 import { useValidationSchema } from "shared/lib/useValidationSchema";
 import { Drawer } from "shared/ui/drawer";
+import { CopyButton } from "shared/ui/copy-button";
 import { colors } from "shared/config/colors";
 
 import LinkChain from "assets/images/home/link-chain-icon.svg?react";
@@ -54,7 +48,7 @@ export const Layout = () => {
           onClose={mobileMenuDrawer.onClose}
           padding={{ base: "24px 32px", md: "64px 120px 64px 80px" }}
           minWidth={{ base: "100%", md: "460px" }}
-          borderLeftRadius={{ md: "64px" }}
+          borderLeftRadius={{ base: "44px", md: "64px" }}
         >
           <Flex
             flexDirection="column"
@@ -91,7 +85,7 @@ export const Layout = () => {
         onClose={signInFormState.onClose}
         backgroundColor={colors.white}
         minWidth={{ base: "100%", md: "515px", xl: "630px" }}
-        borderLeftRadius={{ md: "44px" }}
+        borderLeftRadius={{ base: "44px", md: "64px" }}
         padding={{ base: "24px 32px", md: "64px 128px 64px 80px" }}
       >
         <Flex flexDirection="column" height="100%">
@@ -110,6 +104,7 @@ export const Layout = () => {
             backgroundColor={colors.blue.primary}
             color={colors.white}
             marginTop="12px"
+            justifyContent="space-between"
           >
             <Box as={UserIcon} width="20px" height="20px" marginRight="19px" />
             Зарегистрироваться
@@ -131,15 +126,9 @@ export const Layout = () => {
             <Box as={CloseIcon} width="24px" height="24px" />
           </Button>
 
-          <Tooltip hasArrow label="какой-то текст" placement="bottom-end">
-            <Button
-              onClick={signInFormState.onClose}
-              variant="circleLight"
-              backgroundColor="#BEC7CD"
-            >
-              <Box as={LinkChain} width="24px" height="24px" />
-            </Button>
-          </Tooltip>
+          <CopyButton tooltipLabel="какой-то текст" copyText="some copy text">
+            <Box as={LinkChain} width="24px" height="24px" />
+          </CopyButton>
         </Flex>
       </Drawer>
 

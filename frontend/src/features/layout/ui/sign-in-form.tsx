@@ -16,6 +16,8 @@ import type { SignInFormFields } from "entities/auth";
 import type { OnSubmitForm, ValidateForm } from "entities/utils";
 import { colors } from "shared/config/colors";
 import ThinArrowIcon from "assets/images/home/thin-arrow-icon.svg?react";
+// import CheckIcon from "assets/icons/check-icon.svg?react";
+// import CloseIcon from "assets/icons/close-icon.svg?react";
 
 interface SignInFormProps {
   onSubmit: OnSubmitForm<SignInFormFields>;
@@ -78,10 +80,13 @@ const FormCheckbox = ({
       const isChecked = input.checked;
 
       return (
-        <FormControl marginBottom="32px" marginTop="32px" width="auto">
+        <FormControl width="auto">
           <Checkbox
             variant="landingMedium"
             defaultChecked={isChecked}
+            // icon={<CloseIcon />}
+            // checkedIcon={<CloseIcon />}
+            // checkedIcon={<CloseIcon />}
             {...input}
             {...otherInputProps}
           >
@@ -109,6 +114,7 @@ export const SignInForm = ({
       textTransform="uppercase"
       color={colors.black}
       marginBottom="32px"
+      paddingRight={{ base: "50px", md: 0 }}
     >
       Личный кабинет
     </Box>
@@ -121,11 +127,17 @@ export const SignInForm = ({
             name="password"
             label="password"
             type="password"
-            placeholder="Ваш пароль"
+            placeholder="• • • • • • • • • •"
             autoComplete="new-password"
           />
 
-          <Flex justifyContent="space-between" alignItems="center">
+          <Flex
+            flexDirection={{ base: "column", md: "row" }}
+            justifyContent="space-between"
+            alignItems={{ md: "center" }}
+            margin="32px 0"
+            rowGap="32px"
+          >
             <FormCheckbox name="rememberMe" label="Запомнить меня" />
 
             <Link
@@ -135,19 +147,22 @@ export const SignInForm = ({
               fontSize="14px"
               fontWeight={800}
               lineHeight="100%"
+              whiteSpace="nowrap"
             >
-              Забыл пароль
+              Забыл пароль?
             </Link>
           </Flex>
 
-          <Button variant="medium" size="md" type="submit" width="100%">
+          <Button
+            variant="medium"
+            size="md"
+            type="submit"
+            width="100%"
+            justifyContent={{ base: "space-between", xl: "center" }}
+            columnGap="19px"
+          >
             Войти
-            <Box
-              as={ThinArrowIcon}
-              width="26px"
-              height="26px"
-              marginLeft="auto"
-            />
+            <Box as={ThinArrowIcon} width="26px" height="26px" />
           </Button>
         </form>
       )}
