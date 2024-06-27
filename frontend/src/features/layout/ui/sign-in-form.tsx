@@ -121,10 +121,7 @@ const FormCheckbox = ({
 
 const { Form } = withTypes<SignInFormFields>();
 
-export const SignInForm = ({
-  onSubmit,
-  validate,
-}: SignInFormProps) => (
+const SignInForm = ({ onSubmit, validate }: SignInFormProps) => (
   <Flex flexDirection="column">
     <Box
       fontSize="28px"
@@ -190,3 +187,5 @@ export const SignInForm = ({
     </Form>
   </Flex>
 );
+
+export default SignInForm;

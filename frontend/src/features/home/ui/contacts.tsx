@@ -1,4 +1,5 @@
 import type { FunctionComponent } from "react";
+import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
 import { Box, Flex } from "@chakra-ui/react";
 import GraffitiLogo1Win from "assets/images/home/graffiti-logo-1Win.svg?react";
@@ -27,7 +28,7 @@ const LinkItem = ({ icon }: LinkItemProps) => (
   </Link>
 );
 
-export const Contacts = () => (
+const Contacts = () => (
   <Box
     padding={{
       base: "35px 35px 60px 35px",
@@ -36,18 +37,6 @@ export const Contacts = () => (
     }}
     position="relative"
     overflow="hidden"
-    _before={{
-      content: "''",
-      position: "absolute",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "500px",
-      backgroundImage: bg,
-      backgroundPosition: "center",
-      backgroundSize: "cover",
-      mixBlendMode: "overlay",
-    }}
     _after={{
       content: "''",
       position: "absolute",
@@ -57,10 +46,26 @@ export const Contacts = () => (
       width: "1465px",
       height: "1465px",
       opacity: 0.56,
-      background: "radial-gradient(50% 50% at 50% 50%, #00A3FF 0%, rgba(12, 13, 17, 0.00) 100%)",
+      background:
+        "radial-gradient(50% 50% at 50% 50%, #00A3FF 0%, rgba(12, 13, 17, 0.00) 100%)",
       pointerEvents: "none",
     }}
   >
+    <LazyLoad once>
+      <Box
+        as="img"
+        src={bg}
+        position="absolute"
+        top={0}
+        left={0}
+        width="100%"
+        height="500px"
+        objectFit="cover"
+        mixBlendMode="overlay"
+        pointerEvents="none"
+      />
+    </LazyLoad>
+
     <Flex
       position="relative"
       columnGap={{ base: 0, xl: "80px" }}
@@ -91,3 +96,5 @@ export const Contacts = () => (
     </Box>
   </Box>
 );
+
+export default Contacts;

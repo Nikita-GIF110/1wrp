@@ -102,8 +102,8 @@ export const CharacterTile = ({
         <Box
           as="img"
           {...character.image}
-          maxWidth="100%"
-          height="auto"
+          height={sizes[size].height}
+          width={sizes[size].width}
           objectFit="cover"
           transition="all 0.3s ease-in-out"
           className={size === "small" ? "" : "hover-target-img"}

@@ -20,7 +20,7 @@ interface CharacterInfoProps {
   }>;
 }
 
-export const CharacterInfo = ({
+const CharacterInfo = ({
   characterpreviewImage,
   gradientBg,
   images = [],
@@ -165,3 +165,5 @@ export const CharacterInfo = ({
     </>
   );
 };
+
+export default CharacterInfo

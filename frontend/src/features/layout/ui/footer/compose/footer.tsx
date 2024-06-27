@@ -43,7 +43,7 @@ export const Footer = () => {
             <LanguageDropdown languages={LANGUAGES} onChage={setLanguage} />
           </Flex>
 
-          <Box as="img" src={payments} />
+          <Box as="img" src={payments} width="225px" height="30px" />
         </Flex>
 
         <Box

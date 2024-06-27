@@ -1,5 +1,6 @@
 import { Fragment } from "react/jsx-runtime";
 import type { BoxProps } from "@chakra-ui/react";
+import LazyLoad from "react-lazyload";
 import { Box, Flex, Button } from "@chakra-ui/react";
 import { useClipboard } from "@chakra-ui/react";
 import { colors } from "shared/config/colors";
@@ -9,9 +10,13 @@ import TileDecorFrame2 from "assets/images/home/server-tile-decor-frame-2.svg?re
 import TileDecorFrame3 from "assets/images/home/server-tile-decor-frame-3.svg?react";
 import TileDecorFrame4 from "assets/images/home/server-tile-decor-frame-4.svg?react";
 import TileDecorFrame5 from "assets/images/home/server-tile-decor-frame-5.svg?react";
+import TileDecorFrame6 from "assets/images/home/server-tile-decor-frame-6.svg?react";
 import ServerIcon1 from "assets/images/home/server-icon-1.svg?react";
 import ServerIcon2 from "assets/images/home/server-icon-2.svg?react";
 import ServerIcon3 from "assets/images/home/server-icon-3.svg?react";
+import ServerIcon4 from "assets/images/home/server-icon-4.svg?react";
+import ServerIcon5 from "assets/images/home/server-icon-5.svg?react";
+import ServerIcon6 from "assets/images/home/server-icon-6.svg?react";
 import CopyIcon from "assets/icons/copy-icon.svg?react";
 import CheckIcon from "assets/icons/check-icon.svg?react";
 
@@ -110,9 +115,9 @@ const icons = {
   0: ServerIcon1,
   1: ServerIcon2,
   2: ServerIcon3,
-  3: ServerIcon3,
-  4: ServerIcon1,
-  5: ServerIcon2,
+  3: ServerIcon4,
+  4: ServerIcon5,
+  5: ServerIcon6,
 };
 const frames = {
   0: TileDecorFrame1,
@@ -120,7 +125,7 @@ const frames = {
   2: TileDecorFrame3,
   3: TileDecorFrame4,
   4: TileDecorFrame5,
-  5: TileDecorFrame1,
+  5: TileDecorFrame6,
 };
 
 export const ServerTile = ({
@@ -159,13 +164,14 @@ export const ServerTile = ({
         }}
       >
         {(isDesktop || isTablet) && (
-          <>
+          <LazyLoad once>
             <Box
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
               as={(frames as any)[index]}
               position="absolute"
-              top="-14px"
-              left="-69px"
+              top="15px"
+              left="-45px"
+              loading="lazy"
             />
 
             <Box
@@ -176,8 +182,9 @@ export const ServerTile = ({
               left="-80px"
               width={160}
               height={160}
+              loading="lazy"
             />
-          </>
+          </LazyLoad>
         )}
 
         <Box

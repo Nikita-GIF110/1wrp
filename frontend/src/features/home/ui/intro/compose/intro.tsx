@@ -1,5 +1,7 @@
 import { Box, Heading, Flex, Text, Link } from "@chakra-ui/react";
+import LazyLoad from "react-lazyload";
 import videoPlaceholder from "assets/images/home/video-placeholder.png";
+import video from "assets/videos/intro-video.mp4";
 import introImageDesktop from "assets/images/home/home-intro.png";
 import introImageMobile from "assets/images/home/home-intro-mobile.png";
 import BottomRightDecor from "assets/images/home/intro-decor-svg.svg?react";
@@ -17,9 +19,6 @@ export const Intro = ({ linkHref }: IntroProps) => {
 
   return (
     <Flex
-      backgroundImage={videoPlaceholder}
-      backgroundSize="contain"
-      backgroundPosition="bottom center"
       alignItems="flex-end"
       position="relative"
       overflow="hidden"
@@ -27,6 +26,23 @@ export const Intro = ({ linkHref }: IntroProps) => {
       padding={{ base: "12px", md: "47px 45px 65px 45px", xl: "64px" }}
       marginTop={{ base: "72px", md: 0 }}
     >
+      <Box
+        as="video"
+        autoPlay
+        // preload="auto"
+        loop
+        muted
+        poster={videoPlaceholder}
+        position="absolute"
+        objectFit="cover"
+        top={0}
+        left={0}
+        width="100%"
+        height="100%"
+      >
+        <source src={video} type="video/mp4" />
+      </Box>
+
       {/* Overlay */}
       <Box
         position="absolute"
@@ -38,18 +54,22 @@ export const Intro = ({ linkHref }: IntroProps) => {
         opacity={0.6}
       />
 
-      <Box
-        as="img"
-        src={isDesktop ? introImageDesktop : introImageMobile}
-        position="absolute"
-        top={0}
-        left={0}
-        width="100%"
-        height="100%"
-        objectFit="cover"
-        objectPosition="center"
-        pointerEvents="none"
-      />
+      <LazyLoad once>
+        <Box
+          as="img"
+          src={introImageMobile}
+          srcSet={`${introImageMobile} 768w, ${introImageDesktop} 1440w`}
+          sizes="(max-width: 767px) 768px, 1440px"
+          position="absolute"
+          top={0}
+          left={0}
+          width="100%"
+          height="100%"
+          objectFit="cover"
+          objectPosition="center"
+          pointerEvents="none"
+        />
+      </LazyLoad>
 
       {isDesktop && (
         <Flex

@@ -1,5 +1,5 @@
 import { Link as ReactRouterLink } from "react-router-dom";
-import LazyLoad from "react-lazyload";
+// import LazyLoad from "react-lazyload";
 import { Box, Flex, Link } from "@chakra-ui/react";
 import ArrowUp from "assets/icons/arrow-up.svg?react";
 import { colors } from "shared/config/colors";
@@ -11,7 +11,7 @@ interface NewInStoreProsp {
   subHeader: string;
 }
 
-export const NewInStore = ({ image, header, subHeader }: NewInStoreProsp) => {
+const NewInStore = ({ image, header, subHeader }: NewInStoreProsp) => {
   const { isDesktop } = useMediaQuery();
 
   return (
@@ -29,16 +29,14 @@ export const NewInStore = ({ image, header, subHeader }: NewInStoreProsp) => {
       flexDirection={{ base: "column", md: "row" }}
     >
       {isDesktop && (
-        <LazyLoad offset={100}>
-          <Box
-            as="img"
-            src={image}
-            position="absolute"
-            top={0}
-            right={0}
-            pointerEvents="none"
-          />
-        </LazyLoad>
+        <Box
+          as="img"
+          src={image}
+          position="absolute"
+          top={0}
+          right={0}
+          pointerEvents="none"
+        />
       )}
 
       <Box
@@ -84,3 +82,5 @@ export const NewInStore = ({ image, header, subHeader }: NewInStoreProsp) => {
     </Flex>
   );
 };
+
+export default NewInStore;

@@ -1,1 +1,3 @@
-export { CharactersBlock } from "./compose/characters";
+import { CharactersBlock } from "./compose/characters";
+
+export default CharactersBlock;

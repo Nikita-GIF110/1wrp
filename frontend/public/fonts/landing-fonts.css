@@ -1,0 +1,983 @@
+/* Halvar Breit Start */
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-BlkSlanted.eot");
+  src:
+    local("Halvar Breitschrift Black Slanted"),
+    local("./HalvarBreit/HalvarBreit-BlkSlanted"),
+    url("./HalvarBreit/HalvarBreit-BlkSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-BlkSlanted.woff2")
+      format("woff2"),
+    url("./HalvarBreit/HalvarBreit-BlkSlanted.woff")
+      format("woff"),
+    url("./HalvarBreit/HalvarBreit-BlkSlanted.ttf")
+      format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+} */
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-Blk.eot");
+  src:
+    local("Halvar Breitschrift Black"),
+    local("./HalvarBreit/HalvarBreit-Blk"),
+    url("./HalvarBreit/HalvarBreit-Blk.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-Blk.woff2") format("woff2"),
+    url("./HalvarBreit/HalvarBreit-Blk.woff") format("woff"),
+    url("./HalvarBreit/HalvarBreit-Blk.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-BlkSuSlanted.eot");
+  src:
+    local("Halvar Breitschrift Black SuperSlanted"),
+    local("./HalvarBreit/HalvarBreit-BlkSuSlanted"),
+    url("./HalvarBreit/HalvarBreit-BlkSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-BlkSuSlanted.woff2")
+      format("woff2"),
+    url("./HalvarBreit/HalvarBreit-BlkSuSlanted.woff")
+      format("woff"),
+    url("./HalvarBreit/HalvarBreit-BlkSuSlanted.ttf")
+      format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-Lt.eot");
+  src:
+    local("Halvar Breitschrift Light"),
+    local("./HalvarBreit/HalvarBreit-Lt"),
+    url("./HalvarBreit/HalvarBreit-Lt.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-Lt.woff2") format("woff2"),
+    url("./HalvarBreit/HalvarBreit-Lt.woff") format("woff"),
+    url("./HalvarBreit/HalvarBreit-Lt.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-HlSuSlanted.eot");
+  src:
+    local("Halvar Breitschrift Hairline SuperSlanted"),
+    local("./HalvarBreit/HalvarBreit-HlSuSlanted"),
+    url("./HalvarBreit/HalvarBreit-HlSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-HlSuSlanted.woff2")
+      format("woff2"),
+    url("./HalvarBreit/HalvarBreit-HlSuSlanted.woff")
+      format("woff"),
+    url("./HalvarBreit/HalvarBreit-HlSuSlanted.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+} */
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-Md.eot");
+  src:
+    local("Halvar Breitschrift Medium"),
+    local("./HalvarBreit/HalvarBreit-Md"),
+    url("./HalvarBreit/HalvarBreit-Md.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-Md.woff2") format("woff2"),
+    url("./HalvarBreit/HalvarBreit-Md.woff") format("woff"),
+    url("./HalvarBreit/HalvarBreit-Md.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-XThSuSlanted.eot");
+  src:
+    local("Halvar Breitschrift ExtraThin SuperSlanted"),
+    local("./HalvarBreit/HalvarBreit-XThSuSlanted"),
+    url("./HalvarBreit/HalvarBreit-XThSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-XThSuSlanted.woff2")
+      format("woff2"),
+    url("./HalvarBreit/HalvarBreit-XThSuSlanted.woff")
+      format("woff"),
+    url("./HalvarBreit/HalvarBreit-XThSuSlanted.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+} */
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-Bd.eot");
+  src:
+    local("Halvar Breitschrift Bold"),
+    local("./HalvarBreit/HalvarBreit-Bd"),
+    url("./HalvarBreit/HalvarBreit-Bd.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-Bd.woff2") format("woff2"),
+    url("./HalvarBreit/HalvarBreit-Bd.woff") format("woff"),
+    url("./HalvarBreit/HalvarBreit-Bd.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-MdSuSlanted.eot");
+  src:
+    local("Halvar Breitschrift Medium SuperSlanted"),
+    local("./HalvarBreit/HalvarBreit-MdSuSlanted"),
+    url("./HalvarBreit/HalvarBreit-MdSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-MdSuSlanted.woff2")
+      format("woff2"),
+    url("./HalvarBreit/HalvarBreit-MdSuSlanted.woff")
+      format("woff"),
+    url("./HalvarBreit/HalvarBreit-MdSuSlanted.ttf")
+      format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-HlSlanted.eot");
+  src:
+    local("Halvar Breitschrift Hairline Slanted"),
+    local("./HalvarBreit/HalvarBreit-HlSlanted"),
+    url("./HalvarBreit/HalvarBreit-HlSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-HlSlanted.woff2")
+      format("woff2"),
+    url("./HalvarBreit/HalvarBreit-HlSlanted.woff")
+      format("woff"),
+    url("./HalvarBreit/HalvarBreit-HlSlanted.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-RgSlanted.eot");
+  src:
+    local("Halvar Breitschrift Regular Slanted"),
+    local("./HalvarBreit/HalvarBreit-RgSlanted"),
+    url("./HalvarBreit/HalvarBreit-RgSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-RgSlanted.woff2")
+      format("woff2"),
+    url("./HalvarBreit/HalvarBreit-RgSlanted.woff")
+      format("woff"),
+    url("./HalvarBreit/HalvarBreit-RgSlanted.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+} */
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-XBd.eot");
+  src:
+    local("Halvar Breitschrift ExtraBold"),
+    local("./HalvarBreit/HalvarBreit-XBd"),
+    url("./HalvarBreit/HalvarBreit-XBd.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-XBd.woff2") format("woff2"),
+    url("./HalvarBreit/HalvarBreit-XBd.woff") format("woff"),
+    url("./HalvarBreit/HalvarBreit-XBd.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-XThSlanted.eot");
+  src:
+    local("Halvar Breitschrift ExtraThin Slanted"),
+    local("./HalvarBreit/HalvarBreit-XThSlanted"),
+    url("./HalvarBreit/HalvarBreit-XThSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-XThSlanted.woff2")
+      format("woff2"),
+    url("./HalvarBreit/HalvarBreit-XThSlanted.woff")
+      format("woff"),
+    url("./HalvarBreit/HalvarBreit-XThSlanted.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-ThSuSlanted.eot");
+  src:
+    local("Halvar Breitschrift Thin SuperSlanted"),
+    local("./HalvarBreit/HalvarBreit-ThSuSlanted"),
+    url("./HalvarBreit/HalvarBreit-ThSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-ThSuSlanted.woff2")
+      format("woff2"),
+    url("./HalvarBreit/HalvarBreit-ThSuSlanted.woff")
+      format("woff"),
+    url("./HalvarBreit/HalvarBreit-ThSuSlanted.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-XBdSuSlanted.eot");
+  src:
+    local("Halvar Breitschrift ExtraBold SuperSlanted"),
+    local("./HalvarBreit/HalvarBreit-XBdSuSlanted"),
+    url("./HalvarBreit/HalvarBreit-XBdSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-XBdSuSlanted.woff2")
+      format("woff2"),
+    url("./HalvarBreit/HalvarBreit-XBdSuSlanted.woff")
+      format("woff"),
+    url("./HalvarBreit/HalvarBreit-XBdSuSlanted.ttf")
+      format("truetype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-RgSuSlanted.eot");
+  src:
+    local("Halvar Breitschrift Regular SuperSlanted"),
+    local("./HalvarBreit/HalvarBreit-RgSuSlanted"),
+    url("./HalvarBreit/HalvarBreit-RgSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-RgSuSlanted.woff2")
+      format("woff2"),
+    url("./HalvarBreit/HalvarBreit-RgSuSlanted.woff")
+      format("woff"),
+    url("./HalvarBreit/HalvarBreit-RgSuSlanted.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-XBdSlanted.eot");
+  src:
+    local("Halvar Breitschrift ExtraBold Slanted"),
+    local("./HalvarBreit/HalvarBreit-XBdSlanted"),
+    url("./HalvarBreit/HalvarBreit-XBdSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-XBdSlanted.woff2")
+      format("woff2"),
+    url("./HalvarBreit/HalvarBreit-XBdSlanted.woff")
+      format("woff"),
+    url("./HalvarBreit/HalvarBreit-XBdSlanted.ttf")
+      format("truetype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-LtSuSlanted.eot");
+  src:
+    local("Halvar Breitschrift Light SuperSlanted"),
+    local("./HalvarBreit/HalvarBreit-LtSuSlanted"),
+    url("./HalvarBreit/HalvarBreit-LtSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-LtSuSlanted.woff2")
+      format("woff2"),
+    url("./HalvarBreit/HalvarBreit-LtSuSlanted.woff")
+      format("woff"),
+    url("./HalvarBreit/HalvarBreit-LtSuSlanted.ttf")
+      format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-Th.eot");
+  src:
+    local("Halvar Breitschrift Thin"),
+    local("./HalvarBreit/HalvarBreit-Th"),
+    url("./HalvarBreit/HalvarBreit-Th.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-Th.woff2") format("woff2"),
+    url("./HalvarBreit/HalvarBreit-Th.woff") format("woff"),
+    url("./HalvarBreit/HalvarBreit-Th.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-XTh.eot");
+  src:
+    local("Halvar Breitschrift ExtraThin"),
+    local("./HalvarBreit/HalvarBreit-XTh"),
+    url("./HalvarBreit/HalvarBreit-XTh.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-XTh.woff2") format("woff2"),
+    url("./HalvarBreit/HalvarBreit-XTh.woff") format("woff"),
+    url("./HalvarBreit/HalvarBreit-XTh.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-BdSuSlanted.eot");
+  src:
+    local("Halvar Breitschrift Bold SuperSlanted"),
+    local("./HalvarBreit/HalvarBreit-BdSuSlanted"),
+    url("./HalvarBreit/HalvarBreit-BdSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-BdSuSlanted.woff2")
+      format("woff2"),
+    url("./HalvarBreit/HalvarBreit-BdSuSlanted.woff")
+      format("woff"),
+    url("./HalvarBreit/HalvarBreit-BdSuSlanted.ttf")
+      format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-ThSlanted.eot");
+  src:
+    local("Halvar Breitschrift Thin Slanted"),
+    local("./HalvarBreit/HalvarBreit-ThSlanted"),
+    url("./HalvarBreit/HalvarBreit-ThSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-ThSlanted.woff2")
+      format("woff2"),
+    url("./HalvarBreit/HalvarBreit-ThSlanted.woff")
+      format("woff"),
+    url("./HalvarBreit/HalvarBreit-ThSlanted.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-LtSlanted.eot");
+  src:
+    local("Halvar Breitschrift Light Slanted"),
+    local("./HalvarBreit/HalvarBreit-LtSlanted"),
+    url("./HalvarBreit/HalvarBreit-LtSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-LtSlanted.woff2")
+      format("woff2"),
+    url("./HalvarBreit/HalvarBreit-LtSlanted.woff")
+      format("woff"),
+    url("./HalvarBreit/HalvarBreit-LtSlanted.ttf")
+      format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-Hl.eot");
+  src:
+    local("Halvar Breitschrift Hairline"),
+    local("./HalvarBreit/HalvarBreit-Hl"),
+    url("./HalvarBreit/HalvarBreit-Hl.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-Hl.woff2") format("woff2"),
+    url("./HalvarBreit/HalvarBreit-Hl.woff") format("woff"),
+    url("./HalvarBreit/HalvarBreit-Hl.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-MdSlanted.eot");
+  src:
+    local("Halvar Breitschrift Medium Slanted"),
+    local("./HalvarBreit/HalvarBreit-MdSlanted"),
+    url("./HalvarBreit/HalvarBreit-MdSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-MdSlanted.woff2")
+      format("woff2"),
+    url("./HalvarBreit/HalvarBreit-MdSlanted.woff")
+      format("woff"),
+    url("./HalvarBreit/HalvarBreit-MdSlanted.ttf")
+      format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-BdSlanted.eot");
+  src:
+    local("Halvar Breitschrift Bold Slanted"),
+    local("./HalvarBreit/HalvarBreit-BdSlanted"),
+    url("./HalvarBreit/HalvarBreit-BdSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-BdSlanted.woff2")
+      format("woff2"),
+    url("./HalvarBreit/HalvarBreit-BdSlanted.woff")
+      format("woff"),
+    url("./HalvarBreit/HalvarBreit-BdSlanted.ttf")
+      format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-Hl_1.eot");
+  src:
+    local("Halvar Breitschrift Hairline"),
+    local("./HalvarBreit/HalvarBreit-Hl"),
+    url("./HalvarBreit/HalvarBreit-Hl_1.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-Hl_1.woff2") format("woff2"),
+    url("./HalvarBreit/HalvarBreit-Hl_1.woff") format("woff"),
+    url("./HalvarBreit/HalvarBreit-Hl_1.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+} */
+
+@font-face {
+  font-family: "Halvar Breitschrift";
+  src: url("./HalvarBreit/HalvarBreit-Rg.eot");
+  src:
+    local("Halvar Breitschrift Regular"),
+    local("./HalvarBreit/HalvarBreit-Rg"),
+    url("./HalvarBreit/HalvarBreit-Rg.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarBreit/HalvarBreit-Rg.woff2") format("woff2"),
+    url("./HalvarBreit/HalvarBreit-Rg.woff") format("woff"),
+    url("./HalvarBreit/HalvarBreit-Rg.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/* Halvar Breit End */
+
+/* Halvar Eng Start */
+/* @font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-XBdSlanted.eot");
+  src:
+    local("Halvar Engschrift ExtraBold Slanted"),
+    local("./HalvarEng/HalvarEng-XBdSlanted"),
+    url("./HalvarEng/HalvarEng-XBdSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-XBdSlanted.woff2")
+      format("woff2"),
+    url("./HalvarEng/HalvarEng-XBdSlanted.woff") format("woff"),
+    url("./HalvarEng/HalvarEng-XBdSlanted.ttf")
+      format("truetype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-BlkSlanted.eot");
+  src:
+    local("Halvar Engschrift Black Slanted"),
+    local("./HalvarEng/HalvarEng-BlkSlanted"),
+    url("./HalvarEng/HalvarEng-BlkSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-BlkSlanted.woff2")
+      format("woff2"),
+    url("./HalvarEng/HalvarEng-BlkSlanted.woff") format("woff"),
+    url("./HalvarEng/HalvarEng-BlkSlanted.ttf")
+      format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-BdSlanted.eot");
+  src:
+    local("Halvar Engschrift Bold Slanted"),
+    local("./HalvarEng/HalvarEng-BdSlanted"),
+    url("./HalvarEng/HalvarEng-BdSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-BdSlanted.woff2")
+      format("woff2"),
+    url("./HalvarEng/HalvarEng-BdSlanted.woff") format("woff"),
+    url("./HalvarEng/HalvarEng-BdSlanted.ttf")
+      format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-BlkSuSlanted.eot");
+  src:
+    local("Halvar Engschrift Black SuperSlanted"),
+    local("./HalvarEng/HalvarEng-BlkSuSlanted"),
+    url("./HalvarEng/HalvarEng-BlkSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-BlkSuSlanted.woff2")
+      format("woff2"),
+    url("./HalvarEng/HalvarEng-BlkSuSlanted.woff")
+      format("woff"),
+    url("./HalvarEng/HalvarEng-BlkSuSlanted.ttf")
+      format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+} */
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-XBd.eot");
+  src:
+    local("Halvar Engschrift ExtraBold"),
+    local("./HalvarEng/HalvarEng-XBd"),
+    url("./HalvarEng/HalvarEng-XBd.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-XBd.woff2") format("woff2"),
+    url("./HalvarEng/HalvarEng-XBd.woff") format("woff"),
+    url("./HalvarEng/HalvarEng-XBd.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-Blk.eot");
+  src:
+    local("Halvar Engschrift Black"),
+    local("./HalvarEng/HalvarEng-Blk"),
+    url("./HalvarEng/HalvarEng-Blk.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-Blk.woff2") format("woff2"),
+    url("./HalvarEng/HalvarEng-Blk.woff") format("woff"),
+    url("./HalvarEng/HalvarEng-Blk.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* @font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-BdSuSlanted.eot");
+  src:
+    local("Halvar Engschrift Bold SuperSlanted"),
+    local("./HalvarEng/HalvarEng-BdSuSlanted"),
+    url("./HalvarEng/HalvarEng-BdSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-BdSuSlanted.woff2")
+      format("woff2"),
+    url("./HalvarEng/HalvarEng-BdSuSlanted.woff")
+      format("woff"),
+    url("./HalvarEng/HalvarEng-BdSuSlanted.ttf")
+      format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+} */
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-Bd.eot");
+  src:
+    local("Halvar Engschrift Bold"),
+    local("./HalvarEng/HalvarEng-Bd"),
+    url("./HalvarEng/HalvarEng-Bd.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-Bd.woff2") format("woff2"),
+    url("./HalvarEng/HalvarEng-Bd.woff") format("woff"),
+    url("./HalvarEng/HalvarEng-Bd.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* @font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-XThSuSlanted.eot");
+  src:
+    local("Halvar Engschrift ExtraThin SuperSlanted"),
+    local("./HalvarEng/HalvarEng-XThSuSlanted"),
+    url("./HalvarEng/HalvarEng-XThSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-XThSuSlanted.woff2")
+      format("woff2"),
+    url("./HalvarEng/HalvarEng-XThSuSlanted.woff")
+      format("woff"),
+    url("./HalvarEng/HalvarEng-XThSuSlanted.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-XTh.eot");
+  src:
+    local("Halvar Engschrift ExtraThin"),
+    local("./HalvarEng/HalvarEng-XTh"),
+    url("./HalvarEng/HalvarEng-XTh.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-XTh.woff2") format("woff2"),
+    url("./HalvarEng/HalvarEng-XTh.woff") format("woff"),
+    url("./HalvarEng/HalvarEng-XTh.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-XThSlanted.eot");
+  src:
+    local("Halvar Engschrift ExtraThin Slanted"),
+    local("./HalvarEng/HalvarEng-XThSlanted"),
+    url("./HalvarEng/HalvarEng-XThSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-XThSlanted.woff2")
+      format("woff2"),
+    url("./HalvarEng/HalvarEng-XThSlanted.woff") format("woff"),
+    url("./HalvarEng/HalvarEng-XThSlanted.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-XBdSuSlanted.eot");
+  src:
+    local("Halvar Engschrift ExtraBold SuperSlanted"),
+    local("./HalvarEng/HalvarEng-XBdSuSlanted"),
+    url("./HalvarEng/HalvarEng-XBdSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-XBdSuSlanted.woff2")
+      format("woff2"),
+    url("./HalvarEng/HalvarEng-XBdSuSlanted.woff")
+      format("woff"),
+    url("./HalvarEng/HalvarEng-XBdSuSlanted.ttf")
+      format("truetype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-HlSuSlanted.eot");
+  src:
+    local("Halvar Engschrift Hairline SuperSlanted"),
+    local("./HalvarEng/HalvarEng-HlSuSlanted"),
+    url("./HalvarEng/HalvarEng-HlSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-HlSuSlanted.woff2")
+      format("woff2"),
+    url("./HalvarEng/HalvarEng-HlSuSlanted.woff")
+      format("woff"),
+    url("./HalvarEng/HalvarEng-HlSuSlanted.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-ThSlanted.eot");
+  src:
+    local("Halvar Engschrift Thin Slanted"),
+    local("./HalvarEng/HalvarEng-ThSlanted"),
+    url("./HalvarEng/HalvarEng-ThSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-ThSlanted.woff2")
+      format("woff2"),
+    url("./HalvarEng/HalvarEng-ThSlanted.woff") format("woff"),
+    url("./HalvarEng/HalvarEng-ThSlanted.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+} */
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-Md.eot");
+  src:
+    local("Halvar Engschrift Medium"),
+    local("./HalvarEng/HalvarEng-Md"),
+    url("./HalvarEng/HalvarEng-Md.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-Md.woff2") format("woff2"),
+    url("./HalvarEng/HalvarEng-Md.woff") format("woff"),
+    url("./HalvarEng/HalvarEng-Md.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* @font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-HlSlanted.eot");
+  src:
+    local("Halvar Engschrift Hairline Slanted"),
+    local("./HalvarEng/HalvarEng-HlSlanted"),
+    url("./HalvarEng/HalvarEng-HlSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-HlSlanted.woff2")
+      format("woff2"),
+    url("./HalvarEng/HalvarEng-HlSlanted.woff") format("woff"),
+    url("./HalvarEng/HalvarEng-HlSlanted.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-Lt.eot");
+  src:
+    local("Halvar Engschrift Light"),
+    local("./HalvarEng/HalvarEng-Lt"),
+    url("./HalvarEng/HalvarEng-Lt.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-Lt.woff2") format("woff2"),
+    url("./HalvarEng/HalvarEng-Lt.woff") format("woff"),
+    url("./HalvarEng/HalvarEng-Lt.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-RgSuSlanted.eot");
+  src:
+    local("Halvar Engschrift Regular SuperSlanted"),
+    local("./HalvarEng/HalvarEng-RgSuSlanted"),
+    url("./HalvarEng/HalvarEng-RgSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-RgSuSlanted.woff2")
+      format("woff2"),
+    url("./HalvarEng/HalvarEng-RgSuSlanted.woff")
+      format("woff"),
+    url("./HalvarEng/HalvarEng-RgSuSlanted.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-LtSuSlanted.eot");
+  src:
+    local("Halvar Engschrift Light SuperSlanted"),
+    local("./HalvarEng/HalvarEng-LtSuSlanted"),
+    url("./HalvarEng/HalvarEng-LtSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-LtSuSlanted.woff2")
+      format("woff2"),
+    url("./HalvarEng/HalvarEng-LtSuSlanted.woff")
+      format("woff"),
+    url("./HalvarEng/HalvarEng-LtSuSlanted.ttf")
+      format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-ThSuSlanted.eot");
+  src:
+    local("Halvar Engschrift Thin SuperSlanted"),
+    local("./HalvarEng/HalvarEng-ThSuSlanted"),
+    url("./HalvarEng/HalvarEng-ThSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-ThSuSlanted.woff2")
+      format("woff2"),
+    url("./HalvarEng/HalvarEng-ThSuSlanted.woff")
+      format("woff"),
+    url("./HalvarEng/HalvarEng-ThSuSlanted.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-MdSlanted.eot");
+  src:
+    local("Halvar Engschrift Medium Slanted"),
+    local("./HalvarEng/HalvarEng-MdSlanted"),
+    url("./HalvarEng/HalvarEng-MdSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-MdSlanted.woff2")
+      format("woff2"),
+    url("./HalvarEng/HalvarEng-MdSlanted.woff") format("woff"),
+    url("./HalvarEng/HalvarEng-MdSlanted.ttf")
+      format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+} */
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-Th.eot");
+  src:
+    local("Halvar Engschrift Thin"),
+    local("./HalvarEng/HalvarEng-Th"),
+    url("./HalvarEng/HalvarEng-Th.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-Th.woff2") format("woff2"),
+    url("./HalvarEng/HalvarEng-Th.woff") format("woff"),
+    url("./HalvarEng/HalvarEng-Th.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* @font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-RgSlanted.eot");
+  src:
+    local("Halvar Engschrift Regular Slanted"),
+    local("./HalvarEng/HalvarEng-RgSlanted"),
+    url("./HalvarEng/HalvarEng-RgSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-RgSlanted.woff2")
+      format("woff2"),
+    url("./HalvarEng/HalvarEng-RgSlanted.woff") format("woff"),
+    url("./HalvarEng/HalvarEng-RgSlanted.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+} */
+
+@font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-Rg.eot");
+  src:
+    local("Halvar Engschrift Regular"),
+    local("./HalvarEng/HalvarEng-Rg"),
+    url("./HalvarEng/HalvarEng-Rg.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-Rg.woff2") format("woff2"),
+    url("./HalvarEng/HalvarEng-Rg.woff") format("woff"),
+    url("./HalvarEng/HalvarEng-Rg.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* @font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-MdSuSlanted.eot");
+  src:
+    local("Halvar Engschrift Medium SuperSlanted"),
+    local("./HalvarEng/HalvarEng-MdSuSlanted"),
+    url("./HalvarEng/HalvarEng-MdSuSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-MdSuSlanted.woff2")
+      format("woff2"),
+    url("./HalvarEng/HalvarEng-MdSuSlanted.woff")
+      format("woff"),
+    url("./HalvarEng/HalvarEng-MdSuSlanted.ttf")
+      format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-Hl.eot");
+  src:
+    local("Halvar Engschrift Hairline"),
+    local("./HalvarEng/HalvarEng-Hl"),
+    url("./HalvarEng/HalvarEng-Hl.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-Hl.woff2") format("woff2"),
+    url("./HalvarEng/HalvarEng-Hl.woff") format("woff"),
+    url("./HalvarEng/HalvarEng-Hl.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+} */
+
+/* @font-face {
+  font-family: "Halvar Engschrift";
+  src: url("./HalvarEng/HalvarEng-LtSlanted.eot");
+  src:
+    local("Halvar Engschrift Light Slanted"),
+    local("./HalvarEng/HalvarEng-LtSlanted"),
+    url("./HalvarEng/HalvarEng-LtSlanted.eot?#iefix")
+      format("embedded-opentype"),
+    url("./HalvarEng/HalvarEng-LtSlanted.woff2")
+      format("woff2"),
+    url("./HalvarEng/HalvarEng-LtSlanted.woff") format("woff"),
+    url("./HalvarEng/HalvarEng-LtSlanted.ttf")
+      format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+} */
+/* Halvar Eng End */

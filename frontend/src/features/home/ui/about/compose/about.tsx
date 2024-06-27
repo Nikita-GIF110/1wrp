@@ -14,10 +14,6 @@ export const AboutBlock = ({ links = [] }: AboutBlockProps) => (
   <Box
     padding="44px"
     position="relative"
-    backgroundImage={bg}
-    backgroundSize="cover"
-    backgroundRepeat="no-repeat"
-    backgroundPosition="center"
     borderRadius="md"
     overflow="hidden"
     _before={{
@@ -26,13 +22,26 @@ export const AboutBlock = ({ links = [] }: AboutBlockProps) => (
       position: "absolute",
       top: 0,
       left: 0,
-      background:
-        "linear-gradient(97deg, rgba(12, 13, 17, 0.90) 45.38%, rgba(12, 13, 17, 0.00) 100%)",
+      background: "linear-gradient(97deg, rgba(12, 13, 17, 0.90) 45.38%, rgba(12, 13, 17, 0.00) 100%)",
       width: "100%",
       height: "100%",
+      zIndex: 2
     }}
   >
-    <Flex alignItems="center" columnGap="100px" position="relative">
+    <Box
+      as="img"
+      src={bg}
+      position="absolute"
+      top={0}
+      left={0}
+      zIndex={1}
+      width="100%"
+      height="100%"
+      objectFit="cover"
+      pointerEvents="none"
+    />
+
+    <Flex alignItems="center" columnGap="100px" position="relative" zIndex={3}>
       <DecorSvg />
 
       <Box>

@@ -1,1 +1,3 @@
-export { NewsBlock } from "./compose/news";
+import { NewsBlock } from "./compose/news";
+
+export default NewsBlock;

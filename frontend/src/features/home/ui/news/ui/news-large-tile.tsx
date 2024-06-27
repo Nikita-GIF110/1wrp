@@ -68,20 +68,20 @@ export const NewsLargeTile = ({
       </Stack>
     )}
 
-    <LazyLoad height="100%" offset={50}>
-      <Box
-        as="img"
-        className="hover-target-image"
-        src={image.src}
-        position="absolute"
-        top={0}
-        left={0}
-        width="100%"
-        height="100%"
-        objectFit="cover"
-        pointerEvents="none"
-        transition="transform 0.3s ease-in-out"
-      />
+    <LazyLoad once>
+    <Box
+      as="img"
+      className="hover-target-image"
+      src={image.src}
+      position="absolute"
+      top={0}
+      left={0}
+      width="100%"
+      height="100%"
+      objectFit="cover"
+      pointerEvents="none"
+      transition="transform 0.3s ease-in-out"
+    />
     </LazyLoad>
 
     <Box

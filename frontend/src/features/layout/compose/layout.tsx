@@ -1,7 +1,14 @@
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
-import { Box, Button, Flex, useDisclosure, Link } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  useDisclosure,
+  Link,
+  Skeleton,
+} from "@chakra-ui/react";
 import { UserPanel } from "features/layout/ui/user-panel";
 import { MenuListDesktop, MenuListMobile } from "features/layout/ui/menu-list";
 import { Header } from "features/layout/ui/header";
@@ -9,7 +16,6 @@ import { Footer } from "features/layout/ui/footer";
 import { PageLoader } from "features/layout/ui/page-loader";
 import { HEADER_NAVIGATION, LANGUAGES } from "features/layout/config/base";
 import { BurgerButton } from "features/layout/ui/burger-button";
-import { SignInForm } from "features/layout/ui/sign-in-form";
 import { useAuthLayout, SIGN_IN_SCHEMA } from "features/layout/models";
 import type { SelectOption } from "entities/utils";
 
@@ -25,6 +31,9 @@ import { colors } from "shared/config/colors";
 import LinkChain from "assets/images/home/link-chain-icon.svg?react";
 import CloseIcon from "assets/icons/close-icon.svg?react";
 import UserIcon from "assets/icons/user-icon.svg?react";
+// import "assets/fonts/landing-fonts.css";
+
+const SignInForm = lazy(() => import("../ui/sign-in-form"));
 
 export const Layout = () => {
   const { setLang } = useI18N();
@@ -90,11 +99,13 @@ export const Layout = () => {
       >
         <Flex flexDirection="column" height="100%">
           <Box marginTop="auto">
-            <SignInForm
-              onSubmit={onSubmit}
-              validate={validate}
-              initialValues={initialValues}
-            />
+            <Suspense fallback={<Skeleton height="300px" />}>
+              <SignInForm
+                onSubmit={onSubmit}
+                validate={validate}
+                initialValues={initialValues}
+              />
+            </Suspense>
           </Box>
 
           <Link

@@ -1,1 +1,3 @@
-export { StartPlay } from "./compose/start-play";
+import { StartPlay } from "./compose/start-play";
+
+export default StartPlay;

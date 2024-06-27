@@ -1,1 +1,3 @@
-export { AboutBlock } from "./compose/about";
+import { AboutBlock } from "./compose/about";
+
+export default AboutBlock;
