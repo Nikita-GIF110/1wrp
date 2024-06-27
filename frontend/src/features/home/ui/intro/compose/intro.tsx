@@ -51,6 +51,22 @@ export const Intro = ({ linkHref }: IntroProps) => {
         pointerEvents="none"
       />
 
+      {isDesktop && (
+        <Flex
+          position="absolute"
+          width="100%"
+          height="100%"
+          bottom={0}
+          left={0}
+          alignItems="flex-end"
+          justifyContent="space-between"
+          padding="60px"
+        >
+          <BottomLeftDecor />
+          <BottomRightDecor />
+        </Flex>
+      )}
+
       <Flex
         flexDirection="column"
         position="relative"
@@ -136,22 +152,6 @@ export const Intro = ({ linkHref }: IntroProps) => {
           </Box>
         </Flex>
       </Flex>
-
-      {isDesktop && (
-        <Flex
-          position="absolute"
-          width="100%"
-          height="100%"
-          bottom={0}
-          left={0}
-          alignItems="flex-end"
-          justifyContent="space-between"
-          padding="60px"
-        >
-          <BottomLeftDecor />
-          <BottomRightDecor />
-        </Flex>
-      )}
     </Flex>
   );
 };
