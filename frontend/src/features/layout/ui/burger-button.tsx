@@ -15,6 +15,7 @@ export const BurgerButton = ({
 }: BurgerButtonProps) => (
   <Flex
     as="button"
+    aria-label="Открыть меню"
     justifyContent="center"
     alignItems="center"
     backgroundColor={colors.blue.primary}

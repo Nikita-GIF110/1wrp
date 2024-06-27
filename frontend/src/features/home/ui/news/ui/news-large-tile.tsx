@@ -1,7 +1,7 @@
 import { Link as ReactRouterLink } from "react-router-dom";
 import type { BoxProps } from "@chakra-ui/react";
-import { Badge, Box, Link, Stack } from "@chakra-ui/react";
 import LazyLoad from "react-lazyload";
+import { Badge, Box, Link, Stack } from "@chakra-ui/react";
 import ArrowUp from "assets/icons/arrow-up.svg?react";
 import { colors } from "shared/config/colors";
 
@@ -68,7 +68,7 @@ export const NewsLargeTile = ({
       </Stack>
     )}
 
-    <LazyLoad once>
+    <LazyLoad once offset={100}>
     <Box
       as="img"
       className="hover-target-image"

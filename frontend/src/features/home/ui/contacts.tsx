@@ -24,6 +24,7 @@ const LinkItem = ({ icon }: LinkItemProps) => (
       _hover={{
         transform: "scale(1.05)",
       }}
+      aria-label="ссылка"
     />
   </Link>
 );
@@ -51,7 +52,7 @@ const Contacts = () => (
       pointerEvents: "none",
     }}
   >
-    <LazyLoad once>
+    <LazyLoad once offset={100}>
       <Box
         as="img"
         src={bg}

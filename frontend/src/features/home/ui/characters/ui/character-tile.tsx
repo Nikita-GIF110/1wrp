@@ -98,7 +98,7 @@ export const CharacterTile = ({
         backgroundColor: colors[gradientVariant].primary,
       }}
     >
-      <LazyLoad height={sizes[size].height} offset={10}>
+      <LazyLoad height={sizes[size].height} offset={100}>
         <Box
           as="img"
           {...character.image}

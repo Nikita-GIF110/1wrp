@@ -78,7 +78,7 @@ export const NewsSmallTile = ({
       </Stack>
     )}
 
-    <LazyLoad once>
+    <LazyLoad once offset={100}>
       <Box
         as="img"
         src={image.src}

@@ -1,14 +1,7 @@
 import { Suspense, lazy } from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
-import {
-  Box,
-  Button,
-  Flex,
-  useDisclosure,
-  Link,
-  Skeleton,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, useDisclosure, Link } from "@chakra-ui/react";
 import { UserPanel } from "features/layout/ui/user-panel";
 import { MenuListDesktop, MenuListMobile } from "features/layout/ui/menu-list";
 import { Header } from "features/layout/ui/header";
@@ -26,12 +19,12 @@ import { useMediaQuery } from "shared/lib/useMediaQuery";
 import { useValidationSchema } from "shared/lib/useValidationSchema";
 import { Drawer } from "shared/ui/drawer";
 import { CopyButton } from "shared/ui/copy-button";
+import { ContentPlaceholder } from "shared/ui/content-placeholder";
 import { colors } from "shared/config/colors";
 
 import LinkChain from "assets/images/home/link-chain-icon.svg?react";
 import CloseIcon from "assets/icons/close-icon.svg?react";
 import UserIcon from "assets/icons/user-icon.svg?react";
-// import "assets/fonts/landing-fonts.css";
 
 const SignInForm = lazy(() => import("../ui/sign-in-form"));
 
@@ -99,27 +92,42 @@ export const Layout = () => {
       >
         <Flex flexDirection="column" height="100%">
           <Box marginTop="auto">
-            <Suspense fallback={<Skeleton height="300px" />}>
+            <Suspense
+              fallback={
+                <>
+                  <ContentPlaceholder height="40px" marginBottom="20px" />
+                  <ContentPlaceholder height="100px" marginBottom="20px" />
+                  <ContentPlaceholder height="100px" marginBottom="20px" />
+                  <ContentPlaceholder height="100px" />
+                </>
+              }
+            >
               <SignInForm
                 onSubmit={onSubmit}
                 validate={validate}
                 initialValues={initialValues}
               />
+
+              <Link
+                as={ReactRouterLink}
+                variant="smallRoundedLight"
+                size="sm"
+                backgroundColor={colors.blue.primary}
+                color={colors.white}
+                marginTop="12px"
+                justifyContent="space-between"
+                width="100%"
+              >
+                <Box
+                  as={UserIcon}
+                  width="20px"
+                  height="20px"
+                  marginRight="19px"
+                />
+                Зарегистрироваться
+              </Link>
             </Suspense>
           </Box>
-
-          <Link
-            as={ReactRouterLink}
-            variant="smallRoundedLight"
-            size="sm"
-            backgroundColor={colors.blue.primary}
-            color={colors.white}
-            marginTop="12px"
-            justifyContent="space-between"
-          >
-            <Box as={UserIcon} width="20px" height="20px" marginRight="19px" />
-            Зарегистрироваться
-          </Link>
         </Flex>
 
         <Flex

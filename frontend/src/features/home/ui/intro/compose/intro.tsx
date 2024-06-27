@@ -29,7 +29,7 @@ export const Intro = ({ linkHref }: IntroProps) => {
       <Box
         as="video"
         autoPlay
-        // preload="auto"
+        preload="auto"
         loop
         muted
         poster={videoPlaceholder}
@@ -58,6 +58,7 @@ export const Intro = ({ linkHref }: IntroProps) => {
         <Box
           as="img"
           src={introImageMobile}
+          alt="Главное изображение"
           srcSet={`${introImageMobile} 768w, ${introImageDesktop} 1440w`}
           sizes="(max-width: 767px) 768px, 1440px"
           position="absolute"

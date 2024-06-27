@@ -1,4 +1,5 @@
 import { Box, Flex } from "@chakra-ui/react";
+import LazyLoad from "react-lazyload";
 import DecorSvg from "assets/images/home/about-decor-svg.svg?react";
 import type { SocialLinkEntity } from "features/home/models";
 import { colors } from "shared/config/colors";
@@ -22,24 +23,27 @@ export const AboutBlock = ({ links = [] }: AboutBlockProps) => (
       position: "absolute",
       top: 0,
       left: 0,
-      background: "linear-gradient(97deg, rgba(12, 13, 17, 0.90) 45.38%, rgba(12, 13, 17, 0.00) 100%)",
+      background:
+        "linear-gradient(97deg, rgba(12, 13, 17, 0.90) 45.38%, rgba(12, 13, 17, 0.00) 100%)",
       width: "100%",
       height: "100%",
-      zIndex: 2
+      zIndex: 2,
     }}
   >
-    <Box
-      as="img"
-      src={bg}
-      position="absolute"
-      top={0}
-      left={0}
-      zIndex={1}
-      width="100%"
-      height="100%"
-      objectFit="cover"
-      pointerEvents="none"
-    />
+    <LazyLoad once offset={100}>
+      <Box
+        as="img"
+        src={bg}
+        position="absolute"
+        top={0}
+        left={0}
+        zIndex={1}
+        width="100%"
+        height="100%"
+        objectFit="cover"
+        pointerEvents="none"
+      />
+    </LazyLoad>
 
     <Flex alignItems="center" columnGap="100px" position="relative" zIndex={3}>
       <DecorSvg />

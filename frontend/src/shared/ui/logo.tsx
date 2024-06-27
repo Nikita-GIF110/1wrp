@@ -13,7 +13,7 @@ export const Logo = ({
   height = "38px",
   ...otherProps
 }: LogoProps) => (
-  <Link as={ReactRouterLink} to="/" {...otherProps}>
+  <Link as={ReactRouterLink} to="/" {...otherProps} aria-label="Лого">
     <Box as={LogoIcon} width={width} height={height} />
   </Link>
 );

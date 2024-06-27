@@ -17,6 +17,7 @@ export const NavLink = ({ children, to }: NavLinkProps) => (
     _hover={{
       opacity: 1,
     }}
+    aria-label="ссылка"
   >
     {children}
   </Box>

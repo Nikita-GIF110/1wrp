@@ -1,17 +1,8 @@
 import { Suspense, lazy } from "react";
-import { Box, Flex, Button, Skeleton } from "@chakra-ui/react";
+import { Box, Flex, Button } from "@chakra-ui/react";
 
-// import AboutBlock from "features/home/ui/about";
 import { Intro } from "features/home/ui/intro";
-// import NewsBlock from "features/home/ui/news";
-// import NewInStore from "features/home/ui/new-in-store";
-// import StartPlay from "features/home/ui/start-play";
-// import ServersBlock, { ServersHeader } from "features/home/ui/servers";
 import { ServersHeader } from "features/home/ui/servers";
-// import CharactersBlock from "features/home/ui/characters";
-// import CharacterInfo from "features/home/ui/character-info";
-// import Faq from "features/home/ui/faq";
-// import Contacts from "features/home/ui/contacts";
 
 import {
   NEWS_LIST,
@@ -29,6 +20,7 @@ import { Container } from "shared/ui/container";
 import { Drawer } from "shared/ui/drawer";
 import { colors } from "shared/config/colors";
 import { CopyButton } from "shared/ui/copy-button";
+import { ContentPlaceholder } from "shared/ui/content-placeholder";
 
 import newInStoreImage from "assets/images/home/new-in-store-image.png";
 import langingBg from "assets/images/home/bg-body.webp";
@@ -70,7 +62,7 @@ const Home = () => {
             gap={{ base: "20px", md: "52px 20px", xl: "20px" }}
           >
             <Box order={{ xl: 1, base: 2 }}>
-              <Suspense fallback={<Skeleton height="550px" />}>
+              <Suspense fallback={<ContentPlaceholder height="550px" />}>
                 <NewsBlock
                   news={NEWS_LIST}
                   title="Последние новости"
@@ -80,7 +72,7 @@ const Home = () => {
             </Box>
 
             <Box order={{ xl: 2, base: 1 }}>
-              <Suspense fallback={<Skeleton height="300px" />}>
+              <Suspense fallback={<ContentPlaceholder height="300px" />}>
                 <NewInStore
                   header="Новинки в магазине"
                   subHeader="Заходите в магазин что бы увидеть новые предметы"
@@ -93,13 +85,13 @@ const Home = () => {
 
         {isDesktop && (
           <Container marginBottom="52px">
-            <Suspense fallback={<Skeleton height="300px" />}>
+            <Suspense fallback={<ContentPlaceholder height="300px" />}>
               <AboutBlock links={SOCIAL_LINK_LIST} />
             </Suspense>
           </Container>
         )}
 
-        <Suspense fallback={<Skeleton height="300px" />}>
+        <Suspense fallback={<ContentPlaceholder height="300px" />}>
           <Box
             id="servers"
             marginBottom={{ base: "12px", md: "44px" }}
@@ -121,7 +113,7 @@ const Home = () => {
 
         {isDesktop && (
           <Container marginBottom="151px" id="start-play">
-            <Suspense fallback={<Skeleton height="300px" />}>
+            <Suspense fallback={<ContentPlaceholder height="300px" />}>
               <StartPlay
                 header="Как начать играть в"
                 steamHref="https://store.steampowered.com/"
@@ -134,7 +126,7 @@ const Home = () => {
         )}
 
         <Container marginBottom="52px" overflow="hidden">
-          <Suspense fallback={<Skeleton height="300px" />}>
+          <Suspense fallback={<ContentPlaceholder height="300px" />}>
             <CharactersBlock
               government={CHARACTERS_GOVERNMENT_AGENCIES_LIST}
               groups={CHARACTERS_STREER_GROUPS_AGENCIES_LIST}
@@ -145,7 +137,7 @@ const Home = () => {
         </Container>
 
         <Container marginBottom={{ base: "45px", xl: "72px" }}>
-          <Suspense fallback={<Skeleton height="300px" />}>
+          <Suspense fallback={<ContentPlaceholder height="300px" />}>
             <Faq
               questions={QUESTIONS}
               header="появились вопросы или возникли проблемы?"
@@ -156,7 +148,7 @@ const Home = () => {
           </Suspense>
         </Container>
 
-        <Suspense fallback={<Skeleton height="300px" marginBottom="52px" />}>
+        <Suspense fallback={<ContentPlaceholder height="300px" />}>
           <Contacts />
         </Suspense>
       </Box>
@@ -170,8 +162,15 @@ const Home = () => {
         borderLeftRadius={{ base: "44px", md: "64px" }}
         autoFocus={false}
       >
-        {/* <LazyLoad> */}
-        <Suspense fallback={<Skeleton height="200px" />}>
+        <Suspense
+          fallback={
+            <>
+              <ContentPlaceholder height="400px" marginBottom="20px" />
+              <ContentPlaceholder height="200px" marginBottom="20px" />
+              <ContentPlaceholder height="80px" width="160px" />
+            </>
+          }
+        >
           {selectedCharacter && selectedCharacterOptions && (
             <CharacterInfo
               characterpreviewImage={selectedCharacter.image}
@@ -180,7 +179,6 @@ const Home = () => {
             />
           )}
         </Suspense>
-        {/* </LazyLoad> */}
 
         <Flex
           flexDirection="column"
