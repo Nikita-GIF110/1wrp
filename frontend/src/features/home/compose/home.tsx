@@ -160,7 +160,7 @@ const Home = () => {
         minWidth={{ base: "100%", md: "650px", xl: "950px" }}
         padding={{ base: "24px 32px", md: "64px 128px 64px 80px" }}
         borderLeftRadius={{ base: "44px", md: "64px" }}
-        autoFocus={false}
+        autoFocus={!isDesktop}
       >
         <Suspense
           fallback={
