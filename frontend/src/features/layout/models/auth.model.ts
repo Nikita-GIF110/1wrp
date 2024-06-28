@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useDisclosure } from "@chakra-ui/react";
 import type { SignInFormFields } from "entities/auth";
 import { useAuth } from "entities/auth";
@@ -8,6 +9,7 @@ const initialValues: Partial<SignInFormFields> = {
 };
 
 export const useAuthLayout = () => {
+  const navigate = useNavigate();
   const signInForm = useDisclosure();
   const signIn = useAuth((state) => state.signIn);
 
@@ -21,8 +23,14 @@ export const useAuthLayout = () => {
     }
   };
 
+  const onAuth = () => {
+    navigate("/personal-area");
+    signInForm.onClose();
+  };
+
   return {
     onSubmit,
+    onAuth,
     signInFormState: signInForm,
     initialValues,
   };

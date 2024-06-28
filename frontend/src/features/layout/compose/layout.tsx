@@ -10,6 +10,7 @@ import { PageLoader } from "features/layout/ui/page-loader";
 import { HEADER_NAVIGATION, LANGUAGES } from "features/layout/config/base";
 import { BurgerButton } from "features/layout/ui/burger-button";
 import { useAuthLayout, SIGN_IN_SCHEMA } from "features/layout/models";
+import { AuthWithSocialNetwork } from "features/layout/ui/auth-with-social-network";
 import type { SelectOption } from "entities/utils";
 
 import { useI18N } from "shared/lib/useI18n";
@@ -32,7 +33,7 @@ export const Layout = () => {
   const { setLang } = useI18N();
   const mobileMenuDrawer = useDisclosure();
 
-  const { onSubmit, signInFormState, initialValues } = useAuthLayout();
+  const { onSubmit, signInFormState, initialValues, onAuth } = useAuthLayout();
   const validate = useValidationSchema(SIGN_IN_SCHEMA);
 
   const { isMobile, isTablet, isDesktop } = useMediaQuery();
@@ -98,7 +99,14 @@ export const Layout = () => {
                   <ContentPlaceholder height="40px" marginBottom="20px" />
                   <ContentPlaceholder height="100px" marginBottom="20px" />
                   <ContentPlaceholder height="100px" marginBottom="20px" />
-                  <ContentPlaceholder height="100px" />
+                  <ContentPlaceholder height="60px" marginBottom="20px" />
+                  <Flex gap="4px">
+                    <ContentPlaceholder height="75px" flex="1 1 auto" />
+                    <ContentPlaceholder height="75px" flex="1 1 auto" />
+                    <ContentPlaceholder height="75px" flex="1 1 auto" />
+                    <ContentPlaceholder height="75px" flex="1 1 auto" />
+                    <ContentPlaceholder height="75px" flex="1 1 auto" />
+                  </Flex>
                 </>
               }
             >
@@ -126,6 +134,23 @@ export const Layout = () => {
                 />
                 Зарегистрироваться
               </Link>
+
+              <Box
+                textOverflow="ellipsis"
+                whiteSpace="nowrap"
+                fontSize="16px"
+                fontWeight={500}
+                lineHeight="100%"
+                letterSpacing="0.64px"
+                textTransform="uppercase"
+                opacity={0.5}
+                marginTop="32px"
+                marginBottom="6px"
+              >
+                через соц. сети
+              </Box>
+
+              <AuthWithSocialNetwork onAuth={onAuth} />
             </Suspense>
           </Box>
         </Flex>
