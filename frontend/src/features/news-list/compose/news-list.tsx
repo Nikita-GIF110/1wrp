@@ -4,10 +4,10 @@ import { Box, Flex, Heading } from "@chakra-ui/react";
 import { NewsSmallTile } from "entities/news";
 
 import { useNewsPage } from "../models";
-import { Breadcrumbs } from "../ui/breadcrumbs";
 import { Pagination } from "../ui/pagination";
 import { NewsFilter } from "../ui/news-filter";
 
+import { Breadcrumbs } from "shared/ui/breadcrumbs";
 import { Container } from "shared/ui/container";
 import { ROUTES } from "shared/config/routes";
 import { ContentPlaceholder } from "shared/ui/content-placeholder";
