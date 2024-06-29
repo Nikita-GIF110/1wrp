@@ -5,7 +5,8 @@ import { Badge, Box, Link, Stack } from "@chakra-ui/react";
 import ArrowUp from "assets/icons/arrow-up.svg?react";
 import { colors } from "shared/config/colors";
 
-interface NewsLargeTileProps extends BoxProps {
+interface NewsLargeTileProps extends Omit<BoxProps, "id"> {
+  id: number;
   isNew: boolean;
   header: string;
   subHeader: string;
@@ -18,6 +19,7 @@ interface NewsLargeTileProps extends BoxProps {
 }
 
 export const NewsLargeTile = ({
+  id,
   isNew,
   header,
   subHeader,
@@ -26,6 +28,7 @@ export const NewsLargeTile = ({
   ...boxProps
 }: NewsLargeTileProps) => (
   <Box
+    id={id}
     display="flex"
     flexDirection="column"
     padding="44px"
@@ -69,19 +72,19 @@ export const NewsLargeTile = ({
     )}
 
     <LazyLoad once offset={100}>
-    <Box
-      as="img"
-      className="hover-target-image"
-      src={image.src}
-      position="absolute"
-      top={0}
-      left={0}
-      width="100%"
-      height="100%"
-      objectFit="cover"
-      pointerEvents="none"
-      transition="transform 0.3s ease-in-out"
-    />
+      <Box
+        as="img"
+        className="hover-target-image"
+        src={image.src}
+        position="absolute"
+        top={0}
+        left={0}
+        width="100%"
+        height="100%"
+        objectFit="cover"
+        pointerEvents="none"
+        transition="transform 0.3s ease-in-out"
+      />
     </LazyLoad>
 
     <Box

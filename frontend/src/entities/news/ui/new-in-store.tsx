@@ -1,17 +1,23 @@
 import { Link as ReactRouterLink } from "react-router-dom";
-// import LazyLoad from "react-lazyload";
 import { Box, Flex, Link } from "@chakra-ui/react";
 import ArrowUp from "assets/icons/arrow-up.svg?react";
+import newInStoreImage from "assets/images/home/new-in-store-image.png";
 import { colors } from "shared/config/colors";
 import { useMediaQuery } from "shared/lib/useMediaQuery";
 
 interface NewInStoreProsp {
-  image: string;
+  image?: string;
   header: string;
   subHeader: string;
+  linkHref: string;
 }
 
-const NewInStore = ({ image, header, subHeader }: NewInStoreProsp) => {
+const NewInStore = ({
+  image = newInStoreImage,
+  header,
+  subHeader,
+  linkHref,
+}: NewInStoreProsp) => {
   const { isDesktop } = useMediaQuery();
 
   return (
@@ -68,7 +74,7 @@ const NewInStore = ({ image, header, subHeader }: NewInStoreProsp) => {
 
       <Link
         as={ReactRouterLink}
-        to="/"
+        to={linkHref}
         gap="19px"
         variant="medium"
         position="relative"

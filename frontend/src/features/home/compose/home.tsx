@@ -1,11 +1,9 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { Box, Flex, Button } from "@chakra-ui/react";
 
 import { Intro } from "features/home/ui/intro";
 import { ServersHeader } from "features/home/ui/servers";
-
 import {
-  NEWS_LIST,
   SOCIAL_LINK_LIST,
   SERVERS_LIST,
   CHARACTERS_GOVERNMENT_AGENCIES_LIST,
@@ -14,16 +12,18 @@ import {
   QUESTIONS,
 } from "features/home/config/base";
 import { useHome } from "features/home/models";
-
 import { useMediaQuery } from "shared/lib/useMediaQuery";
 import { Container } from "shared/ui/container";
 import { Drawer } from "shared/ui/drawer";
 import { colors } from "shared/config/colors";
 import { CopyButton } from "shared/ui/copy-button";
 import { ContentPlaceholder } from "shared/ui/content-placeholder";
+import { ROUTES } from "shared/config/routes";
 
-import newInStoreImage from "assets/images/home/new-in-store-image.png";
-import langingBg from "assets/images/home/bg-body.webp";
+import { useNews } from "entities/news";
+const NewInStore = lazy(() => import("../../../entities/news"));
+
+import langingBg from "assets/images/bg-body.webp";
 import CloseIcon from "assets/icons/close-icon.svg?react";
 import LinkChain from "assets/images/home/link-chain-icon.svg?react";
 
@@ -34,11 +34,10 @@ import "yet-another-react-lightbox/styles.css";
 const AboutBlock = lazy(() => import("../ui/about"));
 const CharactersBlock = lazy(() => import("../ui/characters"));
 const Faq = lazy(() => import("../ui/faq"));
-const NewsBlock = lazy(() => import("../ui/news"));
+const NewsBlock = lazy(() => import("../ui/news-block"));
 const ServersBlock = lazy(() => import("../ui/servers"));
 const StartPlay = lazy(() => import("../ui/start-play"));
 const Contacts = lazy(() => import("../ui/contacts"));
-const NewInStore = lazy(() => import("../ui/new-in-store"));
 const CharacterInfo = lazy(() => import("../ui/character-info"));
 
 const Home = () => {
@@ -50,6 +49,14 @@ const Home = () => {
   const selectedCharacterOptions = useHome((state) => state.options);
   const characterDrawerIsOpen = useHome((state) => state.characterDrawerIsOpen);
   const closeCharactersDrawer = useHome((state) => state.closeCharactersDrawer);
+
+  // News
+  const getNews = useNews((state) => state.getNews);
+  const news = useNews((state) => state.items);
+
+  useEffect(() => {
+    getNews();
+  }, [getNews]);
 
   return (
     <>
@@ -64,9 +71,10 @@ const Home = () => {
             <Box order={{ xl: 1, base: 2 }}>
               <Suspense fallback={<ContentPlaceholder height="550px" />}>
                 <NewsBlock
-                  news={NEWS_LIST}
+                  news={news}
                   title="Последние новости"
                   subtitle="Следите за последними новостями мира 1WRP"
+                  moreNewsHref={ROUTES.news.path}
                 />
               </Suspense>
             </Box>
@@ -76,7 +84,7 @@ const Home = () => {
                 <NewInStore
                   header="Новинки в магазине"
                   subHeader="Заходите в магазин что бы увидеть новые предметы"
-                  image={newInStoreImage}
+                  linkHref={ROUTES.news.path}
                 />
               </Suspense>
             </Box>

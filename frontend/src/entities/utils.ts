@@ -13,6 +13,9 @@ export interface Image {
   title: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type First<T extends Array<any>> = T extends [] ? never : T[0];
+
 export type OnSubmitForm<FormValues> = (
   values: FormValues,
   form: FormApi<FormValues, Partial<FormValues>>,

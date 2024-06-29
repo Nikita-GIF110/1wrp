@@ -1,10 +1,14 @@
 import { Link as ReactRouterLink } from "react-router-dom";
 import { Box, Flex, Link } from "@chakra-ui/react";
-import type { NewsEntity } from "features/home/models";
 import ArrowUp from "assets/icons/arrow-up.svg?react";
-import { NewsLargeTile } from "../ui/news-large-tile";
-import { NewsSmallTile } from "../ui/news-small-tile";
-import { newsTileDecorElements } from "../ui/news-tile-decor-elements";
+
+import type { NewsEntity } from "entities/news";
+import {
+  NewsLargeTile,
+  NewsSmallTile,
+  newsTileDecorElements,
+} from "entities/news";
+
 import { colors } from "shared/config/colors";
 import { useMediaQuery } from "shared/lib/useMediaQuery";
 
@@ -12,9 +16,10 @@ interface NewsBlockProps {
   news: Array<NewsEntity>;
   title: string;
   subtitle: string;
+  moreNewsHref: string;
 }
 
-export const NewsBlock = ({ news, title, subtitle }: NewsBlockProps) => {
+const NewsBlock = ({ news, title, subtitle, moreNewsHref }: NewsBlockProps) => {
   const [mainNews, firstNews, secondNews, thirdNews] = news;
   const { isTablet, isDesktop, isMobile } = useMediaQuery();
 
@@ -128,7 +133,7 @@ export const NewsBlock = ({ news, title, subtitle }: NewsBlockProps) => {
           >
             <Link
               as={ReactRouterLink}
-              to="/"
+              to={moreNewsHref}
               variant="medium"
               gap="16px"
               size="md"
@@ -161,3 +166,5 @@ export const NewsBlock = ({ news, title, subtitle }: NewsBlockProps) => {
     </>
   );
 };
+
+export default NewsBlock;

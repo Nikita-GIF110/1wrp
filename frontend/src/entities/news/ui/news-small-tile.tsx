@@ -4,7 +4,8 @@ import { Badge, Box, Stack } from "@chakra-ui/react";
 import LazyLoad from "react-lazyload";
 import { colors } from "shared/config/colors";
 
-interface NewsSmallTileProps extends BoxProps {
+interface NewsSmallTileProps extends Omit<BoxProps, "id"> {
+  id: number;
   isNew: boolean;
   header: string;
   subHeader: string;
@@ -17,6 +18,7 @@ interface NewsSmallTileProps extends BoxProps {
 }
 
 export const NewsSmallTile = ({
+  id,
   isNew,
   header,
   subHeader,
@@ -25,6 +27,7 @@ export const NewsSmallTile = ({
   ...boxProps
 }: NewsSmallTileProps) => (
   <Box
+    id={id}
     display="flex"
     flexDirection="column"
     justifyContent="space-between"
