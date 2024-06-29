@@ -1,3 +1,5 @@
+import type { Nullable } from "entities/utils";
+
 export interface NewsEntity {
   id: number;
   isNew: boolean;
@@ -19,10 +21,15 @@ export interface NewsFilter
 
 export interface Store {
   items: Array<NewsEntity>;
-  hasError: boolean;
-  isLoading: boolean;
+  listHasError: boolean;
+  listIsLoading: boolean;
+
+  news: Nullable<NewsEntity>;
+  newsHasError: boolean;
+  newsIsLoading: boolean;
 }
 
 export interface Actions {
-  getNews: (params?: NewsFilter) => void;
+  getNewsList: (params?: NewsFilter) => void;
+  getNews: (newsId: string) => void;
 }

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type { BoxProps } from "@chakra-ui/react";
 import {
   Box,
@@ -31,7 +32,7 @@ export const Breadcrumbs = ({
   breadcrumbs = [],
   ...otherProps
 }: BreadcrumbsProps) => (
-  <Box {...otherProps} position="relative">
+  <Box {...otherProps} position="relative" overflow="hidden">
     <Box
       position="absolute"
       top={0}
@@ -56,7 +57,12 @@ export const Breadcrumbs = ({
             fontWeight={500}
             textTransform="uppercase"
           >
-            <BreadcrumbLink href={crumb.to} padding="12px 0">
+            <BreadcrumbLink
+              as={Link}
+              to={crumb.to}
+              padding={{ base: "14px 0", md: "12px 0" }}
+              whiteSpace="nowrap"
+            >
               {crumb.label}
             </BreadcrumbLink>
           </BreadcrumbItem>

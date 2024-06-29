@@ -51,7 +51,7 @@ const Home = () => {
   const closeCharactersDrawer = useHome((state) => state.closeCharactersDrawer);
 
   // News
-  const getNews = useNews((state) => state.getNews);
+  const getNews = useNews((state) => state.getNewsList);
   const news = useNews((state) => state.items);
 
   useEffect(() => {

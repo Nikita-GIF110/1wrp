@@ -12,9 +12,9 @@ export const useNewsPage = () => {
   const page = searchParams.get("page");
   const activeTag = searchParams.get("tag");
 
-  const getNews = useNewsModel((state) => state.getNews);
+  const getNews = useNewsModel((state) => state.getNewsList);
   const news = useNewsModel((state) => state.items);
-  const isLoading = useNewsModel((state) => state.isLoading);
+  const listIsLoading = useNewsModel((state) => state.listIsLoading);
 
   const newsBlockItems = news.slice(0, 5);
   const newsList = news.slice(5);
@@ -42,6 +42,6 @@ export const useNewsPage = () => {
     params,
     newsBlockItems,
     newsList,
-    isLoading,
+    isLoading: listIsLoading,
   };
 };

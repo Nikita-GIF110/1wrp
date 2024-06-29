@@ -5,19 +5,34 @@ import type { Store, Actions } from "./entities";
 
 export const useNews = create<Store & Actions>()(
   immer((set) => ({
+    // News list
     items: [],
-    hasError: false,
-    isLoading: true,
-    getNews: async (filterparams) => {
-      set({ isLoading: true });
-
+    listHasError: false,
+    listIsLoading: true,
+    getNewsList: async (filterparams) => {
       try {
-        const items = await news.getNews(filterparams);
+        const items = await news.getNewsList(filterparams);
         set({ items });
       } catch (error) {
-        set({ hasError: true });
+        set({ listHasError: true });
       } finally {
-        set({ isLoading: false });
+        set({ listIsLoading: false });
+      }
+    },
+
+    // News
+    news: null,
+    newsHasError: false,
+    newsIsLoading: true,
+    getNews: async (newsId) => {
+      try {
+        const newsItem = await news.getNews(newsId);
+
+        set({ news: newsItem });
+      } catch (error) {
+        set({ newsHasError: true });
+      } finally {
+        set({ newsIsLoading: false });
       }
     },
   }))

@@ -2,6 +2,7 @@ import news1 from "assets/images/home/news-image-1.webp";
 import news2 from "assets/images/home/news-image-1.webp";
 import news3 from "assets/images/home/news-image-3.webp";
 import news4 from "assets/images/home/news-image-2.webp";
+import detailNewsImage from "assets/images/news/detail-news.webp";
 
 import type { NewsEntity } from "./entities";
 
@@ -115,3 +116,16 @@ export const NEWS_LIST: Array<NewsEntity> = [
     },
   },
 ];
+
+export const NEWS: NewsEntity = {
+  id: 1,
+  isNew: true,
+  header: "Обновление системы фракций",
+  subHeader: "Представляем вам обновленную систем фракция",
+  to: "/news/1",
+  image: {
+    src: detailNewsImage,
+    alt: "",
+    title: "",
+  },
+};

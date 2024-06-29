@@ -1,12 +1,10 @@
 import { Suspense, lazy, useEffect } from "react";
 import { Box, Flex, Heading } from "@chakra-ui/react";
-
 import { NewsSmallTile } from "entities/news";
-
 import { useNewsPage } from "../models";
 import { Pagination } from "../ui/pagination";
 import { NewsFilter } from "../ui/news-filter";
-
+import { pageBackground } from "../ui/page-background";
 import { Breadcrumbs } from "shared/ui/breadcrumbs";
 import { Container } from "shared/ui/container";
 import { ROUTES } from "shared/config/routes";
@@ -42,16 +40,7 @@ const News = () => {
       marginTop={{ base: "72px", md: "114px", xl: "112px" }}
       position="relative"
       backgroundImage={langingBg}
-      _before={{
-        content: "''",
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        backgroundImage: newsBg,
-        pointerEvents: "none",
-      }}
+      _before={pageBackground(newsBg)}
     >
       <Breadcrumbs
         marginBottom={{ base: "24px", md: "32px", xl: "44px" }}
