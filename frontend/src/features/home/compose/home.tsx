@@ -69,14 +69,16 @@ const Home = () => {
             gap={{ base: "20px", md: "52px 20px", xl: "20px" }}
           >
             <Box order={{ xl: 1, base: 2 }}>
-              <Suspense fallback={<ContentPlaceholder height="550px" />}>
-                <NewsBlock
-                  news={news}
-                  title="Последние новости"
-                  subtitle="Следите за последними новостями мира 1WRP"
-                  moreNewsHref={ROUTES.news.path}
-                />
-              </Suspense>
+              {news.length > 0 && (
+                <Suspense fallback={<ContentPlaceholder height="550px" />}>
+                  <NewsBlock
+                    news={news}
+                    title="Последние новости"
+                    subtitle="Следите за последними новостями мира 1WRP"
+                    moreNewsHref={ROUTES.news.path}
+                  />
+                </Suspense>
+              )}
             </Box>
 
             <Box order={{ xl: 2, base: 1 }}>
