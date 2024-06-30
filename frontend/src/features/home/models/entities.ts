@@ -1,17 +1,4 @@
 import type { Nullable, Image } from "entities/utils";
-
-export interface NewsEntity {
-  isNew: boolean;
-  header: string;
-  subHeader: string;
-  to: string;
-  image: {
-    src: string;
-    alt: string;
-    title: string;
-  };
-}
-
 export interface SocialLinkEntity {
   id: "youTube" | "discord" | "vk";
   to: string;

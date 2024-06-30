@@ -19,6 +19,7 @@ import { colors } from "shared/config/colors";
 import { CopyButton } from "shared/ui/copy-button";
 import { ContentPlaceholder } from "shared/ui/content-placeholder";
 import { ROUTES } from "shared/config/routes";
+import { useTranslate } from "shared/lib/useTranslate";
 
 import { useNews } from "entities/news";
 const NewInStore = lazy(() => import("../../../entities/news"));
@@ -42,6 +43,7 @@ const CharacterInfo = lazy(() => import("../ui/character-info"));
 
 const Home = () => {
   const { isDesktop } = useMediaQuery();
+  const translate = useTranslate();
 
   // Character actions
   const viewCharacters = useHome((state) => state.viewCharacters);
@@ -73,8 +75,8 @@ const Home = () => {
                 <Suspense fallback={<ContentPlaceholder height="550px" />}>
                   <NewsBlock
                     news={news}
-                    title="Последние новости"
-                    subtitle="Следите за последними новостями мира 1WRP"
+                    title={translate("lending.news_title")}
+                    subtitle={translate("lending.news_subtitle")}
                     moreNewsHref={ROUTES.news.path}
                   />
                 </Suspense>
@@ -84,8 +86,9 @@ const Home = () => {
             <Box order={{ xl: 2, base: 1 }}>
               <Suspense fallback={<ContentPlaceholder height="300px" />}>
                 <NewInStore
-                  header="Новинки в магазине"
-                  subHeader="Заходите в магазин что бы увидеть новые предметы"
+                  header={translate("lending.new_in_store_title")}
+                  subHeader={translate("lending.new_in_store_subtitle")}
+                  linkText={translate("lending.new_in_store_button_text")}
                   linkHref={ROUTES.news.path}
                 />
               </Suspense>
@@ -96,7 +99,11 @@ const Home = () => {
         {isDesktop && (
           <Container marginBottom="52px">
             <Suspense fallback={<ContentPlaceholder height="300px" />}>
-              <AboutBlock links={SOCIAL_LINK_LIST} />
+              <AboutBlock
+                header={translate("lending.about_title")}
+                description={translate("lending.about_description")}
+                links={SOCIAL_LINK_LIST}
+              />
             </Suspense>
           </Container>
         )}
@@ -107,7 +114,7 @@ const Home = () => {
             marginBottom={{ base: "12px", md: "44px" }}
             textAlign="center"
           >
-            <ServersHeader header="Сервера 1wrp" />
+            <ServersHeader header={translate("lending.servers_title")} />
           </Box>
 
           <Box overflowX="hidden">
@@ -125,7 +132,7 @@ const Home = () => {
           <Container marginBottom="151px" id="start-play">
             <Suspense fallback={<ContentPlaceholder height="300px" />}>
               <StartPlay
-                header="Как начать играть в"
+                header={translate("lending.start_play_title")}
                 steamHref="https://store.steampowered.com/"
                 epicGamesHref="https://store.epicgames.com"
                 downloadLauncherHref="/"
@@ -150,16 +157,16 @@ const Home = () => {
           <Suspense fallback={<ContentPlaceholder height="300px" />}>
             <Faq
               questions={QUESTIONS}
-              header="появились вопросы или возникли проблемы?"
-              description="Если вы не смогли найти ответ на свой вопрос из списка, то можете обратиться в нашу службу поддержки. Мы стараемся всегда улучшать нам проект что бы подарить вам как можно больше эмоций."
-              linkText="чат поддержки"
+              header={translate("lending.faq_title")}
+              description={translate("lending.faq_description")}
+              linkText={translate("lending.faq_button_texy")}
               to="/questions"
             />
           </Suspense>
         </Container>
 
         <Suspense fallback={<ContentPlaceholder height="300px" />}>
-          <Contacts />
+          <Contacts header={translate("lending.contacts_title")} />
         </Suspense>
       </Box>
 
@@ -206,7 +213,8 @@ const Home = () => {
           </Button>
 
           <CopyButton
-            tooltipLabel="Скопировать ссылку на профессию"
+            tooltipLabel={translate("copy_button.home_character_info_tooltip_text")}
+            // tooltipLabel="Скопировать ссылку на профессию"
             copyText="some copy text"
           >
             <Box as={LinkChain} width="24px" height="24px" />

@@ -19,6 +19,7 @@ import ServerIcon5 from "assets/images/home/server-icon-5.svg?react";
 import ServerIcon6 from "assets/images/home/server-icon-6.svg?react";
 import CopyIcon from "assets/icons/copy-icon.svg?react";
 import CheckIcon from "assets/icons/check-icon.svg?react";
+import { useTranslate } from "shared/lib/useTranslate";
 
 interface ServerTileProps {
   id: number;
@@ -137,6 +138,7 @@ export const ServerTile = ({
 }: ServerTileProps) => {
   const { isDesktop, isTablet, isMobile } = useMediaQuery();
   const { onCopy, hasCopied, setValue } = useClipboard("");
+  const translate = useTranslate();
 
   const WrapperComponent = isMobile ? CopyWrapper : Fragment;
 
@@ -197,7 +199,8 @@ export const ServerTile = ({
           lineHeight="100%"
           textTransform="uppercase"
         >
-          {name}
+          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+          {translate(name as any)}
         </Box>
 
         <Flex
@@ -208,8 +211,14 @@ export const ServerTile = ({
             xl: "row",
           }}
         >
-          <StatisticsItem header="онлайн игроков" count={onlineCount} />
-          <StatisticsItem header="зарегистрировано" count={registeredCount} />
+          <StatisticsItem
+            header={translate("lending.servers_server_players_online")}
+            count={onlineCount}
+          />
+          <StatisticsItem
+            header={translate("lending.servers_server_players_registered")}
+            count={registeredCount}
+          />
         </Flex>
 
         {(isDesktop || isTablet) && (

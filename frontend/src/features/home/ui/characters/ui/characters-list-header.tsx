@@ -15,6 +15,7 @@ export const CharactersListHeader = ({
     // fontSize="38px"
     fontWeight={700}
     lineHeight="90%"
+    height="100%"
     textTransform="uppercase"
     transform="rotate(-180deg)"
     fontFamily="Halvar Engschrift"

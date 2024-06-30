@@ -7,8 +7,11 @@ import GraffitiLogoYouTube from "assets/images/home/graffiti-logo-YouTube.svg?re
 import GraffitiLogoTelegram from "assets/images/home/graffiti-logo-Telegram.svg?react";
 import GraffitiLogoDiscord from "assets/images/home/graffiti-logo-Discord.svg?react";
 import GraffitiLogoVK from "assets/images/home/graffiti-logo-VK.svg?react";
-import { colors } from "shared/config/colors";
 import bg from "assets/images/home/contacts-bg.webp";
+
+interface ContactsProps {
+  header: string;
+}
 
 interface LinkItemProps {
   icon: FunctionComponent<React.SVGAttributes<SVGElement>>;
@@ -29,7 +32,7 @@ const LinkItem = ({ icon }: LinkItemProps) => (
   </Link>
 );
 
-const Contacts = () => (
+const Contacts = ({ header }: ContactsProps) => (
   <Box
     padding={{
       base: "35px 35px 60px 35px",
@@ -41,14 +44,13 @@ const Contacts = () => (
     _after={{
       content: "''",
       position: "absolute",
-      bottom: "-1052.5px",
+      bottom: "-1143.5px",
       left: "50%",
       transform: "translateX(-50%)",
       width: "1465px",
       height: "1465px",
       opacity: 0.56,
-      background:
-        "radial-gradient(50% 50% at 50% 50%, #00A3FF 0%, rgba(12, 13, 17, 0.00) 100%)",
+      background: "radial-gradient(50% 50% at 50% 50%, #00A3FF 0%, rgba(12, 13, 17, 0.00) 100%)",
       pointerEvents: "none",
     }}
   >
@@ -86,14 +88,14 @@ const Contacts = () => (
       lineHeight={{ base: "100%", md: "130%" }}
       textTransform="uppercase"
       textAlign="center"
-      color={colors.black}
+      color="#000"
       position="absolute"
       bottom={{ base: "-10px", md: "-35px" }}
       left="50%"
       transform="translate(-50%, 0)"
       zIndex={1}
     >
-      контакты
+      {header}
     </Box>
   </Box>
 );

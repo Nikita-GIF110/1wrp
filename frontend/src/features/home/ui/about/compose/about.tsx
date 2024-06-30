@@ -9,9 +9,11 @@ import { SocialLink } from "../ui/social-link";
 
 interface AboutBlockProps {
   links: Array<SocialLinkEntity>;
+  header: string
+  description: string
 }
 
-export const AboutBlock = ({ links = [] }: AboutBlockProps) => (
+export const AboutBlock = ({ links = [], header, description }: AboutBlockProps) => (
   <Box
     padding="44px"
     position="relative"
@@ -49,7 +51,7 @@ export const AboutBlock = ({ links = [] }: AboutBlockProps) => (
       <DecorSvg />
 
       <Box>
-        <AboutHeader />
+        <AboutHeader header={header} />
 
         <Box
           fontSize="20px"
@@ -60,9 +62,10 @@ export const AboutBlock = ({ links = [] }: AboutBlockProps) => (
           maxWidth="565px"
           color={colors.white}
         >
-          1WRP это виртуальная вселенная с разнообразными ролями, аналогичными
+          {description}
+          {/* 1WRP это виртуальная вселенная с разнообразными ролями, аналогичными
           реальной жизни. Вы можете стать кем угодно, создавая свою историю в
-          этом мире вместе с другими игроками
+          этом мире вместе с другими игроками */}
         </Box>
 
         <Flex columnGap="16px">

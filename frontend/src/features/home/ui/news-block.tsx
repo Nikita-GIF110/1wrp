@@ -11,6 +11,7 @@ import {
 
 import { colors } from "shared/config/colors";
 import { useMediaQuery } from "shared/lib/useMediaQuery";
+import { useTranslate } from "shared/lib/useTranslate";
 
 interface NewsBlockProps {
   news: Array<NewsEntity>;
@@ -22,6 +23,7 @@ interface NewsBlockProps {
 const NewsBlock = ({ news, title, subtitle, moreNewsHref }: NewsBlockProps) => {
   const [mainNews, firstNews, secondNews, thirdNews] = news;
   const { isTablet, isDesktop, isMobile } = useMediaQuery();
+  const translate = useTranslate();
 
   return (
     <>
@@ -156,7 +158,8 @@ const NewsBlock = ({ news, title, subtitle, moreNewsHref }: NewsBlockProps) => {
               />
 
               <Box order={{ base: 1, xl: 2 }}>
-                {isDesktop || isTablet ? "Больше новостей" : "все новости"}
+                {translate("lending.news_more_news_button_text")}
+                {/* {isDesktop || isTablet ? "Больше новостей" : "все новости"} */}
               </Box>
             </Link>
           </Box>

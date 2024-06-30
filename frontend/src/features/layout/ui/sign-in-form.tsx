@@ -16,6 +16,7 @@ import {
 import type { SignInFormFields } from "entities/auth";
 import type { OnSubmitForm, ValidateForm } from "entities/utils";
 import { colors } from "shared/config/colors";
+import { useTranslate } from "shared/lib/useTranslate";
 import ThinArrowIcon from "assets/images/home/thin-arrow-icon.svg?react";
 import CheckIcon from "assets/icons/check-icon.svg?react";
 import CloseIcon from "assets/icons/close-icon.svg?react";
@@ -41,35 +42,39 @@ const FormInput = ({
   label,
   placeholder,
   ...otherInputProps
-}: FormInputProps) => (
-  <Field name={name}>
-    {({ input, meta }) => (
-      <FormControl marginBottom="16px">
-        <FormLabel
-          color={colors.black}
-          fontWeight={500}
-          fontSize="16px"
-          lineHeight="100%"
-          letterSpacing="-0.64px"
-          textTransform="uppercase"
-          marginBottom="6px"
-          opacity={0.6}
-        >
-          {label}
-        </FormLabel>
-        <Input
-          {...input}
-          {...otherInputProps}
-          variant="landingMedium"
-          placeholder={placeholder}
-        />
-        {meta.touched && meta.error && (
-          <FormHelperText>{meta.error}</FormHelperText>
-        )}
-      </FormControl>
-    )}
-  </Field>
-);
+}: FormInputProps) => {
+  const translate = useTranslate();
+
+  return (
+    <Field name={name}>
+      {({ input, meta }) => (
+        <FormControl marginBottom="16px">
+          <FormLabel
+            color={colors.black}
+            fontWeight={500}
+            fontSize="16px"
+            lineHeight="100%"
+            letterSpacing="-0.64px"
+            textTransform="uppercase"
+            marginBottom="6px"
+            opacity={0.6}
+          >
+            {label}
+          </FormLabel>
+          <Input
+            {...input}
+            {...otherInputProps}
+            variant="landingMedium"
+            placeholder={placeholder}
+          />
+          {meta.touched && meta.error && (
+            <FormHelperText>{translate(meta.error)}</FormHelperText>
+          )}
+        </FormControl>
+      )}
+    </Field>
+  );
+}
 
 const FormCheckbox = ({
   name,
@@ -121,71 +126,85 @@ const FormCheckbox = ({
 
 const { Form } = withTypes<SignInFormFields>();
 
-const SignInForm = ({ onSubmit, validate }: SignInFormProps) => (
-  <Flex flexDirection="column">
-    <Box
-      fontSize="28px"
-      fontWeight={700}
-      lineHeight="100%"
-      letterSpacing="-0.56px"
-      textTransform="uppercase"
-      color={colors.black}
-      marginBottom="32px"
-      paddingRight={{ base: "50px", md: 0 }}
-    >
-      Личный кабинет
-    </Box>
+const SignInForm = ({ onSubmit, validate }: SignInFormProps) => {
+  const translate = useTranslate();
 
-    {/*  initialValues={initialValues} */}
-    <Form onSubmit={onSubmit} validate={validate}>
-      {({ handleSubmit }) => (
-        <form onSubmit={handleSubmit}>
-          <FormInput name="login" placeholder="Ваш логин" label="login" />
-          <FormInput
-            name="password"
-            label="password"
-            type="password"
-            placeholder="• • • • • • • • • •"
-            autoComplete="new-password"
-          />
+  return (
+    <Flex flexDirection="column">
+      <Box
+        fontSize="28px"
+        fontWeight={700}
+        lineHeight="100%"
+        letterSpacing="-0.56px"
+        textTransform="uppercase"
+        color={colors.black}
+        marginBottom="32px"
+        paddingRight={{ base: "50px", md: 0 }}
+      >
+        {translate("lending.auth_form_personal_account_title")}
+      </Box>
 
-          <Flex
-            flexDirection={{ base: "column", md: "row" }}
-            justifyContent="space-between"
-            alignItems={{ md: "center" }}
-            margin="32px 0"
-            rowGap="32px"
-          >
-            <FormCheckbox name="rememberMe" label="Запомнить меня" />
+      <Form onSubmit={onSubmit} validate={validate}>
+        {({ handleSubmit }) => (
+          <form onSubmit={handleSubmit}>
+            <FormInput
+              name="login"
+              placeholder={translate(
+                "lending.auth_form_login_field_placeholder"
+              )}
+              label="login"
+            />
+            <FormInput
+              name="password"
+              label="password"
+              type="password"
+              placeholder="• • • • • • • • • •"
+              autoComplete="new-password"
+            />
 
-            <Link
-              as={ReactRouterLink}
-              to="/"
-              color={colors.blue.primary}
-              fontSize="14px"
-              fontWeight={800}
-              lineHeight="100%"
-              whiteSpace="nowrap"
+            <Flex
+              flexDirection={{ base: "column", md: "row" }}
+              justifyContent="space-between"
+              alignItems={{ md: "center" }}
+              margin="32px 0"
+              rowGap="32px"
             >
-              Забыл пароль?
-            </Link>
-          </Flex>
+              <FormCheckbox
+                name="rememberMe"
+                label={translate(
+                  "lending.auth_form_checkbox_remember_me_label"
+                )}
+              />
 
-          <Button
-            variant="medium"
-            size="md"
-            type="submit"
-            width="100%"
-            justifyContent={{ base: "space-between", xl: "center" }}
-            columnGap="19px"
-          >
-            Войти
-            <Box as={ThinArrowIcon} width="26px" height="26px" />
-          </Button>
-        </form>
-      )}
-    </Form>
-  </Flex>
-);
+              <Link
+                as={ReactRouterLink}
+                to="/"
+                color={colors.blue.primary}
+                fontSize="14px"
+                fontWeight={800}
+                lineHeight="100%"
+                whiteSpace="nowrap"
+              >
+                {translate("lending.auth_form_forgot_password_text")}
+              </Link>
+            </Flex>
+
+            <Button
+              variant="medium"
+              size="md"
+              type="submit"
+              width="100%"
+              justifyContent={{ base: "space-between", xl: "center" }}
+              columnGap="19px"
+            >
+              {translate("lending.auth_form_submit_form_button_text")}
+              <Box as={ThinArrowIcon} width="26px" height="26px" />
+            </Button>
+          </form>
+        )}
+      </Form>
+    </Flex>
+  );
+};
 
 export default SignInForm;

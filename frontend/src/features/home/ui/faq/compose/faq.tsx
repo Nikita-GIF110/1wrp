@@ -1,6 +1,7 @@
 import { Box, Flex, List, ListItem } from "@chakra-ui/react";
 import type { QuestionEntity } from "features/home/models";
 import { useMediaQuery } from "shared/lib/useMediaQuery";
+import { useTranslate } from "shared/lib/useTranslate";
 import { Collapse } from "../ui/collapse";
 import { Support } from "../ui/support";
 
@@ -20,6 +21,7 @@ export const Faq = ({
   to,
 }: FaqProps) => {
   const { isDesktop } = useMediaQuery();
+  const translate = useTranslate();
 
   return (
     <Flex
@@ -46,8 +48,13 @@ export const Faq = ({
             key={question.id}
             marginBottom={questions.length - 1 === index ? "0" : "8px"}
           >
-            <Collapse header={question.name} size={isDesktop ? "md" : "sm"}>
-              {question.description}
+            <Collapse
+              header={translate(question.name as "lending.faq_question_title")}
+              size={isDesktop ? "md" : "sm"}
+            >
+              {translate(
+                question.description as "lending.faq_question_description"
+              )}
             </Collapse>
           </ListItem>
         ))}

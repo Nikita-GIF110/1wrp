@@ -9,6 +9,8 @@ import ArrowUp from "assets/icons/arrow-up.svg?react";
 import { colors } from "shared/config/colors";
 import { useMediaQuery } from "shared/lib/useMediaQuery";
 import { BottomLeftDecor } from "../ui/bottom-left-decor";
+import { useTranslate } from "shared/lib/useTranslate";
+import { useI18N } from "shared/lib/useI18n";
 
 interface IntroProps {
   linkHref: string;
@@ -16,6 +18,10 @@ interface IntroProps {
 
 export const Intro = ({ linkHref }: IntroProps) => {
   const { isDesktop } = useMediaQuery();
+  const translate = useTranslate();
+  const { lang } = useI18N();
+
+  const isRu = lang === "ru";
 
   return (
     <Flex
@@ -109,9 +115,9 @@ export const Intro = ({ linkHref }: IntroProps) => {
             fontSize={{ base: "32px", md: "52px", xl: "100px" }}
             maxWidth={{ base: "100%", md: "525px", xl: "1010px" }}
           >
-            место, где
+            {translate("lending.intro_top_title")}
             <br />
-            все возможно
+            {translate("lending.intro_bottom_title")}
           </Heading>
 
           <Text
@@ -121,7 +127,7 @@ export const Intro = ({ linkHref }: IntroProps) => {
             fontSize={{ base: "12px", md: "16px", xl: "24px" }}
             letterSpacing={{ base: "0.48px", md: "0.64px", xl: "0.96px" }}
           >
-            Ваша история, ваш выбор, ваша игра
+            {translate("lending.intro_subtitle")}
           </Text>
         </Flex>
 
@@ -141,7 +147,8 @@ export const Intro = ({ linkHref }: IntroProps) => {
             size={{ base: "md", md: "lg" }}
             order={{ base: 2, md: 1 }}
           >
-            {isDesktop ? "Начать игру" : "Регистрация"}
+            {translate("lending.intro_button_text")}
+            {/* {isDesktop ? "Начать игру" : "Регистрация"} */}
 
             <ArrowUp width={28} height={28} />
           </Link>
@@ -155,10 +162,9 @@ export const Intro = ({ linkHref }: IntroProps) => {
                 lineHeight="98%"
                 color={colors.white}
                 fontFamily="Halvar Engschrift"
+                maxWidth={{ base: isRu ? "47" : "85px", md: isRu ? "80px" : "150px" }}
               >
-                Сейчас
-                <br />
-                играют
+                {translate("lending.intro_players_online")}
               </Box>
 
               <Box

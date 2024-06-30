@@ -10,6 +10,7 @@ interface NewInStoreProsp {
   header: string;
   subHeader: string;
   linkHref: string;
+  linkText: string;
 }
 
 const NewInStore = ({
@@ -17,6 +18,7 @@ const NewInStore = ({
   header,
   subHeader,
   linkHref,
+  linkText,
 }: NewInStoreProsp) => {
   const { isDesktop } = useMediaQuery();
 
@@ -74,6 +76,7 @@ const NewInStore = ({
 
       <Link
         as={ReactRouterLink}
+        preventScrollReset
         to={linkHref}
         gap="19px"
         variant="medium"
@@ -82,7 +85,8 @@ const NewInStore = ({
         justifyContent="space-between"
         marginLeft={{ base: 0, md: "auto" }}
       >
-        {isDesktop ? "открыть магазин" : "магазин"}
+        {linkText}
+        {/* {isDesktop ? "открыть магазин" : "магазин"} */}
         <ArrowUp width={26} height={26} />
       </Link>
     </Flex>

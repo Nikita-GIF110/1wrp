@@ -2,7 +2,7 @@ import { Box, Flex } from "@chakra-ui/react";
 import Logo from "assets/icons/logo.svg?react";
 import { colors } from "shared/config/colors";
 
-export const AboutHeader = () => (
+export const AboutHeader = ({ header }: { header: string }) => (
   <Flex alignItems="center" columnGap="16px">
     <Box as={Logo} width="140px" height="32px" />
     <Box
@@ -12,7 +12,7 @@ export const AboutHeader = () => (
       textTransform="uppercase"
       color={colors.white}
     >
-      — это
+      — {header}
     </Box>
   </Flex>
 );

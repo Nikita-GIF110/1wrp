@@ -1,13 +1,12 @@
+import { useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useNews as useNewsModel } from "entities/news";
-
-const tags = [
-  { label: "все", value: "all" },
-  { label: "важные", value: "important" },
-  { label: "обновления", value: "updates" },
-];
+import { useTranslate } from "shared/lib/useTranslate";
+import { useI18N } from "shared/lib/useI18n";
 
 export const useNewsPage = () => {
+  const { lang } = useI18N()
+  const translate = useTranslate()
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get("page");
   const activeTag = searchParams.get("tag");
@@ -18,6 +17,12 @@ export const useNewsPage = () => {
 
   const newsBlockItems = news.slice(0, 5);
   const newsList = news.slice(5);
+
+  const tags = useMemo(() => ([
+    { label: translate("news_list.filter_tag_all"), value: "all" },
+    { label: translate("news_list.filter_tag_important"), value: "important" },
+    { label: translate("news_list.filter_tag_updates"), value: "updates" },
+  ]), [lang])
 
   const params = {
     page: page ? parseInt(page, 10) : 1,

@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Box } from "@chakra-ui/react";
 import type { CharactersEntity, CharacterOptions } from "features/home/models";
 import { colors } from "shared/config/colors";
+import { useTranslate } from "shared/lib/useTranslate";
 import { CharactersHeader } from "../ui/characters-header";
 import { CharactersListHeader } from "../ui/characters-list-header";
 import { CharacterTile } from "../ui/character-tile";
@@ -28,94 +29,98 @@ export const CharactersBlock = ({
   groups = [],
   mafia = [],
   onSelectCharacter,
-}: CharactersBlockProps) => (
-  <Box>
-    <CharactersHeader
-      marginBottom="24px"
-      padding={{ base: "0 24px", md: "0 12px", xl: 0 }}
-    />
+}: CharactersBlockProps) => {
+  const translate = useTranslate()
 
-    <Box
-      marginBottom={{ base: "8px", xl: "40px" }}
-      padding={{ base: "0 20px", md: 0 }}
-    >
-      <Swiper
-        slidesPerView="auto"
-        className="characters-slider-height overflow-visible"
-        breakpoints={smallTilesSliderBreakpoints}
+  return (
+    <Box>
+      <CharactersHeader
+        marginBottom="24px"
+        padding={{ base: "0 24px", md: "0 12px", xl: 0 }}
+      />
+
+      <Box
+        marginBottom={{ base: "8px", xl: "40px" }}
+        padding={{ base: "0 20px", md: 0 }}
       >
-        <SwiperSlide style={{ width: "auto" }}>
-          <CharactersListHeader
-            header="Государственные структуры"
-            color={colors.blue.primary}
-          />
-        </SwiperSlide>
-
-        {government.map((character) => (
-          <SwiperSlide key={character.image.src} style={{ width: "auto" }}>
-            <CharacterTile
-              character={character}
-              gradientVariant="blue"
-              onSelectCharacter={onSelectCharacter}
+        <Swiper
+          slidesPerView="auto"
+          className="characters-slider-height overflow-visible"
+          breakpoints={smallTilesSliderBreakpoints}
+        >
+          <SwiperSlide style={{ width: "auto" }}>
+            <CharactersListHeader
+              header={translate("lending.character_government_agencies_title")}
+              color={colors.blue.primary}
             />
           </SwiperSlide>
-        ))}
-      </Swiper>
-    </Box>
 
-    <Box
-      marginBottom={{ base: "8px", xl: "40px" }}
-      padding={{ base: "0 20px", md: 0 }}
-    >
-      <Swiper
-        slidesPerView="auto"
-        className="characters-slider-height overflow-visible"
-        breakpoints={largeTilesSliderBreakpoints}
+          {government.map((character) => (
+            <SwiperSlide key={character.image.src} style={{ width: "auto" }}>
+              <CharacterTile
+                character={character}
+                gradientVariant="blue"
+                onSelectCharacter={onSelectCharacter}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </Box>
+
+      <Box
+        marginBottom={{ base: "8px", xl: "40px" }}
+        padding={{ base: "0 20px", md: 0 }}
       >
-        <SwiperSlide style={{ width: "auto" }}>
-          <CharactersListHeader
-            header="Государственные структуры"
-            color={colors.violet.primary}
-          />
-        </SwiperSlide>
-
-        {groups.map((character) => (
-          <SwiperSlide key={character.image.src} style={{ width: "auto" }}>
-            <CharacterTile
-              character={character}
-              gradientVariant="violet"
-              size="medium"
-              onSelectCharacter={onSelectCharacter}
+        <Swiper
+          slidesPerView="auto"
+          className="characters-slider-height overflow-visible"
+          breakpoints={largeTilesSliderBreakpoints}
+        >
+          <SwiperSlide style={{ width: "auto" }}>
+            <CharactersListHeader
+              header={translate("lending.character_government_agencies_title")}
+              color={colors.violet.primary}
             />
           </SwiperSlide>
-        ))}
-      </Swiper>
-    </Box>
 
-    <Box padding={{ base: "0 20px", md: 0 }}>
-      <Swiper
-        slidesPerView="auto"
-        className="characters-slider-height overflow-visible"
-        breakpoints={largeTilesSliderBreakpoints}
-      >
-        <SwiperSlide style={{ width: "auto" }}>
-          <CharactersListHeader
-            header="Государственные структуры"
-            color={colors.red.primary}
-          />
-        </SwiperSlide>
+          {groups.map((character) => (
+            <SwiperSlide key={character.image.src} style={{ width: "auto" }}>
+              <CharacterTile
+                character={character}
+                gradientVariant="violet"
+                size="medium"
+                onSelectCharacter={onSelectCharacter}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </Box>
 
-        {mafia.map((character) => (
-          <SwiperSlide key={character.image.src} style={{ width: "auto" }}>
-            <CharacterTile
-              gradientVariant="red"
-              size="medium"
-              character={character}
-              onSelectCharacter={onSelectCharacter}
+      <Box padding={{ base: "0 20px", md: 0 }}>
+        <Swiper
+          slidesPerView="auto"
+          className="characters-slider-height overflow-visible"
+          breakpoints={largeTilesSliderBreakpoints}
+        >
+          <SwiperSlide style={{ width: "auto" }}>
+            <CharactersListHeader
+              header={translate("lending.character_government_agencies_title")}
+              color={colors.red.primary}
             />
           </SwiperSlide>
-        ))}
-      </Swiper>
+
+          {mafia.map((character) => (
+            <SwiperSlide key={character.image.src} style={{ width: "auto" }}>
+              <CharacterTile
+                gradientVariant="red"
+                size="medium"
+                character={character}
+                onSelectCharacter={onSelectCharacter}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </Box>
     </Box>
-  </Box>
-);
+  );
+};

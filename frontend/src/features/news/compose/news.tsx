@@ -13,9 +13,11 @@ import { Container } from "shared/ui/container";
 import newsBg from "assets/images/news/news-bg.webp";
 import langingBg from "assets/images/bg-body.webp";
 import { colors } from "shared/config/colors";
+import { useTranslate } from "shared/lib/useTranslate";
 
 const News = () => {
   const { newsId } = useParams();
+  const translate = useTranslate();
 
   const getNews = useNews((state) => state.getNews);
   const newsItem = useNews((state) => state.news);
@@ -54,10 +56,11 @@ const News = () => {
       <Breadcrumbs
         marginBottom={{ base: "24px", md: "48px", xl: "40px" }}
         breadcrumbs={[
-          { label: "Главная", to: ROUTES.home.path },
-          { label: "Новости", to: ROUTES.news.path },
+          { label: translate("home.page_name"), to: ROUTES.home.path },
+          { label: translate("news_list.page_name"), to: ROUTES.news.path },
           {
-            label: `${newsItem?.header}`,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            label: translate(newsItem?.header as any),
             to: `${ROUTES.news.path}/${newsItem?.id}`,
           },
         ]}
@@ -75,7 +78,8 @@ const News = () => {
           marginBottom="16px"
           color={colors.white}
         >
-          {newsItem?.header}
+          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+          {translate(newsItem?.header as any)}
         </Box>
 
         {newsItem?.isNew && (
@@ -86,7 +90,7 @@ const News = () => {
             marginBottom="24px"
           >
             <Badge variant="boxy">News</Badge>
-            <Badge variant="boxyDark">04 марта</Badge>
+            <Badge variant="boxyDark">{translate("news_item.date")}</Badge>
           </Stack>
         )}
 
@@ -118,13 +122,7 @@ const News = () => {
           lineHeight={{ base: "139%", md: "150%" }}
           marginBottom="44px"
         >
-          <Box as="span" fontWeight={700}>
-            Original text Investigation Bureau (FIB)
-          </Box>{" "}
-          - правительственная правоохранительная организация занимающаяся
-          тяжкими и особо тяжкими преступлениями, а так же внутренней и внешней
-          разведкой. На территории штата занимается, финансовыми преступлениями,
-          преступлениями связанными с государственными служащими.
+          {translate("news.description_top")}
         </Box>
 
         <Box
@@ -165,28 +163,7 @@ const News = () => {
           color="#C5CBE0"
           marginBottom="42px"
         >
-          С другой стороны сложившаяся структура организации требуют определения
-          и{" "}
-          <Box as="span" fontWeight={700}>
-            уточнения новых предложений
-          </Box>
-          . Разнообразный и богатый опыт сложившаяся структура организации
-          представляет собой интересный эксперимент проверки системы обучения
-          кадров, соответствует насущным потребностям.{" "}
-          <Box as="span" fontWeight={700}>
-            Повседневная практика
-          </Box>{" "}
-          показывает, что дальнейшее развитие различных форм деятельности
-          требуют определения и уточнения системы обучения кадров, соответствует
-          насущным потребностям. Задача организации, в{" "}
-          <Box as="span" fontWeight={700}>
-            особенности же новая
-          </Box>{" "}
-          модель организационной деятельности требуют определения и уточнения
-          дальнейших направлений развития. Значимость этих проблем настолько
-          очевидна, что постоянное информационно-пропагандистское обеспечение
-          нашей деятельности требуют от нас анализа направлений прогрессивного
-          развития.
+          {translate("news.description_top")}
         </Box>
 
         <Box
@@ -207,13 +184,7 @@ const News = () => {
           lineHeight={{ base: "138%", md: "150%" }}
           marginBottom="44px"
         >
-          <Box as="span" fontWeight={700}>
-            Small text (FIB)
-          </Box>{" "}
-          - правительственная правоохранительная организация занимающаяся
-          тяжкими и особо тяжкими преступлениями, а так же внутренней и внешней
-          разведкой. На территории штата занимается, финансовыми преступлениями,
-          преступлениями связанными с государственными служащими.
+          {translate("news.description_bottom")}
         </Box>
 
         <Box
@@ -232,9 +203,9 @@ const News = () => {
           flexDirection="column"
           rowGap="10px"
         >
-          <ListItem>Пункт меню для настоящих</ListItem>
-          <ListItem>Пункт меню</ListItem>
-          <ListItem>Что-то здесь еще</ListItem>
+          <ListItem>{translate("news.list_item_1")}</ListItem>
+          <ListItem>{translate("news.list_item_2")}</ListItem>
+          <ListItem>{translate("news.list_item_3")}</ListItem>
         </List>
 
         <SharedLinks marginBottom={{ base: "24px", md: "44px" }} />

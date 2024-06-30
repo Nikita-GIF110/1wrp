@@ -1,5 +1,5 @@
-import { Suspense, lazy } from "react";
-import { Link as ReactRouterLink } from "react-router-dom";
+import { Suspense, lazy, useEffect } from "react";
+import { Link as ReactRouterLink, useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { Box, Button, Flex, useDisclosure, Link } from "@chakra-ui/react";
 import { UserPanel } from "features/layout/ui/user-panel";
@@ -11,7 +11,6 @@ import { HEADER_NAVIGATION, LANGUAGES } from "features/layout/config/base";
 import { BurgerButton } from "features/layout/ui/burger-button";
 import { useAuthLayout, SIGN_IN_SCHEMA } from "features/layout/models";
 import { AuthWithSocialNetwork } from "features/layout/ui/auth-with-social-network";
-import type { SelectOption } from "entities/utils";
 
 import { useI18N } from "shared/lib/useI18n";
 import { Logo } from "shared/ui/logo";
@@ -22,6 +21,7 @@ import { Drawer } from "shared/ui/drawer";
 import { CopyButton } from "shared/ui/copy-button";
 import { ContentPlaceholder } from "shared/ui/content-placeholder";
 import { colors } from "shared/config/colors";
+import { useTranslate } from "shared/lib/useTranslate";
 
 import LinkChain from "assets/images/home/link-chain-icon.svg?react";
 import CloseIcon from "assets/icons/close-icon.svg?react";
@@ -30,7 +30,9 @@ import UserIcon from "assets/icons/user-icon.svg?react";
 const SignInForm = lazy(() => import("../ui/sign-in-form"));
 
 export const Layout = () => {
+  const location = useLocation();
   const { setLang } = useI18N();
+  const translate = useTranslate();
   const mobileMenuDrawer = useDisclosure();
 
   const { onSubmit, signInFormState, initialValues, onAuth } = useAuthLayout();
@@ -38,9 +40,13 @@ export const Layout = () => {
 
   const { isMobile, isTablet, isDesktop } = useMediaQuery();
 
-  const setLanguage = (selectedLanguage: SelectOption) => {
-    setLang(selectedLanguage.value as "ru" | "en");
+  const setLanguage = (selectedLanguage: "ru" | "en") => {
+    setLang(selectedLanguage);
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [location]);
 
   return (
     <>
@@ -61,7 +67,7 @@ export const Layout = () => {
             <Logo padding="24px 0" />
             <MenuListMobile list={HEADER_NAVIGATION} />
             <UserPanel
-              placeholder="Войти"
+              placeholder={translate("header.mobile_menu_sign_in_button_text")}
               onClick={signInFormState.onOpen}
               width="100%"
             />
@@ -132,7 +138,7 @@ export const Layout = () => {
                   height="20px"
                   marginRight="19px"
                 />
-                Зарегистрироваться
+                {translate("lending.auth_form_registration_button_text")}
               </Link>
 
               <Box
@@ -147,7 +153,7 @@ export const Layout = () => {
                 marginTop="32px"
                 marginBottom="6px"
               >
-                через соц. сети
+                {translate("lending.auth_via_social_media_networks_title")}
               </Box>
 
               <AuthWithSocialNetwork onAuth={onAuth} />
@@ -170,7 +176,7 @@ export const Layout = () => {
             <Box as={CloseIcon} width="24px" height="24px" />
           </Button>
 
-          <CopyButton tooltipLabel="какой-то текст" copyText="some copy text">
+          <CopyButton tooltipLabel={translate("copy_button.auth_form_tooltip_text")} copyText="some copy text">
             <Box as={LinkChain} width="24px" height="24px" />
           </CopyButton>
         </Flex>
@@ -192,7 +198,7 @@ export const Layout = () => {
             }
             rightNode={
               <UserPanel
-                placeholder="Личный кабинет"
+                placeholder={translate("header.personal_account_button_text")}
                 onClick={signInFormState.onOpen}
               />
             }
@@ -212,7 +218,7 @@ export const Layout = () => {
             }
             centerNode={
               <UserPanel
-                placeholder="Личный кабинет"
+                placeholder={translate("header.mobile_menu_sign_in_button_text")}
                 onClick={signInFormState.onOpen}
               />
             }

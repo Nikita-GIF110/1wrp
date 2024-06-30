@@ -1,5 +1,4 @@
 import type {
-  NewsEntity,
   CharactersEntity,
   SocialLinkEntity,
   ServerEntity,
@@ -22,70 +21,12 @@ import banda3 from "assets/images/home/profession/Banda-3.png";
 import mafia1 from "assets/images/home/profession/mafia-1.png";
 import mafia2 from "assets/images/home/profession/mafia-2.png";
 import mafia3 from "assets/images/home/profession/mafia-3.png";
-// News
-import news1 from "assets/images/home/news-image-1.webp";
-import news2 from "assets/images/home/news-image-1.webp";
-import news3 from "assets/images/home/news-image-3.webp";
-import news4 from "assets/images/home/news-image-2.webp";
 // Info
 import infoImg1 from "assets/images/home/info-image-1.webp";
 import infoImg2 from "assets/images/home/info-image-2.webp";
 import infoImg3 from "assets/images/home/info-image-3.webp";
 import infoImg4 from "assets/images/home/info-image-4.webp";
 
-export const NEWS_LIST: Array<NewsEntity> = [
-  {
-    isNew: true,
-    // header: "Обычная новость",
-    header: "Обновление системы фракций",
-    // subHeader:
-    //   "равительственная правоохранительная организация занимающаяся тяжкими и особо тяжкими преступлениями, а так же внутренней и внешней ",
-    subHeader: "Представляем вам обновленную систем фракция",
-    to: "/",
-    image: {
-      src: news1,
-      alt: "",
-      title: "",
-    },
-  },
-  {
-    isNew: true,
-    header: "Обычная новость",
-    // subHeader:
-    //   "а территории штата занимается, финансовыми преступлениями, преступлениями связанными с государственными служащими.",
-    subHeader: "Что бы увидеть новые возможности",
-    to: "/",
-    image: {
-      src: news2,
-      alt: "",
-      title: "",
-    },
-  },
-  {
-    isNew: true,
-    header: "Обычная новость",
-    // subHeader:
-    //   "правительственная правоохранительная организация занимающаяся тяжкими и особо тяжкими преступлениями, а так же внутренней и внешней ",
-    subHeader: "Что бы увидеть новые возможности",
-    to: "/",
-    image: {
-      src: news3,
-      alt: "",
-      title: "",
-    },
-  },
-  {
-    isNew: true,
-    header: "Обычная новость",
-    subHeader: "Что бы увидеть новые возможности",
-    to: "/",
-    image: {
-      src: news4,
-      alt: "",
-      title: "",
-    },
-  },
-];
 
 export const SOCIAL_LINK_LIST: Array<SocialLinkEntity> = [
   {
@@ -108,42 +49,42 @@ export const SOCIAL_LINK_LIST: Array<SocialLinkEntity> = [
 export const SERVERS_LIST: Array<ServerEntity> = [
   {
     id: 1,
-    name: "сервер 1",
+    name: "1",
     onlineCount: 7457,
     registeredCount: 7457,
     link: "server1.oneroleplay.com:22005",
   },
   {
     id: 2,
-    name: "сервер 2",
+    name: "2",
     onlineCount: 7457,
     registeredCount: 7457,
     link: "server1.oneroleplay.com:22005",
   },
   {
     id: 3,
-    name: "сервер 3",
+    name: "3",
     onlineCount: 7457,
     registeredCount: 7457,
     link: "server1.oneroleplay.com:22005",
   },
   {
     id: 4,
-    name: "сервер 4",
+    name: "4",
     onlineCount: 7457,
     registeredCount: 7457,
     link: "server1.oneroleplay.com:22005",
   },
   {
     id: 5,
-    name: "сервер 5",
+    name: "5",
     onlineCount: 7457,
     registeredCount: 7457,
     link: "server1.oneroleplay.com:22005",
   },
   {
     id: 6,
-    name: "сервер 6",
+    name: "6",
     onlineCount: 7457,
     registeredCount: 7457,
     link: "server1.oneroleplay.com:22005",
@@ -386,44 +327,37 @@ export const CHARACTERS_MAFIA_AGENCIES_LIST: Array<CharactersEntity> = [
 export const QUESTIONS: Array<QuestionEntity> = [
   {
     id: 1,
-    name: "У меня возник важный вопрос. Ответ тут?",
-    description:
-      "Семейство коробчатых музыкальных инструментов сильфонного типа, также именуемые как концертные ручные гармоники. К этому семейству относятся баян, концертина, гармонь, бандонеон.",
+    name: "lending.faq_question_title",
+    description: "lending.faq_question_description",
   },
   {
     id: 2,
-    name: "У меня возник важный вопрос. Ответ тут?",
-    description:
-      "Семейство коробчатых музыкальных инструментов сильфонного типа, также именуемые как концертные ручные гармоники. К этому семейству относятся баян, концертина, гармонь, бандонеон.",
+    name: "lending.faq_question_title",
+    description: "lending.faq_question_description",
   },
   {
     id: 3,
-    name: "У меня возник важный вопрос. Ответ тут?",
-    description:
-      "Семейство коробчатых музыкальных инструментов сильфонного типа, также именуемые как концертные ручные гармоники. К этому семейству относятся баян, концертина, гармонь, бандонеон.",
+    name: "lending.faq_question_title",
+    description: "lending.faq_question_description",
   },
   {
     id: 4,
-    name: "У меня возник важный вопрос. Ответ тут?",
-    description:
-      "Семейство коробчатых музыкальных инструментов сильфонного типа, также именуемые как концертные ручные гармоники. К этому семейству относятся баян, концертина, гармонь, бандонеон.",
+    name: "lending.faq_question_title",
+    description: "lending.faq_question_description",
   },
   {
     id: 5,
-    name: "У меня возник важный вопрос. Ответ тут?",
-    description:
-      "Семейство коробчатых музыкальных инструментов сильфонного типа, также именуемые как концертные ручные гармоники. К этому семейству относятся баян, концертина, гармонь, бандонеон.",
+    name: "lending.faq_question_title",
+    description: "lending.faq_question_description",
   },
   {
     id: 6,
-    name: "У меня возник важный вопрос. Ответ тут?",
-    description:
-      "Семейство коробчатых музыкальных инструментов сильфонного типа, также именуемые как концертные ручные гармоники. К этому семейству относятся баян, концертина, гармонь, бандонеон.",
+    name: "lending.faq_question_title",
+    description: "lending.faq_question_description",
   },
   {
     id: 7,
-    name: "У меня возник важный вопрос. Ответ тут?",
-    description:
-      "Семейство коробчатых музыкальных инструментов сильфонного типа, также именуемые как концертные ручные гармоники. К этому семейству относятся баян, концертина, гармонь, бандонеон.",
+    name: "lending.faq_question_title",
+    description: "lending.faq_question_description",
   },
 ];

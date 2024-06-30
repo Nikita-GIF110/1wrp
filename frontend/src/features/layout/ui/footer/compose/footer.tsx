@@ -1,11 +1,11 @@
 import { Box, Flex } from "@chakra-ui/react";
 import { LANGUAGES } from "features/layout/config/base";
-import type { SelectOption } from "entities/utils";
 import { Container } from "shared/ui/container";
 import { colors } from "shared/config/colors";
 import { useI18N } from "shared/lib/useI18n";
 import { Logo } from "shared/ui/logo";
 import { LanguageDropdown } from "shared/ui/language-dropdown";
+import { useTranslate } from "shared/lib/useTranslate";
 
 import payments from "assets/images/payments.webp";
 import DiscordSmall from "assets/icons/discord-small.svg?react";
@@ -18,9 +18,10 @@ import { NavLink } from "../ui/nav-link";
 
 export const Footer = () => {
   const { setLang } = useI18N();
+  const translate = useTranslate();
 
-  const setLanguage = (selectedLanguage: SelectOption) => {
-    setLang(selectedLanguage.value as "ru" | "en");
+  const setLanguage = (selectedLanguage: "ru" | "en") => {
+    setLang(selectedLanguage);
   };
 
   return (
@@ -43,7 +44,13 @@ export const Footer = () => {
             <LanguageDropdown languages={LANGUAGES} onChage={setLanguage} />
           </Flex>
 
-          <Box as="img" src={payments} alt="Оплата" width="225px" height="30px" />
+          <Box
+            as="img"
+            src={payments}
+            alt="Оплата"
+            width="225px"
+            height="30px"
+          />
         </Flex>
 
         <Box
@@ -66,16 +73,15 @@ export const Footer = () => {
             lineHeight="148%"
             opacity={0.5}
           >
-            ООО “Один Гейм Девелопмент” ИНН 9703149875 ОГРН 1237700457862 26,
-            Vyronos Street. 3105. Limassol. LB. CY120009.
+            {translate("footer.info")}
           </Box>
 
           <Box lineHeight={{ base: "152%", md: "146%" }}>
-            <NavLink to="/">Политика конфиденциальности</NavLink>
-            <NavLink to="/">Пользовательское соглашение</NavLink>
-            <NavLink to="/">Публичная оферта</NavLink>
-            <NavLink to="/">Политика Cookie файлов</NavLink>
-            <NavLink to="/">Правила сервера</NavLink>
+            <NavLink to="/">{translate("footer.link_privacy_policy")}</NavLink>
+            <NavLink to="/">{translate("footer.link_user_agreement")}</NavLink>
+            <NavLink to="/">{translate("footer.link_public_offer")}</NavLink>
+            <NavLink to="/">{translate("footer.link_cookie_policy")}</NavLink>
+            <NavLink to="/">{translate("footer.link_server_rules")}</NavLink>
           </Box>
 
           <Box
@@ -84,9 +90,7 @@ export const Footer = () => {
             marginTop={{ base: "18px", md: 0 }}
           >
             <Box marginRight="28px" lineHeight="148%">
-              Канал поддержки в Discord
-              <br />
-              Поддержка в ВК
+              {translate("footer.support_channel")}
             </Box>
 
             <Flex marginTop="24px" columnGap="28px">

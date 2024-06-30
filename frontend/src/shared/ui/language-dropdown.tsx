@@ -8,20 +8,15 @@ import {
   Button,
   Box,
 } from "@chakra-ui/react";
-import type { SelectOption } from "entities/utils";
 import Arrow from "assets/icons/arrow-dropdown.svg?react";
 import RuFlag from "assets/icons/flag-rus.svg?react";
 import EnFlag from "assets/icons/flag-eng.svg?react";
 import { colors } from "shared/config/colors";
-
-const defaultoption = {
-  label: "RU",
-  value: "ru",
-};
+import { LANGUAGE_NAME, DEFAULT_LANGUAGE } from "shared/config/base";
 
 interface LanguageDropdownProps extends Omit<MenuProps, "children"> {
-  languages: Array<SelectOption>;
-  onChage: (option: SelectOption) => void;
+  languages: Array<string>;
+  onChage: (option: "ru" | "en") => void;
 }
 
 export const LanguageDropdown = ({
@@ -30,15 +25,16 @@ export const LanguageDropdown = ({
   ...otherMenuProps
 }: LanguageDropdownProps) => {
   const menuId = useId();
-  const [selectedLanguage, setSelectedLanguage] = useState(defaultoption);
+  const selectedLang = window.localStorage.getItem(LANGUAGE_NAME);
 
-  const handelChangeLanguage =
-    (selectedOption: typeof selectedLanguage) => () => {
-      if (typeof onChage === "function") {
-        onChage(selectedOption);
-      }
-      setSelectedLanguage(selectedOption);
-    };
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    selectedLang ?? DEFAULT_LANGUAGE
+  );
+
+  const handelChangeLanguage = (selectedOption: "ru" | "en") => () => {
+    onChage(selectedOption);
+    setSelectedLanguage(selectedOption);
+  };
 
   return (
     <Menu flip boundary="scrollParent" placement="bottom" {...otherMenuProps}>
@@ -60,7 +56,7 @@ export const LanguageDropdown = ({
           color: colors.blue.secondary,
         }}
       >
-        {selectedLanguage.label}
+        {selectedLanguage}
       </MenuButton>
 
       <MenuList
@@ -92,18 +88,19 @@ export const LanguageDropdown = ({
 
             return (
               <MenuItem
-                key={language.label}
-                onClick={handelChangeLanguage(language)}
+                key={language}
+                onClick={handelChangeLanguage(language as "ru" | "en")}
                 padding="2px"
                 justifyContent="center"
                 borderTopRadius={isFirst ? "4px" : "0"}
                 borderBottomRadius={isLast ? "4px" : "0"}
+                backgroundColor={language === selectedLanguage ? "rgba(12, 13, 17, 0.40)" : "" }
                 _hover={{
                   backgroundColor: "rgba(12, 13, 17, 0.40)",
                 }}
               >
                 <Box
-                  as={language.value === "ru" ? RuFlag : EnFlag}
+                  as={language === "ru" ? RuFlag : EnFlag}
                   width="24px"
                   height="24px"
                   visibility="visible"

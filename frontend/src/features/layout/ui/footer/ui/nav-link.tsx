@@ -14,6 +14,7 @@ export const NavLink = ({ children, to }: NavLinkProps) => (
     display="block"
     opacity={0.5}
     transition="opacity 0.2s ease-in-out"
+    lineHeight="152%"
     _hover={{
       opacity: 1,
     }}

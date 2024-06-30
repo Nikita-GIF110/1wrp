@@ -10,8 +10,8 @@ export const NEWS_LIST: Array<NewsEntity> = [
   {
     id: 1,
     isNew: true,
-    header: "Обновление системы фракций",
-    subHeader: "Представляем вам обновленную систем фракция",
+    header: "news_item.updating_faction_system_title",
+    subHeader: "news_item.updating_faction_system_subtitle",
     to: "/news/1",
     image: {
       src: news1,
@@ -22,8 +22,8 @@ export const NEWS_LIST: Array<NewsEntity> = [
   {
     id: 2,
     isNew: true,
-    header: "Обычная новость",
-    subHeader: "Что бы увидеть новые возможности",
+    header: "news_item.usual_news_title",
+    subHeader: "news_item.usual_news_subtitle",
     to: "/news/2",
     image: {
       src: news2,
@@ -34,8 +34,8 @@ export const NEWS_LIST: Array<NewsEntity> = [
   {
     id: 3,
     isNew: true,
-    header: "Обычная новость",
-    subHeader: "Что бы увидеть новые возможности",
+    header: "news_item.usual_news_title",
+    subHeader: "news_item.usual_news_subtitle",
     to: "/news/3",
     image: {
       src: news3,
@@ -46,8 +46,8 @@ export const NEWS_LIST: Array<NewsEntity> = [
   {
     id: 4,
     isNew: true,
-    header: "Обычная новость",
-    subHeader: "Что бы увидеть новые возможности",
+    header: "news_item.usual_news_title",
+    subHeader: "news_item.usual_news_subtitle",
     to: "/news/4",
     image: {
       src: news4,
@@ -58,8 +58,8 @@ export const NEWS_LIST: Array<NewsEntity> = [
   {
     id: 5,
     isNew: true,
-    header: "Обычная новость",
-    subHeader: "Что бы увидеть новые возможности",
+    header: "news_item.usual_news_title",
+    subHeader: "news_item.usual_news_subtitle",
     to: "/news/5",
     image: {
       src: news1,
@@ -70,8 +70,8 @@ export const NEWS_LIST: Array<NewsEntity> = [
   {
     id: 6,
     isNew: true,
-    header: "Обычная новость",
-    subHeader: "Что бы увидеть новые возможности",
+    header: "news_item.usual_news_title",
+    subHeader: "news_item.usual_news_subtitle",
     to: "/news/6",
     image: {
       src: news3,
@@ -82,8 +82,8 @@ export const NEWS_LIST: Array<NewsEntity> = [
   {
     id: 7,
     isNew: true,
-    header: "Обычная новость",
-    subHeader: "Что бы увидеть новые возможности",
+    header: "news_item.usual_news_title",
+    subHeader: "news_item.usual_news_subtitle",
     to: "/news/6",
     image: {
       src: news4,
@@ -94,8 +94,8 @@ export const NEWS_LIST: Array<NewsEntity> = [
   {
     id: 8,
     isNew: true,
-    header: "Обычная новость",
-    subHeader: "Что бы увидеть новые возможности",
+    header: "news_item.usual_news_title",
+    subHeader: "news_item.usual_news_subtitle",
     to: "/news/6",
     image: {
       src: news2,
@@ -106,8 +106,8 @@ export const NEWS_LIST: Array<NewsEntity> = [
   {
     id: 9,
     isNew: true,
-    header: "Обычная новость",
-    subHeader: "Что бы увидеть новые возможности",
+    header: "news_item.usual_news_title",
+    subHeader: "news_item.usual_news_subtitle",
     to: "/news/6",
     image: {
       src: news4,
@@ -120,7 +120,7 @@ export const NEWS_LIST: Array<NewsEntity> = [
 export const NEWS: NewsEntity = {
   id: 1,
   isNew: true,
-  header: "Обновление системы фракций",
+  header: "news_item.updating_faction_system_title",
   subHeader: "Представляем вам обновленную систем фракция",
   to: "/news/1",
   image: {

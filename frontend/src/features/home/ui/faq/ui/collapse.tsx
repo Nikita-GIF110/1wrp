@@ -75,7 +75,14 @@ export const Collapse = ({ header, children, size = "md" }: CollapseProps) => {
       </Button>
 
       <ChakraCollapse in={isOpen} animateOpacity>
-        <Box padding={sizeStyles[size].collapsePadding}>{children}</Box>
+        <Box
+          padding={sizeStyles[size].collapsePadding}
+          fontSize={sizeStyles[size].fontSize}
+          color="rgba(238, 244, 248, 0.7)"
+          lineHeight="130%"
+        >
+          {children}
+        </Box>
       </ChakraCollapse>
     </Box>
   );

@@ -5,6 +5,7 @@ import Lightbox from "yet-another-react-lightbox";
 
 import MaximizeIcon from "assets/images/home/maximize-icon.svg?react";
 import { colors } from "shared/config/colors";
+import { useTranslate } from "shared/lib/useTranslate";
 
 interface CharacterInfoProps {
   characterpreviewImage: {
@@ -27,6 +28,7 @@ const CharacterInfo = ({
 }: CharacterInfoProps) => {
   const lightboxState = useDisclosure();
   const [activeSlideIndex, setActiveSlideIndex] = useState<number>(0);
+  const translate = useTranslate()
 
   const previewImage = images[0];
   const lightBoxImages = images.slice(1);
@@ -85,8 +87,7 @@ const CharacterInfo = ({
             fontWeight={700}
             marginBottom="10px"
           >
-            {/* {name} */}
-            Federal Investigation Bureau
+            {translate("lending.character_info_more-title")}
           </Box>
 
           <Box
@@ -97,13 +98,7 @@ const CharacterInfo = ({
             opacity={0.6}
             fontFamily="Halvar Breitschrift"
           >
-            {/* {description}
-             */}
-            Federal Investigation Bureau (FIB) - правительственная
-            правоохранительная организация занимающаяся тяжкими и особо тяжкими
-            преступлениями, а так же внутренней и внешней разведкой. На
-            территории штата занимается, финансовыми преступлениями,
-            преступлениями связанными с государственными служащими.
+            {translate("lending.character_info_more-description")}
           </Box>
         </Box>
 
@@ -152,7 +147,7 @@ const CharacterInfo = ({
           size="md"
           marginBottom="24px"
         >
-          подробнее
+          {translate("lending.character_info_more-detailed_button_text")}
         </Link>
       </Box>
 

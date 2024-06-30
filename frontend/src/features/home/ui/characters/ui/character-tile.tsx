@@ -3,6 +3,7 @@ import LazyLoad from "react-lazyload";
 import InfoIcon from "assets/images/home/info-icon.svg?react";
 import type { CharactersEntity, CharacterOptions } from "features/home/models";
 import { colors } from "shared/config/colors";
+import { useTranslate } from "shared/lib/useTranslate";
 
 type GradientsType = "blue" | "violet" | "red";
 type SizesType = "small" | "medium";
@@ -59,6 +60,8 @@ export const CharacterTile = ({
       gradientBg: gradients[gradientVariant].bg,
     });
   };
+
+  const translate = useTranslate();
 
   return (
     <Flex
@@ -133,7 +136,7 @@ export const CharacterTile = ({
       >
         <InfoIcon />
 
-        {character.name}
+        {translate("lending.character_government_agencies_info")}
       </Flex>
     </Flex>
   );

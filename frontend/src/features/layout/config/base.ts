@@ -1,39 +1,34 @@
 export const HEADER_NAVIGATION = [
   {
-    label: "Серверы",
+    label: "header.link_servers",
     to: "/",
   },
   {
-    label: "Фракции",
+    label: "header.link_factions",
     to: "/",
   },
   {
-    label: "Рейтинг игроков",
+    label: "header.link_player_rating",
     to: "/",
   },
   {
-    label: "Мониторинг",
+    label: "header.link_monitoring",
     to: "/",
   },
   {
-    label: "WIKI",
+    label: "header.link_wiki",
     to: "/",
   },
   {
-    label: "Новости",
+    label: "header.link_news",
     to: "/",
   },
   {
-    label: "Магазин",
+    label: "header.link_shop",
     to: "/",
   },
 ];
 
-export const LANGUAGES = [
-  { label: "RU", value: "ru" },
-  { label: "EN", value: "en" },
-];
+export const LANGUAGES = ["ru", "en"];
 
-export const FOOTER_NAVIGATION = [
-
-]
+export const FOOTER_NAVIGATION = [];

@@ -14,12 +14,14 @@ import langingBg from "assets/images/bg-body.webp";
 import "swiper/css";
 import { colors } from "shared/config/colors";
 import { useMediaQuery } from "shared/lib/useMediaQuery";
+import { useTranslate } from "shared/lib/useTranslate";
 
 const NewInStore = lazy(() => import("../../../entities/news"));
 const NewsBlock = lazy(() => import("../ui/news-block"));
 
 const News = () => {
   const { isDesktop } = useMediaQuery();
+  const translate = useTranslate();
 
   const {
     tags,
@@ -45,8 +47,8 @@ const News = () => {
       <Breadcrumbs
         marginBottom={{ base: "24px", md: "32px", xl: "44px" }}
         breadcrumbs={[
-          { label: "Главная", to: ROUTES.home.path },
-          { label: "Новости", to: ROUTES.news.path },
+          { label: translate("home.page_name"), to: ROUTES.home.path },
+          { label: translate("news_list.page_name"), to: ROUTES.news.path },
         ]}
       />
 
@@ -55,6 +57,7 @@ const News = () => {
         marginBottom={{ base: "26px", md: "32px", xl: "20px" }}
         padding={{ base: "0 32px", md: "0 20px" }}
         overflow="hidden"
+        textAlign={{ xl: "center" }}
       >
         <Heading
           as="h1"
@@ -64,14 +67,18 @@ const News = () => {
           color={colors.white}
           marginBottom="16px"
         >
-          Последние новости
+          {translate("news_list.title")}
         </Heading>
 
-        <NewsFilter
-          activeTag={params.activeTag}
-          tagFiltersList={tags}
-          onSelectFilter={onSelectFilter}
-        />
+        <Flex justifyContent={{ xl: "center" }}>
+          <Box minWidth={0}>
+            <NewsFilter
+              activeTag={params.activeTag}
+              tagFiltersList={tags}
+              onSelectFilter={onSelectFilter}
+            />
+          </Box>
+        </Flex>
       </Container>
 
       <Container
@@ -92,8 +99,9 @@ const News = () => {
           {isDesktop && (
             <Suspense fallback={<ContentPlaceholder height="300px" />}>
               <NewInStore
-                header="Новинки в магазине"
-                subHeader="Заходите в магазин что бы увидеть новые предметы"
+                header={translate("lending.new_in_store_title")}
+                subHeader={translate("lending.new_in_store_subtitle")}
+                linkText={translate("lending.new_in_store_button_text")}
                 linkHref={ROUTES.news.path}
               />
             </Suspense>
