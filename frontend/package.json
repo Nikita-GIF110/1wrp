@@ -16,6 +16,7 @@
     "axios": "^1.6.8",
     "final-form": "^4.20.10",
     "framer-motion": "^11.1.8",
+    "html-react-parser": "^5.1.10",
     "immer": "^10.1.1",
     "jwt-decode": "^4.0.0",
     "react": "^18.2.0",

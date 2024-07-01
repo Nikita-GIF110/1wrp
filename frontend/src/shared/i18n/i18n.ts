@@ -140,6 +140,7 @@ function interpolateTranslation(
 ) {
   return translation.replace(mustacheParamRegex, (original, paramKey) => {
     if (paramKey in params) {
+      
       return String(params[paramKey]);
     }
 

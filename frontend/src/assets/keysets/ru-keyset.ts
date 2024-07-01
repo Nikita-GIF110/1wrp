@@ -77,7 +77,7 @@ export const ru = {
   "lending.auth_form_forgot_password_text": "забыл пароль",
   "lending.auth_form_submit_form_button_text": "войти",
   "lending.auth_form_registration_button_text": "зарегистрироваться",
-  "lending.auth_via_social_media_networks_title": "ЧЕРЕЗ СОЦ. СЕТИ",
+  "lending.auth_via_social_media_networks_title": "ЧЕРЕЗ социальные сети",
   "lending.auth_field_helper_text": "Поле обязательно",
   // News page
   "news_list.page_name": "новости",

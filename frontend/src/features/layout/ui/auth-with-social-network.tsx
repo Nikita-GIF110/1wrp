@@ -8,7 +8,7 @@ import Google from "assets/icons/auth-with-google.svg?react";
 import { colors } from "shared/config/colors";
 
 interface AuthWithSocialNetworkProps {
-    onAuth: (networkId: string) => void
+  onAuth: (networkId: string) => void;
 }
 
 const Item = ({ children, ...otherProps }: ButtonProps) => (
@@ -40,8 +40,21 @@ const Item = ({ children, ...otherProps }: ButtonProps) => (
   </Button>
 );
 
-export const AuthWithSocialNetwork = ({ onAuth }: AuthWithSocialNetworkProps) => (
+export const AuthWithSocialNetwork = ({
+  onAuth,
+}: AuthWithSocialNetworkProps) => (
   <Flex gap="4px">
+    <Item onClick={() => onAuth("1win")}>
+      <Box
+        as={OneWin}
+        width="42px"
+        height="42px"
+        opacity={0.4}
+        className="hover-traget-icon"
+        transition="opacity 0.2s ease-in"
+      />
+    </Item>
+
     <Item onClick={() => onAuth("google")}>
       <Box
         as={Google}
@@ -64,9 +77,9 @@ export const AuthWithSocialNetwork = ({ onAuth }: AuthWithSocialNetworkProps) =>
       />
     </Item>
 
-    <Item onClick={() => onAuth("1win")}>
+    <Item onClick={() => onAuth("telegram")}>
       <Box
-        as={OneWin}
+        as={Telegram}
         width="42px"
         height="42px"
         opacity={0.4}
@@ -78,17 +91,6 @@ export const AuthWithSocialNetwork = ({ onAuth }: AuthWithSocialNetworkProps) =>
     <Item onClick={() => onAuth("discord")}>
       <Box
         as={Discord}
-        width="42px"
-        height="42px"
-        opacity={0.4}
-        className="hover-traget-icon"
-        transition="opacity 0.2s ease-in"
-      />
-    </Item>
-
-    <Item onClick={() => onAuth("telegram")}>
-      <Box
-        as={Telegram}
         width="42px"
         height="42px"
         opacity={0.4}

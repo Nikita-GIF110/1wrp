@@ -14,7 +14,7 @@ export const en = {
   "lending.intro_top_title": "THE PLACE WHERE",
   "lending.intro_bottom_title": "everything is possible",
   "lending.intro_subtitle": "YOUR STORY, YOUR CHOICE, YOUR GAME",
-  "lending.intro_button_text": "START THE GAME",
+  "lending.intro_button_text": "start game",
   "lending.intro_players_online": "THEY'RE PLAYING NOW",
   // News
   "lending.news_title": "LATEST NEWS",
@@ -22,7 +22,7 @@ export const en = {
   "lending.news_more_news_button_text": "MORE NEWS",
   // New in store
   "lending.new_in_store_title": "NEW ITEMS IN THE STORE",
-  "lending.new_in_store_subtitle": "Visit the store to see new items",
+  "lending.new_in_store_subtitle": "Visit the store to<br>see new items",
   "lending.new_in_store_button_text": "Open a store",
   // About
   "lending.about_title": "it",
@@ -77,7 +77,7 @@ export const en = {
   "lending.auth_form_forgot_password_text": "I forgot my password",
   "lending.auth_form_submit_form_button_text": "enter",
   "lending.auth_form_registration_button_text": "register",
-  "lending.auth_via_social_media_networks_title": "VIA SOCIAL MEDIA. NETWORKS",
+  "lending.auth_via_social_media_networks_title": "VIA SOCIAL NETWORKS",
   "lending.auth_field_helper_text": "The field is required",
   // News page
   "news_list.page_name": "news",

@@ -22,7 +22,7 @@ const MenuItem = ({ to, children }: MenuItemProps) => (
   <Link
     as={ReactRouterLink}
     to={to}
-    padding="12px 24px"
+    padding={{ xl: "12px", "2xl": "12px 24px" }}
     fontSize="16px"
     textTransform="uppercase"
     fontWeight={500}

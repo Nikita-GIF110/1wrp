@@ -12,12 +12,12 @@ export const BottomLeftDecor = () => (
     />
 
     <Box
-      fontSize="38px"
+      fontSize="36px"
       fontWeight={700}
       textTransform="uppercase"
       lineHeight="80%"
       color={colors.white}
-      marginLeft="35px"
+      marginLeft="30px"
       fontFamily="Halvar Engschrift"
     >
       GTA V Project

@@ -49,7 +49,7 @@ export const Layout = () => {
   }, [location]);
 
   return (
-    <>
+    <Box overflowX="hidden">
       {/* Mobile Menu */}
       {(isMobile || isTablet) && (
         <Drawer
@@ -129,7 +129,7 @@ export const Layout = () => {
                 backgroundColor={colors.blue.primary}
                 color={colors.white}
                 marginTop="12px"
-                justifyContent="space-between"
+                justifyContent="center"
                 width="100%"
               >
                 <Box
@@ -176,7 +176,10 @@ export const Layout = () => {
             <Box as={CloseIcon} width="24px" height="24px" />
           </Button>
 
-          <CopyButton tooltipLabel={translate("copy_button.auth_form_tooltip_text")} copyText="some copy text">
+          <CopyButton
+            tooltipLabel={translate("copy_button.auth_form_tooltip_text")}
+            copyText="some copy text"
+          >
             <Box as={LinkChain} width="24px" height="24px" />
           </CopyButton>
         </Flex>
@@ -218,7 +221,9 @@ export const Layout = () => {
             }
             centerNode={
               <UserPanel
-                placeholder={translate("header.mobile_menu_sign_in_button_text")}
+                placeholder={translate(
+                  "header.mobile_menu_sign_in_button_text"
+                )}
                 onClick={signInFormState.onOpen}
               />
             }
@@ -261,6 +266,6 @@ export const Layout = () => {
       </Suspense>
 
       <Footer />
-    </>
+    </Box>
   );
 };

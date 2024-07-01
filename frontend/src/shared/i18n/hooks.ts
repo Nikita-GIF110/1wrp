@@ -8,6 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
+import parse from "html-react-parser";
 import type { I18N } from "./i18n";
 import { I18NContext } from "./context";
 
@@ -113,7 +114,8 @@ export function useTranslate<I18NType extends I18N<any>>() {
 
   const translate: I18NType["get"] = useCallback(
     (key, ...rest) => {
-      return i18n.get(key, ...rest);
+      const parsedStr = parse(i18n.get(key, ...rest));
+      return parsedStr as string;
     },
     // include the `updateCount` into the deps array
     // so that translate changes it's reference whenever the language changes
